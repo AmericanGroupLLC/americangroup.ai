@@ -112,6 +112,28 @@ finish one build-triggering script before starting another.
 with no build step and no server — safe to run alongside anything else,
 including a build-triggering suite.
 
+## Mobile app pages
+
+The 43 mobile apps' product pages are built from
+`client/src/data/mobileApps.generated.ts`, which is **generated** by
+`agl-manifest/scripts/website_apps.py` — do not edit it by hand:
+
+- copy (name, tagline, description, feature cards) comes from each app's App
+  Store listing in `agl-manifest/store/apps/<repo>.json`;
+- status is "Live" only when Apple or Google actually sells the app, "Beta"
+  otherwise;
+- a download button appears only for a store listing that is live and answered
+  HTTP 200 when the file was generated. There are no placeholder store links.
+
+`resolveProduct` in `ProductDetail.tsx` applies this to every mobile app, even
+where a curated `productDatabase` entry exists, and drops curated stats for
+them (none was measured). `tests/unit/mobile-app-pages.test.tsx` asserts it.
+Regenerate after a store state change:
+
+```bash
+python3 ../agl-manifest/scripts/website_apps.py
+```
+
 ## Deploying
 
 See `DEPLOYMENT.md` — including three outstanding hazards on the live site

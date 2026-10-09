@@ -20,6 +20,11 @@ import {
   TrendingUp,
 } from "lucide-react";
 import Navigation from "@/components/Navigation";
+import {
+  mobileAppBySlug,
+  type MobileAppListing,
+} from "@/data/mobileApps.generated";
+import { products as catalog } from "@/data/products";
 import Footer from "@/components/Footer";
 // T-014: value import of DIMENSION_LEVEL_META is safe here — `@/dimensions/contract`
 // has zero imports of its own (see its header comment), so this does not pull
@@ -57,6 +62,8 @@ interface ProductData {
   stats?: { value: string; label: string }[];
   appStoreUrl?: string;
   playStoreUrl?: string;
+  /** Built from the app's store listing (agl-manifest/scripts/website_apps.py). */
+  fromStore?: boolean;
   /**
    * T-014 / OQ-3 (TASKS.md Decisions, 2026-09-05): assigned ONLY where
    * evidence of the specific capability in `DIMENSION_LEVEL_META` already
@@ -258,7 +265,6 @@ export const productDatabase: Record<string, ProductData> = {
       { value: "200+", label: "Workouts" },
       { value: "24/7", label: "Monitoring" },
     ],
-    playStoreUrl: "https://play.google.com/store",
   },
   aeroswift: {
     slug: "aeroswift",
@@ -322,8 +328,6 @@ export const productDatabase: Record<string, ProductData> = {
       { value: "5s", label: "Update Interval" },
       { value: "1,000+", label: "Airports" },
     ],
-    appStoreUrl: "https://apps.apple.com",
-    playStoreUrl: "https://play.google.com/store",
   },
   buddyplay: {
     slug: "buddyplay",
@@ -387,7 +391,6 @@ export const productDatabase: Record<string, ProductData> = {
       { value: "8", label: "Max Players" },
       { value: "0", label: "Internet Required" },
     ],
-    playStoreUrl: "https://play.google.com/store",
   },
   myfinance: {
     slug: "myfinance",
@@ -451,8 +454,6 @@ export const productDatabase: Record<string, ProductData> = {
       { value: "Bank-Level", label: "Security" },
       { value: "10K+", label: "Institutions" },
     ],
-    appStoreUrl: "https://apps.apple.com",
-    playStoreUrl: "https://play.google.com/store",
   },
   apexmarketwatch: {
     slug: "apexmarketwatch",
@@ -516,8 +517,6 @@ export const productDatabase: Record<string, ProductData> = {
       { value: "10K+", label: "Stocks Covered" },
       { value: "13F", label: "SEC Filings" },
     ],
-    appStoreUrl: "https://apps.apple.com",
-    playStoreUrl: "https://play.google.com/store",
   },
   securecore: {
     slug: "securecore",
@@ -644,8 +643,6 @@ export const productDatabase: Record<string, ProductData> = {
       { value: "20+", label: "Offline Languages" },
       { value: "< 2s", label: "Response Time" },
     ],
-    appStoreUrl: "https://apps.apple.com",
-    playStoreUrl: "https://play.google.com/store",
   },
 };
 
@@ -655,51 +652,72 @@ export const productDatabase: Record<string, ProductData> = {
 // `dimensionLevel`. The returned object below has no such field, so it is
 // `undefined` by the type's own contract; do not add one here.
 export function generateFallbackProduct(slug: string): ProductData {
-  const name = slug.replace(/-/g, " ").replace(/\b\w/g, l => l.toUpperCase());
+  // Uses the catalog's own text when the product is in it. This used to
+  // synthesise the same page for every slug — status "Live", "AI-Powered",
+  // "end-to-end encryption by design" — whatever the product actually was.
+  const entry = catalog.find(p => p.slug === slug);
+  const name =
+    entry?.name ??
+    slug.replace(/-/g, " ").replace(/\b\w/g, l => l.toUpperCase());
   return {
     slug,
     name,
-    tagline: "Enterprise-grade mobile application",
-    description: "A powerful application built by American Group LLC.",
-    longDescription: `${name} is one of the many enterprise-grade applications in the American Group LLC portfolio. Built with cutting-edge technology and designed for real-world impact, this application delivers exceptional value to its users.`,
+    tagline: entry?.tagline ?? "",
+    description: entry?.description ?? "",
+    longDescription: entry?.longDescription ?? "",
+    category: "Consumer Mobile",
+    platforms: entry?.platforms ?? [],
+    tags: entry?.tags ?? [],
+    color: entry?.color ?? "#6366F1",
+    icon: entry?.icon ?? "📱",
+    status: entry?.status ?? "Coming Soon",
+    features: (entry?.features ?? []).map(f => ({
+      title: f,
+      description: "",
+      icon: entry?.icon ?? "•",
+    })),
+    useCases: [],
+  };
+}
+
+/** A mobile app's page, built from its store listing. */
+function productFromListing(l: MobileAppListing): ProductData {
+  return {
+    slug: l.slug,
+    name: l.name,
+    tagline: l.tagline,
+    description: l.description,
+    longDescription: l.longDescription,
     category: "Consumer Mobile",
     platforms: ["iOS", "Android"],
-    tags: ["Mobile", "Enterprise"],
-    color: "#6366F1",
-    icon: "📱",
-    status: "Live",
-    features: [
-      {
-        title: "Enterprise Grade",
-        description:
-          "Built to enterprise standards with security, scalability, and reliability at its core.",
-        icon: "🏗️",
-      },
-      {
-        title: "Cross-Platform",
-        description:
-          "Available on iOS and Android with a consistent, native experience on each platform.",
-        icon: "📱",
-      },
-      {
-        title: "AI-Powered",
-        description:
-          "Leverages the latest AI and machine learning to deliver intelligent, adaptive experiences.",
-        icon: "🧠",
-      },
-      {
-        title: "Privacy First",
-        description:
-          "Your data stays yours. End-to-end encryption and minimal data collection by design.",
-        icon: "🔒",
-      },
-    ],
-    useCases: [
-      "Enterprise deployment",
-      "Consumer applications",
-      "Business productivity",
-      "Mobile-first workflows",
-    ],
+    tags: l.tags,
+    color: l.color,
+    icon: l.icon,
+    status: l.status,
+    features: l.features.map(f => ({ ...f, icon: l.icon })),
+    useCases: [],
+    fromStore: true,
+  };
+}
+
+/**
+ * For the 43 mobile apps, status and store links always come from the
+ * generated listing — what Apple and Google actually report — even where a
+ * curated entry exists. Curated stats are dropped for them: none was
+ * measured, and some ("<1s data latency" on delayed quotes) were false.
+ */
+export function resolveProduct(slug: string): ProductData {
+  const listing = mobileAppBySlug[slug];
+  const curated = productDatabase[slug];
+  if (!listing) return curated ?? generateFallbackProduct(slug);
+  const base = curated ?? productFromListing(listing);
+  return {
+    ...base,
+    status: listing.status,
+    appStoreUrl: listing.appStoreUrl ?? undefined,
+    playStoreUrl: listing.playStoreUrl ?? undefined,
+    stats: undefined,
+    fromStore: true,
   };
 }
 
@@ -741,7 +759,7 @@ export function DimensionBadge({ level }: { level: DimensionLevel }) {
 export default function ProductDetail() {
   const params = useParams<{ slug: string }>();
   const slug = params.slug || "";
-  const product = productDatabase[slug] || generateFallbackProduct(slug);
+  const product = resolveProduct(slug);
 
   return (
     <div className="min-h-screen bg-[#070B14] text-white">
@@ -913,123 +931,127 @@ export default function ProductDetail() {
       </section>
 
       {/* Features */}
-      <section className="py-20 border-t border-white/5">
-        <div className="max-w-6xl mx-auto px-6">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="mb-12"
-          >
-            <h2
-              className="text-4xl font-bold mb-4"
-              style={{ fontFamily: "Sora, sans-serif" }}
-            >
-              Key Features
-            </h2>
-            <p className="text-slate-400 text-lg">
-              Everything you need, nothing you don't.
-            </p>
-          </motion.div>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {product.features.map((feature, i) => (
-              <motion.div
-                key={i}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: i * 0.08 }}
-                className="p-6 rounded-2xl border border-white/8 bg-white/[0.03] hover:bg-white/[0.06] hover:border-white/15 transition-all group"
-              >
-                <div className="text-3xl mb-4">{feature.icon}</div>
-                <h3 className="font-bold text-white text-lg mb-2 group-hover:text-indigo-200 transition-colors">
-                  {feature.title}
-                </h3>
-                <p className="text-slate-400 text-sm leading-relaxed">
-                  {feature.description}
-                </p>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Use Cases */}
-      <section className="py-20 border-t border-white/5">
-        <div className="max-w-6xl mx-auto px-6">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+      {product.features.length > 0 && (
+        <section className="py-20 border-t border-white/5">
+          <div className="max-w-6xl mx-auto px-6">
             <motion.div
-              initial={{ opacity: 0, x: -20 }}
-              whileInView={{ opacity: 1, x: 0 }}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
+              className="mb-12"
             >
               <h2
-                className="text-4xl font-bold mb-6"
+                className="text-4xl font-bold mb-4"
                 style={{ fontFamily: "Sora, sans-serif" }}
               >
-                Built for Real-World Use
+                Key Features
               </h2>
-              <p className="text-slate-400 text-lg mb-8">
-                Designed with real users in mind, {product.name} solves problems
-                that matter.
+              <p className="text-slate-400 text-lg">
+                Everything you need, nothing you don't.
               </p>
-              <div className="space-y-4">
-                {product.useCases.map((uc, i) => (
-                  <div key={i} className="flex items-start gap-3">
-                    <CheckCircle
-                      className="w-5 h-5 mt-0.5 flex-shrink-0"
-                      style={{ color: product.color }}
-                    />
-                    <span className="text-slate-300">{uc}</span>
+            </motion.div>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+              {product.features.map((feature, i) => (
+                <motion.div
+                  key={i}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: i * 0.08 }}
+                  className="p-6 rounded-2xl border border-white/8 bg-white/[0.03] hover:bg-white/[0.06] hover:border-white/15 transition-all group"
+                >
+                  <div className="text-3xl mb-4">{feature.icon}</div>
+                  <h3 className="font-bold text-white text-lg mb-2 group-hover:text-indigo-200 transition-colors">
+                    {feature.title}
+                  </h3>
+                  <p className="text-slate-400 text-sm leading-relaxed">
+                    {feature.description}
+                  </p>
+                </motion.div>
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
+
+      {/* Use Cases */}
+      {product.useCases.length > 0 && !product.fromStore && (
+        <section className="py-20 border-t border-white/5">
+          <div className="max-w-6xl mx-auto px-6">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+              <motion.div
+                initial={{ opacity: 0, x: -20 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+              >
+                <h2
+                  className="text-4xl font-bold mb-6"
+                  style={{ fontFamily: "Sora, sans-serif" }}
+                >
+                  Built for Real-World Use
+                </h2>
+                <p className="text-slate-400 text-lg mb-8">
+                  Designed with real users in mind, {product.name} solves
+                  problems that matter.
+                </p>
+                <div className="space-y-4">
+                  {product.useCases.map((uc, i) => (
+                    <div key={i} className="flex items-start gap-3">
+                      <CheckCircle
+                        className="w-5 h-5 mt-0.5 flex-shrink-0"
+                        style={{ color: product.color }}
+                      />
+                      <span className="text-slate-300">{uc}</span>
+                    </div>
+                  ))}
+                </div>
+              </motion.div>
+              <motion.div
+                initial={{ opacity: 0, x: 20 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                className="grid grid-cols-2 gap-4"
+              >
+                {[
+                  {
+                    icon: <Shield className="w-6 h-6" />,
+                    title: "Enterprise Security",
+                    desc: "Bank-level encryption and compliance",
+                  },
+                  {
+                    icon: <Zap className="w-6 h-6" />,
+                    title: "High Performance",
+                    desc: "Optimized for speed and reliability",
+                  },
+                  {
+                    icon: <Users className="w-6 h-6" />,
+                    title: "Scalable",
+                    desc: "Grows with your team and needs",
+                  },
+                  {
+                    icon: <TrendingUp className="w-6 h-6" />,
+                    title: "Analytics",
+                    desc: "Deep insights into usage and performance",
+                  },
+                ].map((item, i) => (
+                  <div
+                    key={i}
+                    className="p-5 rounded-2xl border border-white/8 bg-white/[0.03]"
+                  >
+                    <div className="mb-3" style={{ color: product.color }}>
+                      {item.icon}
+                    </div>
+                    <h4 className="font-semibold text-white text-sm mb-1">
+                      {item.title}
+                    </h4>
+                    <p className="text-slate-500 text-xs">{item.desc}</p>
                   </div>
                 ))}
-              </div>
-            </motion.div>
-            <motion.div
-              initial={{ opacity: 0, x: 20 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              className="grid grid-cols-2 gap-4"
-            >
-              {[
-                {
-                  icon: <Shield className="w-6 h-6" />,
-                  title: "Enterprise Security",
-                  desc: "Bank-level encryption and compliance",
-                },
-                {
-                  icon: <Zap className="w-6 h-6" />,
-                  title: "High Performance",
-                  desc: "Optimized for speed and reliability",
-                },
-                {
-                  icon: <Users className="w-6 h-6" />,
-                  title: "Scalable",
-                  desc: "Grows with your team and needs",
-                },
-                {
-                  icon: <TrendingUp className="w-6 h-6" />,
-                  title: "Analytics",
-                  desc: "Deep insights into usage and performance",
-                },
-              ].map((item, i) => (
-                <div
-                  key={i}
-                  className="p-5 rounded-2xl border border-white/8 bg-white/[0.03]"
-                >
-                  <div className="mb-3" style={{ color: product.color }}>
-                    {item.icon}
-                  </div>
-                  <h4 className="font-semibold text-white text-sm mb-1">
-                    {item.title}
-                  </h4>
-                  <p className="text-slate-500 text-xs">{item.desc}</p>
-                </div>
-              ))}
-            </motion.div>
+              </motion.div>
+            </div>
           </div>
-        </div>
-      </section>
+        </section>
+      )}
 
       {/* CTA */}
       <section className="py-24 border-t border-white/5">
