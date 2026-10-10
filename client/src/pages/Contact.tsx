@@ -27,7 +27,11 @@ const offices = [
     sub: "Headquarters",
     address: "Santa Clara, California, USA",
     phone: "+1 (510) 458-9059",
-    email: "contact@americangroup.ai",
+    emails: [
+      { label: "Sales", address: "sales@americangroup.ai" },
+      { label: "Support", address: "support@americangroup.ai" },
+      { label: "General", address: "contact@americangroup.ai" },
+    ],
     color: "#6366F1",
   },
   {
@@ -36,7 +40,7 @@ const offices = [
     sub: "India Operations",
     address: "Hyderabad, Telangana, India",
     phone: "+91 74168 66689",
-    email: "india@americangroup.ai",
+    emails: [{ label: "General", address: "contact@americangroup.ai" }],
     color: "#FBBF24",
   },
 ];
@@ -208,16 +212,22 @@ export default function ContactPage() {
                       />
                       {office.phone}
                     </a>
-                    <a
-                      href={`mailto:${office.email}`}
-                      className="flex items-center gap-3 text-sm text-slate-400 hover:text-white transition-colors"
-                    >
-                      <Mail
-                        className="w-4 h-4 flex-shrink-0"
-                        style={{ color: office.color }}
-                      />
-                      {office.email}
-                    </a>
+                    {office.emails.map(e => (
+                      <a
+                        key={e.address}
+                        href={`mailto:${e.address}`}
+                        className="flex items-center gap-3 text-sm text-slate-400 hover:text-white transition-colors"
+                      >
+                        <Mail
+                          className="w-4 h-4 flex-shrink-0"
+                          style={{ color: office.color }}
+                        />
+                        <span>
+                          <span className="text-slate-500">{e.label}: </span>
+                          {e.address}
+                        </span>
+                      </a>
+                    ))}
                   </div>
                 </motion.div>
               ))}

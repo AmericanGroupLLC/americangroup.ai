@@ -224,7 +224,7 @@ function sophiaReply(
 
   if (/job|career|hiring|work|position|opening|apply|join|intern/.test(m)) {
     return {
-      text: `We're always looking for talented people! 🌟\n\nCurrent openings:\n• Senior AI/ML Engineer\n• iOS Developer (Swift)\n• Full-Stack Engineer (TypeScript)\n• Cybersecurity Engineer\n• Android Developer (Kotlin)\n• DevOps / Cloud Engineer\n\nEmail careers@americangroup.ai or visit our Careers page!`,
+      text: `We're always looking for talented people! 🌟\n\nCurrent openings:\n• Senior AI/ML Engineer\n• iOS Developer (Swift)\n• Full-Stack Engineer (TypeScript)\n• Cybersecurity Engineer\n• Android Developer (Kotlin)\n• DevOps / Cloud Engineer\n\nEmail contact@americangroup.ai or visit our Careers page!`,
       delay: 1600,
       quick: ["Visit Careers page", "Tell me more"],
     };

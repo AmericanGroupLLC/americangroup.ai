@@ -249,7 +249,7 @@ describe("Company Information", () => {
     products: 77,
     verticals: 8,
     email: "contact@americangroup.ai",
-    internshipEmail: "internships@americangroup.ai",
+    internshipEmail: "contact@americangroup.ai",
   };
 
   it("has correct company name", () =>
@@ -264,7 +264,7 @@ describe("Company Information", () => {
   it("has valid contact email", () =>
     expect(info.email).toMatch(/^[^\s@]+@[^\s@]+\.[^\s@]+$/));
   it("has valid internship email", () =>
-    expect(info.internshipEmail).toBe("internships@americangroup.ai"));
+    expect(info.internshipEmail).toBe("contact@americangroup.ai"));
   it("was founded in 2018 or earlier", () =>
     expect(info.founded).toBeLessThanOrEqual(2018));
 });

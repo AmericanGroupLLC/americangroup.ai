@@ -122,12 +122,21 @@ jobs:
           PORT: ${{ secrets.SSH_PORT || '22' }}
           TARGET: ${{ github.event_name == 'workflow_dispatch' && inputs.target || 'americangroup' }}
         run: |
-          SSH="ssh -i ~/.ssh/deploy_key -o IdentitiesOnly=yes -o PubkeyAcceptedAlgorithms=+ssh-rsa -o HostKeyAlgorithms=+ssh-rsa -o PreferredAuthentications=publickey -o PasswordAuthentication=no -o KbdInteractiveAuthentication=no -o StrictHostKeyChecking=no -p $PORT"
-          rsync -avz -e "$SSH" dist/public/ \
-            ${{ secrets.SSH_USERNAME }}@${{ secrets.SSH_HOST }}:~/americangroup.ai/
+          # One SSH connection for every transfer: HostGator refused a second
+          # connection opened seconds after the first ("Connection refused",
+          # 2026-10-09), so later transfers reuse the first one (ControlMaster).
+          SSH="ssh -i $HOME/.ssh/deploy_key -o IdentitiesOnly=yes -o PubkeyAcceptedAlgorithms=+ssh-rsa -o HostKeyAlgorithms=+ssh-rsa -o PreferredAuthentications=publickey -o PasswordAuthentication=no -o KbdInteractiveAuthentication=no -o StrictHostKeyChecking=no -o ControlMaster=auto -o ControlPath=$HOME/.ssh/cm-%r@%h:%p -o ControlPersist=300 -p $PORT"
+          REMOTE="${{ secrets.SSH_USERNAME }}@${{ secrets.SSH_HOST }}"
+          push() {   # rsync with retries; never --delete
+            for i in 1 2 3; do
+              rsync -avz -e "$SSH" dist/public/ "$REMOTE:$1" && return 0
+              echo "rsync to $1 failed (attempt $i); retrying in $((i*20))s"; sleep $((i*20))
+            done
+            return 1
+          }
+          push "~/americangroup.ai/"
           if [ "$TARGET" = "both" ]; then
-            rsync -avz -e "$SSH" dist/public/ \
-              ${{ secrets.SSH_USERNAME }}@${{ secrets.SSH_HOST }}:~/public_html/
+            push "~/public_html/"
           fi
 
       # ── 10. Verify ───────────────────────────────────────────────────────
@@ -139,7 +148,7 @@ jobs:
       - name: Verify a deployed page is really there
         run: |
           sleep 5
-          URL=https://americangroup.ai/policy/virtuband/delete-account.html
+          URL=https://www.americangroup.ai/policy/virtuband/delete-account.html
           BODY=$(curl -sL --max-time 30 "$URL")
           if printf '%s' "$BODY" | grep -q "Enterprise Technology & Mobile Apps"; then
             echo "::error::$URL served the marketing homepage — the file is not deployed."

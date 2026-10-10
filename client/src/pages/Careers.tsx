@@ -438,7 +438,7 @@ export default function CareersPage() {
     } catch (err: unknown) {
       const msg = err instanceof Error ? err.message : "Unknown error";
       toast.error(
-        msg || "Failed to submit. Please email careers@americangroup.ai directly."
+        msg || "Failed to submit. Please email contact@americangroup.ai directly."
       );
     } finally {
       setAppSending(false);
@@ -923,9 +923,9 @@ export default function CareersPage() {
               Don't see a role that fits? We're always looking for exceptional
               talent.
             </p>
-            <a href="mailto:careers@americangroup.ai">
+            <a href="mailto:contact@americangroup.ai">
               <button className="inline-flex items-center gap-2 px-6 py-3 rounded-xl text-sm font-semibold border border-indigo-500/30 text-indigo-300 hover:bg-indigo-500/10 transition-all duration-300">
-                Send Open Application → careers@americangroup.ai
+                Send Open Application → contact@americangroup.ai
               </button>
             </a>
           </motion.div>

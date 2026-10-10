@@ -280,11 +280,11 @@ listing's privacy URL, to a page that is not this site:
    HostGator WordPress "Coming Soon" page from a separate docroot on the same
    server (192.185.39.65). In cPanel → Domains, set americangroup.ai's document
    root to `public_html` (where this workflow deploys), and remove the
-   coming-soon site. Check: `curl -s https://americangroup.ai/ | grep -o
+   coming-soon site. Check: `curl -s https://www.americangroup.ai/ | grep -o
    '<title>[^<]*'` must print the American Group LLC title.
 2. **The mailboxes exist** on americangroup.ai: contact@, careers@,
    internships@, india@ (or forwarders to the existing safecodeg.com boxes).
    The site and every policy page now print contact@americangroup.ai.
 
 After the merge, the workflow's verify step checks
-https://americangroup.ai/policy/virtuband/delete-account.html.
+https://www.americangroup.ai/policy/virtuband/delete-account.html.
