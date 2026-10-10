@@ -216,7 +216,7 @@ function sophiaReply(
 
   if (/contact|email|phone|call|reach|address|location|where are you/.test(m)) {
     return {
-      text: `Here's how to reach us! 📬\n\n📧 contact@safecodeg.com\n📞 US: +1 (510) 458-9059\n📞 India: +91 74168 66689\n📍 Santa Clara, CA · Hyderabad, India\n\nOr I can help you send a message right now — just say "send a message"!`,
+      text: `Here's how to reach us! 📬\n\n📧 contact@americangroup.ai\n📞 US: +1 (510) 458-9059\n📞 India: +91 74168 66689\n📍 Santa Clara, CA · Hyderabad, India\n\nOr I can help you send a message right now — just say "send a message"!`,
       delay: 1400,
       quick: ["Send a message", "Visit contact page"],
     };
@@ -224,7 +224,7 @@ function sophiaReply(
 
   if (/job|career|hiring|work|position|opening|apply|join|intern/.test(m)) {
     return {
-      text: `We're always looking for talented people! 🌟\n\nCurrent openings:\n• Senior AI/ML Engineer\n• iOS Developer (Swift)\n• Full-Stack Engineer (TypeScript)\n• Cybersecurity Engineer\n• Android Developer (Kotlin)\n• DevOps / Cloud Engineer\n\nEmail careers@safecodeg.com or visit our Careers page!`,
+      text: `We're always looking for talented people! 🌟\n\nCurrent openings:\n• Senior AI/ML Engineer\n• iOS Developer (Swift)\n• Full-Stack Engineer (TypeScript)\n• Cybersecurity Engineer\n• Android Developer (Kotlin)\n• DevOps / Cloud Engineer\n\nEmail careers@americangroup.ai or visit our Careers page!`,
       delay: 1600,
       quick: ["Visit Careers page", "Tell me more"],
     };
@@ -232,7 +232,7 @@ function sophiaReply(
 
   if (/privacy|policy|gdpr|ccpa|data|personal information/.test(m)) {
     return {
-      text: `Our Privacy Policy is at safecodeg.com/privacy-policy — it covers all 77 apps and is fully compliant with GDPR, CCPA, and COPPA. For privacy questions, email contact@safecodeg.com`,
+      text: `Our Privacy Policy is at americangroup.ai/privacy-policy — it covers all 77 apps and is fully compliant with GDPR, CCPA, and COPPA. For privacy questions, email contact@americangroup.ai`,
       delay: 1300,
       quick: ["View Privacy Policy", "Data deletion request"],
     };
@@ -240,7 +240,7 @@ function sophiaReply(
 
   if (/support|help|issue|problem|bug|not working|broken|error|fix/.test(m)) {
     return {
-      text: `Oh no, sorry to hear you're having trouble! 😟 Can you tell me:\n1. Which app is this about?\n2. What's happening exactly?\n\nOr email contact@safecodeg.com directly and our support team will get back to you ASAP.`,
+      text: `Oh no, sorry to hear you're having trouble! 😟 Can you tell me:\n1. Which app is this about?\n2. What's happening exactly?\n\nOr email contact@americangroup.ai directly and our support team will get back to you ASAP.`,
       delay: 1500,
       quick: ["Email support", "Visit support page"],
     };
@@ -300,7 +300,7 @@ function sophiaReply(
 
   if (/77|all products|full list|complete list/.test(m)) {
     return {
-      text: `We have 77 products across 8 verticals! Browse the full portfolio at safecodeg.com/products — filterable by category and searchable. Want me to highlight any specific vertical?`,
+      text: `We have 77 products across 8 verticals! Browse the full portfolio at americangroup.ai/products — filterable by category and searchable. Want me to highlight any specific vertical?`,
       delay: 1400,
       quick: ["Health & Wellness", "Enterprise AI", "FinTech", "CyberSecurity"],
     };
@@ -525,7 +525,7 @@ export default function AIChatWidget() {
           body: JSON.stringify({
             access_key: WEB3FORMS_KEY,
             subject: `New Contact: Chat Widget Inquiry — from ${formData.name ?? "a website visitor"}`,
-            from_name: "safecodeg.com Chat Widget (Sophia)",
+            from_name: "americangroup.ai Chat Widget (Sophia)",
             name: formData.name ?? "",
             email: formData.email ?? "",
             company: formData.company || "Not provided",
@@ -554,7 +554,7 @@ export default function AIChatWidget() {
           {
             id: Date.now().toString(),
             role: "sophia",
-            text: `I'm sorry — that didn't go through, so nothing was sent. Please email us directly at 📧 contact@safecodeg.com, or use the option below, and our team will get back to you within 1–2 business days.`,
+            text: `I'm sorry — that didn't go through, so nothing was sent. Please email us directly at 📧 contact@americangroup.ai, or use the option below, and our team will get back to you within 1–2 business days.`,
             time: getTime(),
             quick: ["Visit contact page"],
           },

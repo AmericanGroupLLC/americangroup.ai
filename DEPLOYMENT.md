@@ -1,6 +1,6 @@
-# Deployment Guide — safecodeg.com on HostGator
+# Deployment Guide — americangroup.ai on HostGator
 
-This guide walks you through connecting your GitHub repository to HostGator so every push to `main` automatically builds and deploys the website to `safecodeg.com`.
+This guide walks you through connecting your GitHub repository to HostGator so every push to `main` automatically builds and deploys the website to `americangroup.ai`.
 
 ---
 
@@ -8,7 +8,7 @@ This guide walks you through connecting your GitHub repository to HostGator so e
 
 Three things are true about the **live** site right now that a green build
 does not fix on its own. All three were measured directly against
-`https://www.safecodeg.com`, not inferred, and none can be resolved by this
+`https://www.americangroup.ai`, not inferred, and none can be resolved by this
 pipeline alone:
 
 1. **The live site is not reproducible from this repo.** The live page's
@@ -23,7 +23,7 @@ pipeline alone:
    (`pnpm run build && pnpm run start`) instead.
 2. **Live loads a third-party script**, `https://manus-analytics.com/umami`,
    on a site with a published Privacy Policy. Confirmed this session
-   (`curl https://www.safecodeg.com/` shows the tag). This pipeline's own build
+   (`curl https://www.americangroup.ai/` shows the tag). This pipeline's own build
    sets `VITE_ANALYTICS_ENDPOINT: ""` (`.github/workflows/deploy.yml`'s
    "Build production bundle" step), so this script is not something the
    current `main` branch's code requests — it is present only because of
@@ -56,7 +56,7 @@ Installs dependencies + builds React app
         ↓
 Uploads built files to HostGator over SSH (rsync)
         ↓
-safecodeg.com is live with the latest version ✅
+americangroup.ai is live with the latest version ✅
 ```
 
 > **Note on this section's history:** earlier versions of this guide (and its
@@ -71,7 +71,7 @@ safecodeg.com is live with the latest version ✅
 
 ## Step 1 — Get Your HostGator SSH Access
 
-1. Log in to **HostGator cPanel** → [https://www.safecodeg.com:2083](https://www.safecodeg.com:2083)
+1. Log in to **HostGator cPanel** → [https://www.americangroup.ai:2083](https://www.americangroup.ai:2083)
 2. Find **SSH Access** (Security section) and confirm SSH is enabled for this
    account — on shared hosting this sometimes needs enabling by a support
    request.
@@ -95,7 +95,7 @@ safecodeg.com is live with the latest version ✅
 
 GitHub Secrets store your credentials securely — they are never visible in logs.
 
-1. Go to your GitHub repo: [https://github.com/AmericanGroupLLC/www.safecodeg.com](https://github.com/AmericanGroupLLC/www.safecodeg.com)
+1. Go to your GitHub repo: [https://github.com/AmericanGroupLLC/www.americangroup.ai](https://github.com/AmericanGroupLLC/www.americangroup.ai)
 2. Click **Settings** (top menu)
 3. Left sidebar → **Secrets and variables** → **Actions**
 4. Click **New repository secret** and add these **5 secrets** one by one:
@@ -141,7 +141,7 @@ After the workflow completes:
 1. Log in to HostGator cPanel → **File Manager**
 2. Open `/public_html/`
 3. You should see `index.html`, `assets/` folder, etc.
-4. Visit [https://www.safecodeg.com](https://www.safecodeg.com) — your site is live! 🎉
+4. Visit [https://www.americangroup.ai](https://www.americangroup.ai) — your site is live! 🎉
 
 ---
 
@@ -235,7 +235,7 @@ From now on, every time you (or the AI assistant) pushes code to the `main` bran
 1. GitHub Actions automatically triggers
 2. Builds the latest version
 3. Uploads only **changed files** to HostGator (fast, ~30 seconds after build)
-4. safecodeg.com updates live
+4. americangroup.ai updates live
 
 No manual steps needed after initial setup. ✅
 
@@ -263,3 +263,28 @@ RewriteRule ^ index.html [QSA,L]
 ```
 
 This file is already included in the build output automatically.
+
+## Domain move: safecodeg.com → americangroup.ai (2026-10-09)
+
+The code on branch `domain/americangroup-ai` uses americangroup.ai everywhere
+and 301-redirects every safecodeg.com URL to the same path on
+americangroup.ai (`.htaccess`, "Canonical host"). The hosting login is
+unchanged: `ftp.safecodeg.com` and `deploy@safecodeg.com` are the HostGator
+account, not site content.
+
+Merge it to `main` (which deploys) only after both of these are true —
+otherwise the live site would redirect every visitor, and every store
+listing's privacy URL, to a page that is not this site:
+
+1. **americangroup.ai serves this site.** Measured 2026-10-09 it served a
+   HostGator WordPress "Coming Soon" page from a separate docroot on the same
+   server (192.185.39.65). In cPanel → Domains, set americangroup.ai's document
+   root to `public_html` (where this workflow deploys), and remove the
+   coming-soon site. Check: `curl -s https://americangroup.ai/ | grep -o
+   '<title>[^<]*'` must print the American Group LLC title.
+2. **The mailboxes exist** on americangroup.ai: contact@, careers@,
+   internships@, india@ (or forwarders to the existing safecodeg.com boxes).
+   The site and every policy page now print contact@americangroup.ai.
+
+After the merge, the workflow's verify step checks
+https://americangroup.ai/policy/virtuband/delete-account.html.

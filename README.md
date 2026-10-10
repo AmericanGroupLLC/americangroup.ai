@@ -1,4 +1,4 @@
-# safecodeg.com — American Group LLC
+# americangroup.ai — American Group LLC
 
 The marketing site for American Group LLC (AGL), built as a Vite + React 19
 single-page app with a small Express/tRPC backend. The backend is compiled

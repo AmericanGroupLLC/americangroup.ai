@@ -1,7 +1,7 @@
 {
   "$schema": "https://json.schemastore.org/base.json",
   "$comment": [
-    "THE PERFORMANCE BUDGET FOR www.safecodeg.com.",
+    "THE PERFORMANCE BUDGET FOR www.americangroup.ai.",
     "",
     "Every number here traces to a measurement or to a stated assumption. A",
     "round figure that felt right is not a budget — it is an obstacle with no",
@@ -30,7 +30,7 @@
       "  delta                            -41.6%          -54.0%        -34.0%",
       "",
       "Compression is calibrated to the real host, not to `gzip -6`. Apache on",
-      "safecodeg.com emits 1.284x (HTML), 1.343x (CSS) and 1.408x (JS) as many",
+      "americangroup.ai emits 1.284x (HTML), 1.343x (CSS) and 1.408x (JS) as many",
       "bytes as `gzip -6` for byte-identical input, measured by fetching each",
       "live URL twice with Accept-Encoding: identity and gzip. See the header",
       "of scripts/serve-static.mjs for the table and the parameter sweep that",

@@ -414,7 +414,7 @@ export default function CareersPage() {
         body: JSON.stringify({
           access_key: WEB3FORMS_KEY,
           subject: `Job Application: ${applyJob.title} (${applyJob.dept}) — ${appForm.name}`,
-          from_name: "safecodeg.com Careers",
+          from_name: "americangroup.ai Careers",
           name: appForm.name,
           email: appForm.email,
           phone: appForm.phone || "Not provided",
@@ -438,7 +438,7 @@ export default function CareersPage() {
     } catch (err: unknown) {
       const msg = err instanceof Error ? err.message : "Unknown error";
       toast.error(
-        msg || "Failed to submit. Please email careers@safecodeg.com directly."
+        msg || "Failed to submit. Please email careers@americangroup.ai directly."
       );
     } finally {
       setAppSending(false);
@@ -923,9 +923,9 @@ export default function CareersPage() {
               Don't see a role that fits? We're always looking for exceptional
               talent.
             </p>
-            <a href="mailto:careers@safecodeg.com">
+            <a href="mailto:careers@americangroup.ai">
               <button className="inline-flex items-center gap-2 px-6 py-3 rounded-xl text-sm font-semibold border border-indigo-500/30 text-indigo-300 hover:bg-indigo-500/10 transition-all duration-300">
-                Send Open Application → careers@safecodeg.com
+                Send Open Application → careers@americangroup.ai
               </button>
             </a>
           </motion.div>
@@ -970,7 +970,7 @@ export default function CareersPage() {
               </div>
               <p className="text-slate-300 text-sm mb-2">
                 Your application has been sent to{" "}
-                <strong className="text-white">contact@safecodeg.com</strong>
+                <strong className="text-white">contact@americangroup.ai</strong>
               </p>
               <p className="text-slate-500 text-xs">
                 We'll review it and get back to you within 3–5 business days.

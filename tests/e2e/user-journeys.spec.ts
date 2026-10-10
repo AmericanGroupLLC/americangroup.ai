@@ -140,7 +140,7 @@ test.describe("E2E — Contact Form Journey", () => {
     await page.goto("/contact");
     await page.waitForLoadState("domcontentloaded");
     const body = await page.textContent("body");
-    expect(body).toContain("safecodeg.com");
+    expect(body).toContain("americangroup.ai");
   });
 
   test("contact form does not navigate away on empty submit", async ({
@@ -194,7 +194,7 @@ test.describe("E2E — Careers & Internship Journey", () => {
     // Page should have Apply buttons for internship positions
     expect(body).toMatch(/Apply|apply/i);
     // Page should have at least one email contact
-    expect(body).toMatch(/careers@safecodeg\.com|internships@safecodeg\.com/i);
+    expect(body).toMatch(/careers@americangroup\.ai|internships@americangroup\.ai/i);
   });
 });
 

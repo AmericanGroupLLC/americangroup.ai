@@ -20,7 +20,7 @@ import {
 
 const EFFECTIVE_DATE = "June 17, 2026";
 const LAST_UPDATED = "June 17, 2026";
-const CONTACT_EMAIL = "contact@safecodeg.com";
+const CONTACT_EMAIL = "contact@americangroup.ai";
 const COMPANY_NAME = "American Group LLC";
 const COMPANY_STATE = "California";
 const COMPANY_COUNTRY = "United States";
@@ -516,7 +516,7 @@ export default function Terms() {
                   use, and share information about you when you use our
                   Services. Our Privacy Policy URL for app store submissions is:{" "}
                   <code className="bg-white/[0.05] px-1.5 py-0.5 rounded text-xs">
-                    https://www.safecodeg.com/privacy-policy
+                    https://www.americangroup.ai/privacy-policy
                   </code>
                 </p>
               </section>
@@ -731,19 +731,19 @@ export default function Terms() {
                     {[
                       {
                         label: "Terms of Service",
-                        url: "https://www.safecodeg.com/terms",
+                        url: "https://www.americangroup.ai/terms",
                       },
                       {
                         label: "Privacy Policy",
-                        url: "https://www.safecodeg.com/privacy-policy",
+                        url: "https://www.americangroup.ai/privacy-policy",
                       },
                       {
                         label: "Support URL",
-                        url: "https://www.safecodeg.com/support",
+                        url: "https://www.americangroup.ai/support",
                       },
                       {
                         label: "Marketing Website",
-                        url: "https://www.safecodeg.com",
+                        url: "https://www.americangroup.ai",
                       },
                     ].map(({ label, url }) => (
                       <div

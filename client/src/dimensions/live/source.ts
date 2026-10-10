@@ -9,7 +9,7 @@
  * of AGL's Santa Clara, California office (`client/src/pages/Contact.tsx:19`
  * — a real, named location, not an arbitrary one). Verified this session:
  *
- *   curl -s -D - -o /dev/null -H "Origin: https://www.safecodeg.com" \
+ *   curl -s -D - -o /dev/null -H "Origin: https://www.americangroup.ai" \
  *     "https://api.open-meteo.com/v1/forecast?latitude=37.3541&longitude=-121.9552&current_weather=true"
  *
  * returned `HTTP/1.1 200 OK` with `access-control-allow-origin: *`. No API

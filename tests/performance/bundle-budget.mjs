@@ -12,7 +12,7 @@
  *              and reproducible with `gzip -6`.
  *   prod     — what production actually puts on the wire. Apache's mod_deflate
  *              on the deploy host does NOT emit `gzip -6` bytes: measured
- *              against safecodeg.com on 2026-09-06 it emits 1.284x (HTML),
+ *              against americangroup.ai on 2026-09-06 it emits 1.284x (HTML),
  *              1.343x (CSS) and 1.408x (JS) as many bytes for byte-identical
  *              input. `scripts/serve-static.mjs` documents that measurement
  *              and pins the zlib settings that reproduce all three within

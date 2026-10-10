@@ -118,7 +118,7 @@ export default function Footer() {
                   className="text-[10px] font-mono tracking-widest uppercase mt-0.5"
                   style={{ color: "rgba(167,139,250,0.5)" }}
                 >
-                  safecodeg.com
+                  americangroup.ai
                 </div>
               </div>
             </Link>
@@ -350,7 +350,7 @@ export default function Footer() {
                 🇮🇳 +91 74168 66689
               </a>
               <a
-                href="mailto:contact@safecodeg.com"
+                href="mailto:contact@americangroup.ai"
                 className="flex items-center gap-2 transition-colors duration-200"
                 style={{ color: "rgba(100,116,139,0.7)" }}
                 onMouseEnter={e => {
@@ -366,7 +366,7 @@ export default function Footer() {
                   className="w-3.5 h-3.5"
                   style={{ color: "rgba(245,158,11,0.6)" }}
                 />
-                contact@safecodeg.com
+                contact@americangroup.ai
               </a>
             </div>
           </div>

@@ -96,7 +96,7 @@ ${input.message}
 
 ---
 Reply to: ${input.email}
-To: contact@safecodeg.com
+To: contact@americangroup.ai
       `.trim();
 
     try {
@@ -113,7 +113,7 @@ To: contact@safecodeg.com
     return {
       success: true,
       message:
-        "Thank you for reaching out. Our team at contact@safecodeg.com will respond within 1–2 business days.",
+        "Thank you for reaching out. Our team at contact@americangroup.ai will respond within 1–2 business days.",
       submissionId,
     };
   }),

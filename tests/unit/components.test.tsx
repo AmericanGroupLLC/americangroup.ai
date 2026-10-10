@@ -94,7 +94,7 @@ const MockFooter = () => (
     <address>
       <span>Santa Clara, CA 95051</span>
       <a href="tel:+13104586059">+1 (310) 458-6059</a>
-      <a href="mailto:contact@safecodeg.com">contact@safecodeg.com</a>
+      <a href="mailto:contact@americangroup.ai">contact@americangroup.ai</a>
     </address>
   </footer>
 );
@@ -224,7 +224,7 @@ describe("Footer component", () => {
 
   it("renders contact email", () => {
     render(<MockFooter />);
-    expect(screen.getByText("contact@safecodeg.com")).toBeTruthy();
+    expect(screen.getByText("contact@americangroup.ai")).toBeTruthy();
   });
 
   it("renders phone number", () => {

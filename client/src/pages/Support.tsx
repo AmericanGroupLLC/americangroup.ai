@@ -43,7 +43,7 @@ function useReveal() {
   }, []);
 }
 
-const SUPPORT_EMAIL = "contact@safecodeg.com";
+const SUPPORT_EMAIL = "contact@americangroup.ai";
 const USA_PHONE = "+1 (510) 458-9059";
 const INDIA_PHONE = "+91 74168 66689";
 
@@ -137,7 +137,7 @@ const categories = [
 const faqs = [
   {
     q: "How do I request deletion of my account and data?",
-    a: "Email contact@safecodeg.com with subject line 'Data Deletion Request', including your name, email address, and the app name. We process all deletion requests within 30 days. You can also use the in-app settings menu under Account → Delete Account in supported apps.",
+    a: "Email contact@americangroup.ai with subject line 'Data Deletion Request', including your name, email address, and the app name. We process all deletion requests within 30 days. You can also use the in-app settings menu under Account → Delete Account in supported apps.",
   },
   {
     q: "Which apps does American Group LLC publish?",
@@ -145,11 +145,11 @@ const faqs = [
   },
   {
     q: "How do I restore in-app purchases after reinstalling?",
-    a: "Open the app → go to Settings or Account → tap 'Restore Purchases'. Make sure you are signed in with the same Apple ID or Google account used for the original purchase. If the issue persists, contact us at contact@safecodeg.com with your order ID.",
+    a: "Open the app → go to Settings or Account → tap 'Restore Purchases'. Make sure you are signed in with the same Apple ID or Google account used for the original purchase. If the issue persists, contact us at contact@americangroup.ai with your order ID.",
   },
   {
     q: "My app is crashing. What should I do?",
-    a: "First, try: (1) Force-close and reopen the app, (2) Restart your device, (3) Check for app updates in the App Store or Google Play, (4) Uninstall and reinstall the app. If the issue continues, email contact@safecodeg.com with your device model, OS version, and a description of what triggers the crash.",
+    a: "First, try: (1) Force-close and reopen the app, (2) Restart your device, (3) Check for app updates in the App Store or Google Play, (4) Uninstall and reinstall the app. If the issue continues, email contact@americangroup.ai with your device model, OS version, and a description of what triggers the crash.",
   },
   {
     q: "How do I opt out of push notifications?",
@@ -157,7 +157,7 @@ const faqs = [
   },
   {
     q: "Is my health or personal data shared with third parties?",
-    a: "No. We do not sell your personal data to third parties. Data may be shared only with service providers who help us operate our apps (e.g., cloud storage, analytics) under strict data processing agreements. See our full Privacy Policy at safecodeg.com/privacy-policy for complete details.",
+    a: "No. We do not sell your personal data to third parties. Data may be shared only with service providers who help us operate our apps (e.g., cloud storage, analytics) under strict data processing agreements. See our full Privacy Policy at americangroup.ai/privacy-policy for complete details.",
   },
   {
     q: "How long does it take to get a support response?",
@@ -594,19 +594,19 @@ export default function Support() {
                   {[
                     {
                       label: "Support URL",
-                      url: "https://www.safecodeg.com/support",
+                      url: "https://www.americangroup.ai/support",
                     },
                     {
                       label: "Privacy Policy URL",
-                      url: "https://www.safecodeg.com/privacy-policy",
+                      url: "https://www.americangroup.ai/privacy-policy",
                     },
                     {
                       label: "Terms of Service URL",
-                      url: "https://www.safecodeg.com/terms",
+                      url: "https://www.americangroup.ai/terms",
                     },
                     {
                       label: "Marketing Website",
-                      url: "https://www.safecodeg.com",
+                      url: "https://www.americangroup.ai",
                     },
                   ].map(({ label, url }) => (
                     <div key={url} className="flex items-center gap-3">

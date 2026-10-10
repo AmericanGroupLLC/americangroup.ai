@@ -218,7 +218,7 @@ describe("Contact Form Validation", () => {
   it("accepts valid email formats", () => {
     [
       "user@example.com",
-      "contact@safecodeg.com",
+      "contact@americangroup.ai",
       "info@american-group.llc",
     ].forEach(e => expect(validateEmail(e)).toBe(true));
   });
@@ -233,10 +233,10 @@ describe("Contact Form Validation", () => {
   it("sanitizes HTML injection attempts", () => {
     expect(sanitize("<img src=x onerror=alert(1)>")).not.toContain("<img");
   });
-  it("contact@safecodeg.com is the correct destination email", () => {
-    const destEmail = "contact@safecodeg.com";
+  it("contact@americangroup.ai is the correct destination email", () => {
+    const destEmail = "contact@americangroup.ai";
     expect(validateEmail(destEmail)).toBe(true);
-    expect(destEmail).toContain("safecodeg.com");
+    expect(destEmail).toContain("americangroup.ai");
   });
 });
 
@@ -248,8 +248,8 @@ describe("Company Information", () => {
     founded: 2018,
     products: 77,
     verticals: 8,
-    email: "contact@safecodeg.com",
-    internshipEmail: "internships@safecodeg.com",
+    email: "contact@americangroup.ai",
+    internshipEmail: "internships@americangroup.ai",
   };
 
   it("has correct company name", () =>
@@ -264,7 +264,7 @@ describe("Company Information", () => {
   it("has valid contact email", () =>
     expect(info.email).toMatch(/^[^\s@]+@[^\s@]+\.[^\s@]+$/));
   it("has valid internship email", () =>
-    expect(info.internshipEmail).toBe("internships@safecodeg.com"));
+    expect(info.internshipEmail).toBe("internships@americangroup.ai"));
   it("was founded in 2018 or earlier", () =>
     expect(info.founded).toBeLessThanOrEqual(2018));
 });

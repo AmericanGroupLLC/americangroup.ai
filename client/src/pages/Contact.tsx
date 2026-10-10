@@ -27,7 +27,7 @@ const offices = [
     sub: "Headquarters",
     address: "Santa Clara, California, USA",
     phone: "+1 (510) 458-9059",
-    email: "contact@safecodeg.com",
+    email: "contact@americangroup.ai",
     color: "#6366F1",
   },
   {
@@ -36,7 +36,7 @@ const offices = [
     sub: "India Operations",
     address: "Hyderabad, Telangana, India",
     phone: "+91 74168 66689",
-    email: "india@safecodeg.com",
+    email: "india@americangroup.ai",
     color: "#FBBF24",
   },
 ];
@@ -75,7 +75,7 @@ export default function ContactPage() {
         body: JSON.stringify({
           access_key: WEB3FORMS_KEY,
           subject: `New Contact: ${form.inquiry || "General Inquiry"} — from ${form.name}`,
-          from_name: "safecodeg.com Contact Form",
+          from_name: "americangroup.ai Contact Form",
           name: form.name,
           email: form.email,
           company: form.company || "Not provided",
@@ -96,7 +96,7 @@ export default function ContactPage() {
       const msg = err instanceof Error ? err.message : "Unknown error";
       toast.error(
         msg ||
-          "Failed to send message. Please email contact@safecodeg.com directly."
+          "Failed to send message. Please email contact@americangroup.ai directly."
       );
     } finally {
       setSending(false);

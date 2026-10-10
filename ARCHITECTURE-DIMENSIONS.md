@@ -169,7 +169,7 @@ The non-`compat` `@dimforge/rapier3d` emits the `.wasm` as a separate asset, at
 **760.40 kB gzip** (Verified — `gzip -9` on the file). That path is also
 operationally hazardous on this specific host:
 
-- **Verified — read `/home/srpatcha/agl/www.safecodeg.com/.htaccess`.** There is
+- **Verified — read `/home/srpatcha/agl/www.americangroup.ai/.htaccess`.** There is
   no `AddType` for `.wasm` anywhere in the file. Apache would serve it as
   `application/octet-stream`, and `WebAssembly.instantiateStreaming` rejects on a
   wrong MIME type.
@@ -832,7 +832,7 @@ visitor's browser. It maps to its own state, `blocked-by-policy`, which names th
 page's policy as the cause.
 
 That distinction is not hypothetical here. **Verified — read
-`/home/srpatcha/agl/www.safecodeg.com/.htaccess:51`:**
+`/home/srpatcha/agl/www.americangroup.ai/.htaccess:51`:**
 
 ```
 Header always set Permissions-Policy "camera=(), microphone=(), geolocation=(self)"

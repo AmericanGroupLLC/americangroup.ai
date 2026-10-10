@@ -182,7 +182,7 @@ test.describe("REQ-5: Contact Page", () => {
   test("REQ-5.2: Contact page has email address", async ({ page }) => {
     await page.goto("/contact");
     const body = await page.locator("body").textContent();
-    expect(body?.toLowerCase()).toMatch(/safecodeg\.com|americangroup/i);
+    expect(body?.toLowerCase()).toMatch(/americangroup\.ai|americangroup/i);
   });
 
   test("REQ-5.3: Contact page has phone number", async ({ page }) => {

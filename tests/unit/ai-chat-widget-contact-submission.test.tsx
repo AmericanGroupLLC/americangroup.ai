@@ -14,7 +14,7 @@
  * The fix reuses client/src/pages/Contact.tsx's own working pattern: POST to
  * https://api.web3forms.com/submit with the same WEB3FORMS_KEY, read
  * `data.success`, and only then report success — otherwise throw and show an
- * honest failure with a route that works (contact@safecodeg.com, /contact).
+ * honest failure with a route that works (contact@americangroup.ai, /contact).
  *
  * Each test below fails against the pre-fix copy (no fetch call is ever
  * made; success renders unconditionally and instantly; a failed/rejected
@@ -151,7 +151,7 @@ describe("AIChatWidget — confirming the form actually submits it, and only rep
     fireEvent.click(screen.getByRole("button", { name: /^send$/i }));
 
     await screen.findByText(
-      /contact@safecodeg\.com/i,
+      /contact@americangroup\.ai/i,
       {},
       { timeout: TIMEOUT }
     );
@@ -177,7 +177,7 @@ describe("AIChatWidget — confirming the form actually submits it, and only rep
     fireEvent.click(screen.getByRole("button", { name: /^send$/i }));
 
     await screen.findByText(
-      /contact@safecodeg\.com/i,
+      /contact@americangroup\.ai/i,
       {},
       { timeout: TIMEOUT }
     );

@@ -1,4 +1,4 @@
-name: Build & Deploy to HostGator (safecodeg.com)
+name: Build & Deploy to HostGator (americangroup.ai)
 
 on:
   push:
@@ -120,7 +120,7 @@ jobs:
       - name: Verify a deployed page is really there
         run: |
           sleep 5
-          URL=https://www.safecodeg.com/policy/virtuband/delete-account.html
+          URL=https://www.americangroup.ai/policy/virtuband/delete-account.html
           BODY=$(curl -sL --max-time 30 "$URL")
           if printf '%s' "$BODY" | grep -q "Enterprise Technology & Mobile Apps"; then
             echo "::error::$URL served the marketing homepage — the file is not deployed."
@@ -135,7 +135,7 @@ jobs:
         run: |
           echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
           echo "✅ Deployment complete!"
-          echo "🌐 https://www.safecodeg.com"
+          echo "🌐 https://www.americangroup.ai"
           echo "🔒 HTTPS enforced via .htaccess"
           echo "📦 Commit: ${{ github.sha }}"
           echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"

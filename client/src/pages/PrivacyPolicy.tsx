@@ -37,8 +37,8 @@ import {
 
 const LAST_UPDATED = "July 19, 2026";
 const EFFECTIVE_DATE = "July 19, 2026";
-const CONTACT_EMAIL = "contact@safecodeg.com";
-const PRIVACY_EMAIL = "contact@safecodeg.com";
+const CONTACT_EMAIL = "contact@americangroup.ai";
+const PRIVACY_EMAIL = "contact@americangroup.ai";
 const COMPANY_NAME = "American Group LLC";
 const INDIA_ENTITY = "SafeCodeX Research Center Pvt. Ltd.";
 const HQ_ADDRESS = "Santa Clara, California, USA";
@@ -529,7 +529,7 @@ export default function PrivacyPolicyPage() {
                   {
                     platform: "Web Applications",
                     icon: "🌐",
-                    desc: "All web-based services and applications accessible via safecodeg.com and related domains.",
+                    desc: "All web-based services and applications accessible via americangroup.ai and related domains.",
                   },
                   {
                     platform: "Enterprise & DevTools",
@@ -1399,7 +1399,7 @@ export default function PrivacyPolicyPage() {
                 {[
                   "Using the 'Delete Account' option in the app's Settings menu",
                   `Emailing us at ${PRIVACY_EMAIL} with subject line "Data Deletion Request"`,
-                  `Submitting a request through our support page at https://www.safecodeg.com/support`,
+                  `Submitting a request through our support page at https://www.americangroup.ai/support`,
                 ].map((item, i) => (
                   <li
                     key={i}

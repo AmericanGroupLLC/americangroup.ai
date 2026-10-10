@@ -58,7 +58,7 @@ describe("contact.submit", () => {
     const result = await caller.contact.submit(validInput);
 
     expect(result.success).toBe(true);
-    expect(result.message).toContain("contact@safecodeg.com");
+    expect(result.message).toContain("contact@americangroup.ai");
     expect(result.submissionId).toBe("test-uuid-1234");
   });
 
