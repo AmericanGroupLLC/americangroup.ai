@@ -5,6 +5,12 @@ on:
     branches:
       - main
   workflow_dispatch:
+    inputs:
+      target:
+        description: "americangroup = /home2/safecode/americangroup.ai only; both = also public_html (safecodeg.com, which then 301s to americangroup.ai)"
+        type: choice
+        options: [americangroup, both]
+        default: americangroup
 
 jobs:
   build-and-deploy:
@@ -83,7 +89,7 @@ jobs:
           # failures". The failure looks like the host refusing us; it is not.
           printf '%s\n' "${{ secrets.SSH_PRIVATE_KEY }}" > ~/.ssh/deploy_key
           chmod 600 ~/.ssh/deploy_key
-          ssh-keyscan -H ${{ secrets.SSH_HOST }} >> ~/.ssh/known_hosts 2>/dev/null
+          ssh-keyscan -p "${{ secrets.SSH_PORT || '22' }}" -H ${{ secrets.SSH_HOST }} >> ~/.ssh/known_hosts 2>/dev/null
           ssh-keyscan -H ftp.safecodeg.com >> ~/.ssh/known_hosts 2>/dev/null
 
       # Fingerprint only — never the key material. If this step fails, the
@@ -104,12 +110,24 @@ jobs:
       # the connection with "Received disconnect ... Too many authentication
       # failures" — which is what failed every deploy since 2026-09-06. The
       # host was never blocking us; we were exhausting its auth-attempt limit.
+      # americangroup.ai is a cPanel addon domain with its own docroot,
+      # /home2/safecode/americangroup.ai (~/americangroup.ai for the account).
+      # public_html is safecodeg.com's docroot; the same build there makes
+      # every safecodeg.com URL 301 to americangroup.ai (.htaccess). A manual
+      # run deploys americangroup.ai only, so the new domain can go live
+      # before the old one starts redirecting.
       - name: Deploy to HostGator via rsync
+        env:
+          PORT: ${{ secrets.SSH_PORT || '22' }}
+          TARGET: ${{ github.event_name == 'workflow_dispatch' && inputs.target || 'both' }}
         run: |
-          rsync -avz --delete \
-            -e "ssh -i ~/.ssh/deploy_key -o IdentitiesOnly=yes -o PubkeyAcceptedAlgorithms=+ssh-rsa -o HostKeyAlgorithms=+ssh-rsa -o PreferredAuthentications=publickey -o PasswordAuthentication=no -o KbdInteractiveAuthentication=no -o StrictHostKeyChecking=no -p 22" \
-            dist/public/ \
-            ${{ secrets.SSH_USERNAME }}@${{ secrets.SSH_HOST }}:~/public_html/
+          SSH="ssh -i ~/.ssh/deploy_key -o IdentitiesOnly=yes -o PubkeyAcceptedAlgorithms=+ssh-rsa -o HostKeyAlgorithms=+ssh-rsa -o PreferredAuthentications=publickey -o PasswordAuthentication=no -o KbdInteractiveAuthentication=no -o StrictHostKeyChecking=no -p $PORT"
+          rsync -avz --delete -e "$SSH" dist/public/ \
+            ${{ secrets.SSH_USERNAME }}@${{ secrets.SSH_HOST }}:~/americangroup.ai/
+          if [ "$TARGET" = "both" ]; then
+            rsync -avz --delete -e "$SSH" dist/public/ \
+              ${{ secrets.SSH_USERNAME }}@${{ secrets.SSH_HOST }}:~/public_html/
+          fi
 
       # ── 10. Verify ───────────────────────────────────────────────────────
       # Curling the homepage proved nothing: this site serves an SPA catch-all,
