@@ -1,7 +1,7 @@
 /**
  * Support Page — /support
  * Required by Apple App Store as a working Support URL.
- * Covers all 77 apps under American Group LLC & SafeCodeX.
+ * Covers all 77 apps under American Group LLC.
  * Design: "Luminous Clarity" — Deep Navy + Electric Indigo + Saffron Gold
  */
 import { useEffect, useState } from "react";
@@ -43,9 +43,8 @@ function useReveal() {
   }, []);
 }
 
-const SUPPORT_EMAIL = "contact@americangroup.ai";
+const SUPPORT_EMAIL = "support@americangroup.ai";
 const USA_PHONE = "+1 (510) 458-9059";
-const INDIA_PHONE = "+91 74168 66689";
 
 const categories = [
   {
@@ -137,19 +136,19 @@ const categories = [
 const faqs = [
   {
     q: "How do I request deletion of my account and data?",
-    a: "Email contact@americangroup.ai with subject line 'Data Deletion Request', including your name, email address, and the app name. We process all deletion requests within 30 days. You can also use the in-app settings menu under Account → Delete Account in supported apps.",
+    a: "Email support@americangroup.ai with subject line 'Data Deletion Request', including your name, email address, and the app name. We process all deletion requests within 30 days. You can also use the in-app settings menu under Account → Delete Account in supported apps.",
   },
   {
     q: "Which apps does American Group LLC publish?",
-    a: "American Group LLC publishes 77 applications across 6 verticals: Health & Wellness, Education & Learning, Productivity & Business, Entertainment & Media, Smart Home & IoT, and Finance & Lifestyle. All apps are developed in partnership with SafeCodeX Research Center in Hyderabad, India.",
+    a: "American Group LLC publishes 77 applications across 6 verticals: Health & Wellness, Education & Learning, Productivity & Business, Entertainment & Media, Smart Home & IoT, and Finance & Lifestyle. All apps are owned and published by American Group LLC.",
   },
   {
     q: "How do I restore in-app purchases after reinstalling?",
-    a: "Open the app → go to Settings or Account → tap 'Restore Purchases'. Make sure you are signed in with the same Apple ID or Google account used for the original purchase. If the issue persists, contact us at contact@americangroup.ai with your order ID.",
+    a: "Open the app → go to Settings or Account → tap 'Restore Purchases'. Make sure you are signed in with the same Apple ID or Google account used for the original purchase. If the issue persists, contact us at support@americangroup.ai with your order ID.",
   },
   {
     q: "My app is crashing. What should I do?",
-    a: "First, try: (1) Force-close and reopen the app, (2) Restart your device, (3) Check for app updates in the App Store or Google Play, (4) Uninstall and reinstall the app. If the issue continues, email contact@americangroup.ai with your device model, OS version, and a description of what triggers the crash.",
+    a: "First, try: (1) Force-close and reopen the app, (2) Restart your device, (3) Check for app updates in the App Store or Google Play, (4) Uninstall and reinstall the app. If the issue continues, email support@americangroup.ai with your device model, OS version, and a description of what triggers the crash.",
   },
   {
     q: "How do I opt out of push notifications?",
@@ -452,12 +451,12 @@ export default function Support() {
                 Still Need Help?
               </h2>
               <p className="text-slate-400">
-                Our team is available across both offices. Reach out and we'll
-                get back to you promptly.
+                Our team in Santa Clara, California is here to help. Reach out
+                and we'll get back to you promptly.
               </p>
             </div>
 
-            <div className="grid md:grid-cols-2 gap-6 reveal">
+            <div className="max-w-xl mx-auto reveal">
               {/* USA Office */}
               <div
                 className="p-8 rounded-3xl border border-white/10 bg-white/[0.05]"
@@ -497,50 +496,6 @@ export default function Support() {
                     <Clock className="h-4 w-4 text-slate-400 shrink-0" />
                     <span className="text-sm text-slate-400">
                       Mon–Fri, 9 AM–5 PM PST
-                    </span>
-                  </div>
-                </div>
-              </div>
-
-              {/* India Office */}
-              <div
-                className="p-8 rounded-3xl border border-white/10 bg-white/[0.05]"
-                style={{ boxShadow: "0 8px 40px oklch(0.78 0.18 75 / 0.06)" }}
-              >
-                <div className="flex items-center gap-3 mb-6">
-                  <span className="text-3xl">🇮🇳</span>
-                  <div>
-                    <div className="font-bold text-white">
-                      SafeCodeX Research Center
-                    </div>
-                    <div className="text-xs text-slate-400">
-                      Hyderabad, India
-                    </div>
-                  </div>
-                </div>
-                <div className="space-y-3">
-                  <a
-                    href={`mailto:${SUPPORT_EMAIL}`}
-                    className="flex items-center gap-3 p-3 rounded-xl bg-white/[0.03] hover:bg-amber-500/10 transition-colors group"
-                  >
-                    <Mail className="h-4 w-4 text-amber-500 shrink-0" />
-                    <span className="text-sm text-slate-200 group-hover:text-amber-700">
-                      {SUPPORT_EMAIL}
-                    </span>
-                  </a>
-                  <a
-                    href={`tel:+917416866689`}
-                    className="flex items-center gap-3 p-3 rounded-xl bg-white/[0.03] hover:bg-amber-500/10 transition-colors group"
-                  >
-                    <Phone className="h-4 w-4 text-amber-500 shrink-0" />
-                    <span className="text-sm text-slate-200 group-hover:text-amber-700">
-                      {INDIA_PHONE}
-                    </span>
-                  </a>
-                  <div className="flex items-center gap-3 p-3 rounded-xl bg-white/[0.03]">
-                    <Clock className="h-4 w-4 text-slate-400 shrink-0" />
-                    <span className="text-sm text-slate-400">
-                      Mon–Fri, 9 AM–6 PM IST
                     </span>
                   </div>
                 </div>

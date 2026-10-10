@@ -18,7 +18,6 @@ const ROUTES = [
   },
   { path: "/about", label: "About", component: "About" },
   { path: "/agl", label: "AGL", component: "AGL" },
-  { path: "/scg", label: "SCG", component: "SCG" },
   { path: "/careers", label: "Careers", component: "Careers" },
   { path: "/contact", label: "Contact", component: "Contact" },
   {
@@ -32,8 +31,8 @@ const ROUTES = [
 
 // ── Route structure tests ─────────────────────────────────────────────────────
 describe("Route definitions", () => {
-  it("has 11 defined routes", () => {
-    expect(ROUTES.length).toBe(11);
+  it("has 10 defined routes", () => {
+    expect(ROUTES.length).toBe(10);
   });
 
   it("all routes start with /", () => {
@@ -56,9 +55,9 @@ describe("Route definitions", () => {
     expect(detail?.path).toBe("/products/:slug");
   });
 
-  it("has /agl and /scg routes (not 404)", () => {
+  it("has the /agl route and no retired /scg route", () => {
     expect(ROUTES.find(r => r.path === "/agl")).toBeTruthy();
-    expect(ROUTES.find(r => r.path === "/scg")).toBeTruthy();
+    expect(ROUTES.find(r => r.path === "/scg")).toBeUndefined();
   });
 
   it("has legal pages", () => {

@@ -123,13 +123,6 @@ test.describe("REQ-3: About & Company Pages", () => {
     expect(body?.toLowerCase()).not.toContain("page not found");
   });
 
-  test("REQ-3.3: SCG entity page exists at /scg", async ({ page }) => {
-    const res = await page.goto("/scg");
-    expect(res?.status()).not.toBe(404);
-    const body = await page.locator("body").textContent();
-    expect(body?.toLowerCase()).not.toContain("page not found");
-  });
-
   test("REQ-3.4: About page mentions American Group LLC", async ({ page }) => {
     await page.goto("/about");
     const body = await page.locator("body").textContent();

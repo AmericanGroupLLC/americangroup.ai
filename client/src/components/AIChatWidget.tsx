@@ -196,19 +196,19 @@ function sophiaReply(
 
   if (/service|outsourc|develop|build|hire|custom|project/.test(m)) {
     return {
-      text: `We offer end-to-end software development services! 🛠️\n\n• Custom mobile apps (iOS & Android)\n• Web applications & SaaS platforms\n• AI/ML solutions & LLM deployments\n• Cloud architecture & DevOps\n• Tech outsourcing via our India office\n\nWant a free consultation?`,
+      text: `We offer end-to-end software development services! 🛠️\n\n• Custom mobile apps (iOS & Android)\n• Web applications & SaaS platforms\n• AI/ML solutions & LLM deployments\n• Cloud architecture & DevOps\n\nWant a free consultation?`,
       delay: 1800,
       quick: [
         "Get a free consultation",
         "Tell me about pricing",
-        "India office info",
+        "Where are you located?",
       ],
     };
   }
 
   if (/price|pricing|cost|how much|rate|quote|budget/.test(m)) {
     return {
-      text: `Pricing varies by project scope. For custom development, we offer free initial consultations. Enterprise licensing starts at $299/month. Our India team (SafeCodeX Research Center) makes outsourcing very cost-effective without compromising quality. Want me to connect you with our sales team?`,
+      text: `Pricing varies by project scope. For custom development, we offer free initial consultations. Enterprise licensing starts at $299/month. Want me to connect you with our sales team?`,
       delay: 1500,
       quick: ["Yes, get a quote", "Talk to sales"],
     };
@@ -216,7 +216,7 @@ function sophiaReply(
 
   if (/contact|email|phone|call|reach|address|location|where are you/.test(m)) {
     return {
-      text: `Here's how to reach us! 📬\n\n📧 contact@americangroup.ai\n📞 US: +1 (510) 458-9059\n📞 India: +91 74168 66689\n📍 Santa Clara, CA · Hyderabad, India\n\nOr I can help you send a message right now — just say "send a message"!`,
+      text: `Here's how to reach us! 📬\n\n📧 General: contact@americangroup.ai\n💼 Sales: sales@americangroup.ai\n🛠️ Support: support@americangroup.ai\n📞 +1 (510) 458-9059\n📍 Santa Clara, California\n\nOr I can help you send a message right now — just say "send a message"!`,
       delay: 1400,
       quick: ["Send a message", "Visit contact page"],
     };
@@ -240,16 +240,9 @@ function sophiaReply(
 
   if (/support|help|issue|problem|bug|not working|broken|error|fix/.test(m)) {
     return {
-      text: `Oh no, sorry to hear you're having trouble! 😟 Can you tell me:\n1. Which app is this about?\n2. What's happening exactly?\n\nOr email contact@americangroup.ai directly and our support team will get back to you ASAP.`,
+      text: `Oh no, sorry to hear you're having trouble! 😟 Can you tell me:\n1. Which app is this about?\n2. What's happening exactly?\n\nOr email support@americangroup.ai directly and our support team will get back to you ASAP.`,
       delay: 1500,
       quick: ["Email support", "Visit support page"],
-    };
-  }
-
-  if (/india|hyderabad|safecodex|safecode/.test(m)) {
-    return {
-      text: `Our India engineering office — SafeCodeX Research Center Pvt. Ltd. — is in Hyderabad! 🇮🇳 They handle QA, backend delivery, embedded firmware research, and mobile development support. India phone: +91 74168 66689`,
-      delay: 1500,
     };
   }
 

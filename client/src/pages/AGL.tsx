@@ -188,15 +188,14 @@ export default function AGLPage() {
               American Group LLC
             </h1>
             <p className="text-xl text-slate-300 max-w-3xl leading-relaxed mb-4">
-              The parent organization — a California-based S-Corp technology
-              company shipping{" "}
+              A California-based S-Corp technology company shipping{" "}
               <strong className="text-white">77 products</strong> across Mobile,
               Enterprise AI, FinTech, CyberSecurity, Spatial Computing, and IoT
               & Hardware.
             </p>
             <p className="text-slate-500 text-base max-w-2xl mb-10">
-              With our India engineering office, SafeCodeX Research Center, we
-              operate as a single unified organization across two continents.
+              Headquartered in Santa Clara, California, and building products
+              for global markets from day one.
             </p>
             <div className="flex flex-wrap gap-4">
               <Link href="/products">
@@ -329,8 +328,8 @@ export default function AGLPage() {
                     desc: "Every product ships with end-to-end encryption, zero-trust principles, and SOC 2-aligned security practices.",
                   },
                   {
-                    title: "Global Operations",
-                    desc: "US headquarters in Santa Clara with India engineering support in Hyderabad — delivering 24/7 global coverage.",
+                    title: "Silicon Valley Headquarters",
+                    desc: "Based in Santa Clara, California, with products designed for global markets from day one.",
                   },
                 ].map((item, i) => (
                   <motion.div

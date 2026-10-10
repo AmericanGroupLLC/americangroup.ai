@@ -192,7 +192,7 @@ test.describe("Navigation Completeness", () => {
     expect(footerText).toMatch(/privacy/i);
     expect(footerText).toMatch(/terms/i);
     expect(footerText).toMatch(/contact/i);
-    expect(footerText).toMatch(/american group|AGL|safecodex/i);
+    expect(footerText).toMatch(/american group|AGL/i);
   });
 
   test("logo/brand in nav links to home", async ({ page }) => {
@@ -207,15 +207,7 @@ test.describe("Navigation Completeness", () => {
 
 // ─── 4. Rich Theme Consistency ────────────────────────────────────────────────
 test.describe("Rich Theme Consistency", () => {
-  const pages = [
-    "/",
-    "/products",
-    "/about",
-    "/careers",
-    "/contact",
-    "/agl",
-    "/scg",
-  ];
+  const pages = ["/", "/products", "/about", "/careers", "/contact", "/agl"];
 
   for (const path of pages) {
     test(`${path} has dark background (no white bg)`, async ({ page }) => {

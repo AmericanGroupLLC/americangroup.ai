@@ -29,6 +29,11 @@ RewriteCond %{HTTP_HOST} ^(www\.)?safecodeg\.com$ [NC,OR]
 RewriteCond %{HTTP_HOST} ^americangroup\.ai$ [NC]
 RewriteRule ^(.*)$ https://www.americangroup.ai/$1 [L,R=301]
 
+# ── Retired India pages ──────────────────────────────────────
+# /scg and /safecodex-research were an India-office page that the owner had
+# removed as unrelated to American Group LLC. Old links land on /about.
+RewriteRule ^(scg|safecodex-research)/?$ https://www.americangroup.ai/about [NC,L,R=301]
+
 # ── Extensionless static pages ───────────────────────────────
 # The policy pages are real files: /policy/iMaps/delete-account.html and so on.
 # Without this rule a request for /policy/iMaps/delete-account is neither a file

@@ -81,7 +81,7 @@ const openings = [
   {
     title: "iOS Developer (Swift)",
     dept: "Consumer Mobile",
-    location: "India / Remote",
+    location: "Remote",
     type: "Full-time",
     icon: Smartphone,
     color: "#34D399",
@@ -91,7 +91,7 @@ const openings = [
   {
     title: "Android Developer (Kotlin)",
     dept: "Consumer Mobile",
-    location: "India / Remote",
+    location: "Remote",
     type: "Full-time",
     icon: Smartphone,
     color: "#60A5FA",
@@ -174,7 +174,7 @@ const openings = [
   {
     title: "Health Tech iOS/Android Engineer",
     dept: "Health & Wellness",
-    location: "India / Remote",
+    location: "Remote",
     type: "Full-time",
     icon: Heart,
     color: "#F43F5E",
@@ -249,7 +249,7 @@ const openings = [
   {
     title: "AI / LLM Mobile App Intern",
     dept: "Enterprise AI",
-    location: "Remote / India",
+    location: "Remote",
     type: "Internship · 3–6 months",
     icon: Cpu,
     color: "#F472B6",
@@ -293,7 +293,7 @@ const openings = [
   {
     title: "Health Tech Mobile Intern",
     dept: "Health & Wellness",
-    location: "Remote / India",
+    location: "Remote",
     type: "Internship · 3–6 months",
     icon: Heart,
     color: "#F43F5E",
@@ -326,7 +326,7 @@ const openings = [
   {
     title: "Flutter Developer Intern (Mobile App Development)",
     dept: "Consumer Mobile",
-    location: "Remote (India)",
+    location: "Remote",
     type: "Internship · 3–6 months",
     icon: Smartphone,
     color: "#22D3EE",
@@ -348,7 +348,7 @@ const perks = [
   {
     icon: Globe,
     title: "Remote-First",
-    desc: "Work from anywhere. We have team members across the US, India, and beyond.",
+    desc: "Work from anywhere. We are a remote-first team headquartered in Santa Clara, California.",
   },
   {
     icon: Zap,

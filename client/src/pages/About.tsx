@@ -25,11 +25,6 @@ const timeline = [
     desc: "American Group LLC incorporated as an S-Corp in Santa Clara, California with a vision to build world-class software products.",
   },
   {
-    year: "2019",
-    title: "India Operations Office",
-    desc: "SafeCodeX Research Center Pvt. Ltd. established in Hyderabad, India to support backend delivery, QA, and R&D operations.",
-  },
-  {
     year: "2020",
     title: "First 10 Products Launched",
     desc: "Initial product portfolio launched across mobile and enterprise verticals, establishing market presence.",
@@ -82,7 +77,7 @@ const values = [
   {
     icon: Globe,
     title: "Global by Default",
-    desc: "Headquartered in California, with backend operations in India. Our products are designed for global markets from day one.",
+    desc: "Headquartered in Santa Clara, California. Our products are designed for global markets from day one.",
     color: "#34D399",
   },
   {
@@ -100,7 +95,7 @@ const values = [
   {
     icon: Award,
     title: "Research-Led Innovation",
-    desc: "Our India operations team ensures we stay at the frontier of AI, IoT, blockchain, and emerging technologies.",
+    desc: "Our AI research division keeps us at the frontier of AI, IoT, blockchain, and emerging technologies.",
     color: "#A78BFA",
   },
 ];
@@ -231,18 +226,15 @@ export default function AboutPage() {
               <div className="space-y-5 text-slate-400 leading-relaxed text-base">
                 <p>
                   American Group LLC was founded with a simple but ambitious
-                  belief: that the best technology companies are built by
-                  combining the best of multiple worlds. Silicon Valley provides
-                  the market insight, the ambition, and the access to capital.
-                  India provides the engineering depth, the research rigor, and
-                  the talent density.
+                  belief: that the best technology companies pair market insight
+                  with engineering depth. Silicon Valley provides the market
+                  insight, the ambition, and the access to capital; our team
+                  brings the engineering depth and the research rigor.
                 </p>
                 <p>
                   We are a uniquely positioned technology company — one that
                   moves with the speed of a startup while delivering the quality
-                  and scale of an enterprise. Our Hyderabad operations office
-                  (SafeCodeX Research Center Pvt. Ltd.) handles backend delivery
-                  and QA support.
+                  and scale of an enterprise.
                 </p>
                 <p>
                   Today, our 77 active repositories span eight distinct business
@@ -256,7 +248,7 @@ export default function AboutPage() {
               <div className="mt-10 grid grid-cols-2 gap-4">
                 {[
                   { label: "🇺🇸 Headquarters", value: "Santa Clara, CA" },
-                  { label: "🇮🇳 India Office", value: "Hyderabad, Telangana" },
+                  { label: "🏛️ Registered", value: "California, USA" },
                   { label: "📅 Founded", value: "2018" },
                   { label: "📦 Products", value: "77+ Active" },
                 ].map(item => (
@@ -435,7 +427,7 @@ export default function AboutPage() {
                 color: "rgba(196,181,253,0.9)",
               }}
             >
-              Our Entities
+              Our Company
             </div>
             <h2
               className="font-black text-white tracking-tight"
@@ -444,7 +436,7 @@ export default function AboutPage() {
                 fontSize: "clamp(2.2rem, 4.5vw, 3.5rem)",
               }}
             >
-              One organization.
+              One company.
               <br />
               <span
                 style={{
@@ -455,19 +447,19 @@ export default function AboutPage() {
                   backgroundClip: "text",
                 }}
               >
-                Two global locations.
+                Built in Silicon Valley.
               </span>
             </h2>
           </motion.div>
 
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+          <div className="max-w-3xl mx-auto">
             {[
               {
                 flag: "🇺🇸",
                 title: "American Group LLC",
                 sub: "Headquarters · Santa Clara, California",
                 color: "#6366F1",
-                desc: "The primary legal entity and brand owner. Responsible for product strategy, engineering leadership, client relationships, and all commercial operations. All 77 products are owned and operated by American Group LLC.",
+                desc: "The legal entity and brand owner. Responsible for product strategy, engineering leadership, client relationships, and all commercial operations. All 77 products are owned and operated by American Group LLC.",
                 bullets: [
                   "Product strategy & roadmap",
                   "Engineering leadership",
@@ -476,21 +468,6 @@ export default function AboutPage() {
                   "All 77 products",
                 ],
                 href: "/american-group-llc",
-              },
-              {
-                flag: "🇮🇳",
-                title: "SafeCodeX Research Center Pvt. Ltd.",
-                sub: "India Operations · Hyderabad, Telangana",
-                color: "#FBBF24",
-                desc: "The India-based support entity providing QA testing, embedded firmware research, and mobile app development support. SafeCodeX operates as an integral part of the AGL delivery pipeline under the direction of American Group LLC.",
-                bullets: [
-                  "QA & testing operations",
-                  "Embedded firmware R&D",
-                  "Mobile app development support",
-                  "Backend delivery support",
-                  "Research & development",
-                ],
-                href: "/safecodex-research",
               },
             ].map((entity, i) => (
               <motion.div

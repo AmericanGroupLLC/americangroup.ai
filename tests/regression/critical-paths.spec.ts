@@ -2,22 +2,13 @@
  * REGRESSION TESTS — Verify no regressions from previous versions
  * Category: Regression Testing
  * Tests: Previously broken features now fixed, dark theme consistency,
- *        route fixes (/agl, /scg), stat counts, product counts
+ *        route fixes (/agl), stat counts, product counts
  */
 import { test, expect } from "@playwright/test";
 
-test.describe("Regression — /agl and /scg routes (previously 404)", () => {
+test.describe("Regression — /agl route (previously 404)", () => {
   test("/agl route resolves (not 404)", async ({ page }) => {
     const response = await page.goto("/agl", { waitUntil: "domcontentloaded" });
-    expect(response?.status()).not.toBe(404);
-    // Check visible text content (not JS bundle) for 404 page indicators
-    const h1Text = await page.locator("h1").first().textContent();
-    expect(h1Text?.toLowerCase()).not.toContain("page not found");
-    expect(h1Text?.toLowerCase()).not.toContain("404");
-  });
-
-  test("/scg route resolves (not 404)", async ({ page }) => {
-    const response = await page.goto("/scg", { waitUntil: "domcontentloaded" });
     expect(response?.status()).not.toBe(404);
     // Check visible text content (not JS bundle) for 404 page indicators
     const h1Text = await page.locator("h1").first().textContent();
@@ -30,13 +21,6 @@ test.describe("Regression — /agl and /scg routes (previously 404)", () => {
     await page.waitForLoadState("domcontentloaded");
     const body = await page.locator("body").textContent();
     expect(body).toContain("American Group LLC");
-  });
-
-  test("/scg page contains SafeCodeX content", async ({ page }) => {
-    await page.goto("/scg");
-    await page.waitForLoadState("domcontentloaded");
-    const body = await page.locator("body").textContent();
-    expect(body?.toLowerCase()).toMatch(/safecode|research|india/i);
   });
 });
 

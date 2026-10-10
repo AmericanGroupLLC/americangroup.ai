@@ -18,12 +18,6 @@ const navLinks = [
         desc: "HQ · Santa Clara, California",
         flag: "🇺🇸",
       },
-      {
-        label: "India Operations",
-        href: "/safecodex-research",
-        desc: "Hyderabad · SafeCodeX Pvt. Ltd.",
-        flag: "🇮🇳",
-      },
     ],
   },
   { label: "Products", href: "/products" },

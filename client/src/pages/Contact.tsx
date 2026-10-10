@@ -34,15 +34,6 @@ const offices = [
     ],
     color: "#6366F1",
   },
-  {
-    flag: "🇮🇳",
-    title: "SafeCodeX Research Center",
-    sub: "India Operations",
-    address: "Hyderabad, Telangana, India",
-    phone: "+91 74168 66689",
-    emails: [{ label: "General", address: "contact@americangroup.ai" }],
-    color: "#FBBF24",
-  },
 ];
 
 const inquiryTypes = [
@@ -158,7 +149,7 @@ export default function ContactPage() {
               </span>
             </h1>
             <p className="text-xl text-slate-300 max-w-2xl leading-relaxed">
-              Reach out to American Group LLC or SafeCodeX Research Center — we
+              Reach out to American Group LLC in Santa Clara, California — we
               respond within 24 hours.
             </p>
           </motion.div>

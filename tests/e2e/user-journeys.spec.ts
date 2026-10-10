@@ -86,13 +86,6 @@ test.describe("E2E — Navigation Journey", () => {
     const body = await page.textContent("body");
     expect(body).toMatch(/American Group/i);
   });
-
-  test("/scg alias loads SCG content", async ({ page }) => {
-    await page.goto("/scg");
-    await page.waitForLoadState("domcontentloaded");
-    const body = await page.textContent("body");
-    expect(body).toMatch(/SafeCode/i);
-  });
 });
 
 test.describe("E2E — Products Discovery Journey", () => {
@@ -194,7 +187,7 @@ test.describe("E2E — Careers & Internship Journey", () => {
     // Page should have Apply buttons for internship positions
     expect(body).toMatch(/Apply|apply/i);
     // Page should have at least one email contact
-    expect(body).toMatch(/careers@americangroup\.ai|internships@americangroup\.ai/i);
+    expect(body).toMatch(/contact@americangroup\.ai/i);
   });
 });
 

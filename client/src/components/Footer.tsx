@@ -16,7 +16,7 @@ import {
 const footerLinks = {
   company: [
     { label: "🇺🇸 American Group LLC", href: "/american-group-llc" },
-    { label: "🇮🇳 India Operations", href: "/safecodex-research" },
+    { label: "Dimensions", href: "/dimensions" },
   ],
   products: [
     { label: "All 77 Products", href: "/products" },
@@ -278,7 +278,7 @@ export default function Footer() {
           </div>
         </div>
 
-        {/* India Office strip */}
+        {/* Headquarters strip */}
         <div
           className="rounded-2xl p-6 mb-10"
           style={{
@@ -290,7 +290,7 @@ export default function Footer() {
         >
           <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-5">
             <div className="flex items-start gap-4">
-              <span className="text-3xl">🇮🇳</span>
+              <span className="text-3xl">🇺🇸</span>
               <div>
                 <div
                   className="font-semibold text-sm mb-1"
@@ -299,14 +299,14 @@ export default function Footer() {
                     fontFamily: "Sora, sans-serif",
                   }}
                 >
-                  SafeCodeX Research Center Pvt. Ltd. — India Operations
+                  American Group LLC — Headquarters
                 </div>
                 <div
                   className="text-xs"
                   style={{ color: "rgba(100,116,139,0.7)" }}
                 >
-                  Hyderabad, Telangana, India · Engineering support, QA, and R&D
-                  operations
+                  Santa Clara, California, USA · Sales, support, and general
+                  inquiries
                 </div>
               </div>
             </div>
@@ -329,25 +329,6 @@ export default function Footer() {
                   style={{ color: "rgba(167,139,250,0.6)" }}
                 />
                 🇺🇸 +1 (510) 458-9059
-              </a>
-              <a
-                href="tel:+917416866689"
-                className="flex items-center gap-2 transition-colors duration-200"
-                style={{ color: "rgba(100,116,139,0.7)" }}
-                onMouseEnter={e => {
-                  (e.currentTarget as HTMLElement).style.color =
-                    "rgba(196,181,253,1)";
-                }}
-                onMouseLeave={e => {
-                  (e.currentTarget as HTMLElement).style.color =
-                    "rgba(100,116,139,0.7)";
-                }}
-              >
-                <Phone
-                  className="w-3.5 h-3.5"
-                  style={{ color: "rgba(167,139,250,0.6)" }}
-                />
-                🇮🇳 +91 74168 66689
               </a>
               <a
                 href="mailto:contact@americangroup.ai"
@@ -390,8 +371,7 @@ export default function Footer() {
               className="block mt-1"
               style={{ color: "rgba(51,65,85,0.8)" }}
             >
-              Registered in California, USA. India operations managed by
-              SafeCodeX Research Center Pvt. Ltd., Hyderabad.
+              Registered in California, USA.
             </span>
           </div>
           <div className="flex items-center gap-5 text-xs flex-shrink-0">

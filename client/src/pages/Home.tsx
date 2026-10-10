@@ -30,7 +30,6 @@ import {
   MapPin,
   Phone,
   Mail,
-  ExternalLink,
   Box,
 } from "lucide-react";
 import Navigation from "@/components/Navigation";
@@ -243,7 +242,7 @@ const stats = [
     value: 50,
     suffix: "+",
     label: "Engineers Worldwide",
-    sub: "US, India & Remote",
+    sub: "US & Remote",
   },
   {
     value: 99,
@@ -1549,69 +1548,6 @@ export default function Home() {
             </div>
           </div>
         </section>
-        {/* ══════════════════════════════════════════════════════════════════════
-          INDIA OPS BANNER — SafeCodeX mention
-      ══════════════════════════════════════════════════════════════════════ */}
-        <section
-          className="py-12"
-          style={{ borderTop: "1px solid rgba(124,58,237,0.1)" }}
-        >
-          <div className="max-w-7xl mx-auto px-6 lg:px-10">
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6 }}
-              className="flex flex-col lg:flex-row items-center justify-between gap-6 p-6 lg:p-8 rounded-2xl"
-              style={{
-                background:
-                  "linear-gradient(135deg, rgba(124,58,237,0.1) 0%, rgba(5,6,15,0.8) 100%)",
-                border: "1px solid rgba(124,58,237,0.2)",
-                boxShadow: "inset 0 1px 0 rgba(255,255,255,0.04)",
-              }}
-            >
-              <div className="flex items-center gap-5">
-                <div
-                  className="w-12 h-12 rounded-xl flex items-center justify-center text-2xl flex-shrink-0"
-                  style={{
-                    background: "rgba(124,58,237,0.18)",
-                    border: "1px solid rgba(124,58,237,0.25)",
-                  }}
-                >
-                  🇮🇳
-                </div>
-                <div>
-                  <div className="flex items-center gap-2 mb-1">
-                    <span className="text-white font-bold">
-                      SafeCodeX Research Center
-                    </span>
-                    <span
-                      className="px-2 py-0.5 rounded-full text-xs font-semibold"
-                      style={{
-                        background: "rgba(124,58,237,0.2)",
-                        color: "rgba(196,181,253,0.9)",
-                      }}
-                    >
-                      India Operations
-                    </span>
-                  </div>
-                  <p className="text-slate-400 text-sm">
-                    Our Hyderabad-based engineering support office handles QA
-                    testing, embedded firmware research, and mobile app
-                    development operations from Santa Clara. SafeCodeX operates
-                    as an integral part of the AGL delivery pipeline.
-                  </p>
-                </div>
-              </div>
-              <Link href="/safecodex-research" className="flex-shrink-0">
-                <button className="flex items-center gap-2 px-5 py-2.5 rounded-xl border border-white/15 text-white text-sm font-semibold hover:bg-white/8 transition-all whitespace-nowrap">
-                  Learn More <ExternalLink className="w-3.5 h-3.5" />
-                </button>
-              </Link>
-            </motion.div>
-          </div>
-        </section>
-
         {/* ══════════════════════════════════════════════════════════════════════
           CTA SECTION — Full-bleed premium call to action
       ══════════════════════════════════════════════════════════════════════ */}

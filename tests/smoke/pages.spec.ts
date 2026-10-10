@@ -12,12 +12,6 @@ const PAGES = [
     mustContain: ["American Group"],
   },
   { path: "/agl", name: "AGL Alias", mustContain: ["American Group"] },
-  {
-    path: "/safecodex-research",
-    name: "SCG Full Path",
-    mustContain: ["SafeCode"],
-  },
-  { path: "/scg", name: "SCG Alias", mustContain: ["SafeCode"] },
   { path: "/products", name: "Products", mustContain: ["Products"] },
   {
     path: "/products/cognicore",

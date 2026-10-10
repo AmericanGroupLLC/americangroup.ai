@@ -1,5 +1,5 @@
 /**
- * Privacy Policy Page — American Group LLC & SafeCodeX Research Center
+ * Privacy Policy Page — American Group LLC
  * "Luminous Clarity" Design System
  *
  * Comprehensive single-page Privacy Policy satisfying:
@@ -40,7 +40,6 @@ const EFFECTIVE_DATE = "July 19, 2026";
 const CONTACT_EMAIL = "contact@americangroup.ai";
 const PRIVACY_EMAIL = "contact@americangroup.ai";
 const COMPANY_NAME = "American Group LLC";
-const INDIA_ENTITY = "SafeCodeX Research Center Pvt. Ltd.";
 const HQ_ADDRESS = "Santa Clara, California, USA";
 const DEVELOPER_NAME = "American Group LLC";
 const GOOGLE_PLAY_DEVELOPER = "American Group LLC";
@@ -416,26 +415,20 @@ export default function PrivacyPolicyPage() {
 
               <p className="text-slate-300 leading-relaxed mb-4">
                 This Privacy Policy describes how{" "}
-                <strong className="text-white">{COMPANY_NAME}</strong> (also
-                operating as{" "}
-                <strong className="text-white">{INDIA_ENTITY}</strong>, our
-                India engineering office) collects, uses, stores, and shares
-                information when you use any of our mobile applications, web
-                applications, software products, or services (collectively, the{" "}
-                <strong>"Services"</strong>).
+                <strong className="text-white">{COMPANY_NAME}</strong> collects,
+                uses, stores, and shares information when you use any of our
+                mobile applications, web applications, software products, or
+                services (collectively, the <strong>"Services"</strong>).
               </p>
               <p className="text-slate-300 leading-relaxed mb-4">
                 This policy applies to all{" "}
                 <strong className="text-white">77 products</strong> published
                 under the{" "}
-                <strong className="text-white">American Group LLC</strong> and{" "}
-                <strong className="text-white">
-                  SafeCodeX Research Center
-                </strong>{" "}
-                brands across six verticals: Enterprise AI &amp; DevTools,
-                Consumer Mobile &amp; Lifestyle, FinTech &amp; E-Commerce,
-                CyberSecurity &amp; Infrastructure, Spatial &amp; Industry SaaS,
-                and IoT &amp; Hardware.
+                <strong className="text-white">American Group LLC</strong> brand
+                across six verticals: Enterprise AI &amp; DevTools, Consumer
+                Mobile &amp; Lifestyle, FinTech &amp; E-Commerce, CyberSecurity
+                &amp; Infrastructure, Spatial &amp; Industry SaaS, and IoT &amp;
+                Hardware.
               </p>
               <InfoBox type="important">
                 <strong>
@@ -466,21 +459,10 @@ export default function PrivacyPolicyPage() {
                         American Group LLC
                       </td>
                       <td className="px-4 py-3 border border-white/10 text-slate-300">
-                        Data Controller / Developer / Parent Organization
+                        Data Controller / Developer
                       </td>
                       <td className="px-4 py-3 border border-white/10 text-slate-300">
                         Santa Clara, California, USA
-                      </td>
-                    </tr>
-                    <tr style={{ background: "rgba(255,255,255,0.01)" }}>
-                      <td className="px-4 py-3 border border-white/10 text-slate-200 font-medium">
-                        SafeCodeX Research Center Pvt. Ltd.
-                      </td>
-                      <td className="px-4 py-3 border border-white/10 text-slate-300">
-                        Data Processor / India Engineering Office
-                      </td>
-                      <td className="px-4 py-3 border border-white/10 text-slate-300">
-                        Hyderabad, India
                       </td>
                     </tr>
                   </tbody>
@@ -856,7 +838,8 @@ export default function PrivacyPolicyPage() {
                 trusted cloud service providers (including but not limited to
                 Amazon Web Services, Google Cloud Platform, and Microsoft
                 Azure). Data may be processed and stored in the United States
-                and/or India, depending on the service.
+                and in other countries where those providers operate, depending
+                on the service.
               </p>
               <p className="text-slate-300 leading-relaxed mb-5">
                 We implement industry-standard security measures to protect your
@@ -1475,7 +1458,7 @@ export default function PrivacyPolicyPage() {
                 If you have any questions, concerns, or requests regarding this
                 Privacy Policy or our data practices, please contact us:
               </p>
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 mb-6">
+              <div className="grid grid-cols-1 gap-5 mb-6 max-w-xl">
                 {[
                   {
                     entity: "American Group LLC",
@@ -1485,15 +1468,6 @@ export default function PrivacyPolicyPage() {
                     email: PRIVACY_EMAIL,
                     flag: "🇺🇸",
                     color: "oklch(0.52 0.22 270)",
-                  },
-                  {
-                    entity: "SafeCodeX Research Center Pvt. Ltd.",
-                    role: "Data Processor (India)",
-                    address: "Hyderabad, India",
-                    phone: "+91 74168 66689",
-                    email: PRIVACY_EMAIL,
-                    flag: "🇮🇳",
-                    color: "oklch(0.78 0.18 75)",
                   },
                 ].map((c, i) => (
                   <div
@@ -1547,7 +1521,7 @@ export default function PrivacyPolicyPage() {
                           {c.email}
                         </a>
                         <span className="text-xs text-slate-400">
-                          (Privacy / Support)
+                          (Privacy)
                         </span>
                       </div>
                     </div>
@@ -1569,8 +1543,8 @@ export default function PrivacyPolicyPage() {
                 <strong>{LAST_UPDATED}</strong> and is effective as of{" "}
                 <strong>{EFFECTIVE_DATE}</strong>. This policy applies to all
                 applications and services published by{" "}
-                <strong>{COMPANY_NAME}</strong> ({INDIA_ENTITY}). The developer
-                name on Google Play Store and Apple App Store is{" "}
+                <strong>{COMPANY_NAME}</strong>. The developer name on Google
+                Play Store and Apple App Store is{" "}
                 <strong>{DEVELOPER_NAME}</strong>. For app-specific privacy
                 details, refer to the individual app's listing on the Apple App
                 Store or Google Play Store.

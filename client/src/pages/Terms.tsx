@@ -1,6 +1,6 @@
 /**
  * Terms of Service Page — /terms
- * Covers all 77 apps under American Group LLC & SafeCodeX.
+ * Covers all 77 apps under American Group LLC.
  * Design: "Luminous Clarity" — Deep Navy + Electric Indigo + Saffron Gold
  */
 import { useEffect, useState } from "react";
@@ -21,6 +21,7 @@ import {
 const EFFECTIVE_DATE = "June 17, 2026";
 const LAST_UPDATED = "June 17, 2026";
 const CONTACT_EMAIL = "contact@americangroup.ai";
+const SUPPORT_EMAIL = "support@americangroup.ai";
 const COMPANY_NAME = "American Group LLC";
 const COMPANY_STATE = "California";
 const COMPANY_COUNTRY = "United States";
@@ -160,8 +161,7 @@ export default function Terms() {
           </h1>
           <p className="text-slate-300 max-w-2xl mb-6">
             These Terms govern your use of all applications and services
-            published by <strong className="text-white">{COMPANY_NAME}</strong>{" "}
-            and SafeCodeX Research Center Pvt. Ltd.
+            published by <strong className="text-white">{COMPANY_NAME}</strong>.
           </p>
           <div className="flex flex-wrap gap-4 text-xs text-slate-400">
             <span>
@@ -245,9 +245,8 @@ export default function Terms() {
                 <p className="text-slate-300 mb-3">
                   By accessing or using any application, website, or service
                   ("Services") provided by <strong>{COMPANY_NAME}</strong>{" "}
-                  ("Company," "we," "us," or "our") or its affiliate SafeCodeX
-                  Research Center Pvt. Ltd., you agree to be bound by these
-                  Terms of Service ("Terms") and our{" "}
+                  ("Company," "we," "us," or "our"), you agree to be bound by
+                  these Terms of Service ("Terms") and our{" "}
                   <Link
                     href="/privacy-policy"
                     className="text-indigo-600 hover:underline"
@@ -461,10 +460,10 @@ export default function Terms() {
                   Subscriptions. Android — Google Play → Subscriptions. Contact
                   us at{" "}
                   <a
-                    href={`mailto:${CONTACT_EMAIL}`}
+                    href={`mailto:${SUPPORT_EMAIL}`}
                     className="text-indigo-600 hover:underline"
                   >
-                    {CONTACT_EMAIL}
+                    {SUPPORT_EMAIL}
                   </a>{" "}
                   for billing support.
                 </p>
@@ -683,7 +682,7 @@ export default function Terms() {
                   If you have any questions about these Terms of Service, please
                   contact us:
                 </p>
-                <div className="not-prose grid md:grid-cols-2 gap-4">
+                <div className="not-prose grid gap-4 max-w-md">
                   <div className="p-5 rounded-2xl border border-white/10 bg-white/[0.03]">
                     <div className="flex items-center gap-2 mb-3">
                       <span className="text-xl">🇺🇸</span>
@@ -700,24 +699,6 @@ export default function Terms() {
                         <Mail className="h-3.5 w-3.5" /> {CONTACT_EMAIL}
                       </a>
                       <div className="font-mono text-xs">+1 (510) 458-9059</div>
-                    </div>
-                  </div>
-                  <div className="p-5 rounded-2xl border border-white/10 bg-white/[0.03]">
-                    <div className="flex items-center gap-2 mb-3">
-                      <span className="text-xl">🇮🇳</span>
-                      <div className="font-bold text-white text-sm">
-                        SafeCodeX Research Center Pvt. Ltd.
-                      </div>
-                    </div>
-                    <div className="space-y-1.5 text-sm text-slate-300">
-                      <div>Hyderabad, India</div>
-                      <a
-                        href={`mailto:${CONTACT_EMAIL}`}
-                        className="flex items-center gap-2 text-indigo-600 hover:underline"
-                      >
-                        <Mail className="h-3.5 w-3.5" /> {CONTACT_EMAIL}
-                      </a>
-                      <div className="font-mono text-xs">+91 74168 66689</div>
                     </div>
                   </div>
                 </div>

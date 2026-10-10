@@ -6,7 +6,6 @@ import ErrorBoundary from "./components/ErrorBoundary";
 import { ThemeProvider } from "./contexts/ThemeContext";
 import Home from "./pages/Home";
 import AGLPage from "./pages/AGL";
-import SCGPage from "./pages/SCG";
 import ProductsPage from "./pages/Products";
 import AboutPage from "./pages/About";
 import ContactPage from "./pages/Contact";
@@ -24,8 +23,6 @@ function Router() {
       <Route path="/" component={Home} />
       <Route path="/american-group-llc" component={AGLPage} />
       <Route path="/agl" component={AGLPage} />
-      <Route path="/safecodex-research" component={SCGPage} />
-      <Route path="/scg" component={SCGPage} />
       <Route path="/products/:slug" component={ProductDetailPage} />
       <Route path="/products" component={ProductsPage} />
       <Route path="/dimensions" component={DimensionsPage} />
