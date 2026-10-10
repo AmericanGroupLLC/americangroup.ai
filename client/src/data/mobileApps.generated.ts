@@ -29,7 +29,7 @@ export const mobileAppListings: MobileAppListing[] = [
     description:
       "AeroSwift is a flight tracker with one job: tell you where an aircraft is and when it is going to land, without an account and without noise.",
     longDescription:
-      "AeroSwift is a flight tracker with one job: tell you where an aircraft is and when it is going to land, without an account and without noise.\n\nWHAT IT DOES\n• Search a flight by callsign and open a detail view with altitude, aircraft, route, and scheduled versus actual times.\n• Open any airport's board and read its arrivals and departures over a window you choose.\n• Save the flights you follow so they are one tap away next time.\n• A route diagram and a status chip summarise the leg at a glance.\n\nABOUT THE DATA\nAeroSwift ships with an offline sample data set so the app is fully navigable the moment you install it. Switch to live data from the OpenSky Network in Settings — the endpoints AeroSwift uses need no key and no sign-up. A banner in the app always tells you which source you are looking at, so you are never guessing whether a number is real.\n\nNO ACCOUNT\nThere is no login, no profile, and nothing to subscribe to. Saved flights and your data-source choice stay on the device.",
+      "AeroSwift is a flight tracker with one job: tell you where an aircraft is and when it is going to land, without an account and without noise.\n\nWHAT IT DOES\n• Search a flight by callsign and open a detail view with altitude, aircraft, route, and scheduled versus actual times.\n• Open any airport's board and read its arrivals and departures over a window you choose.\n• Save the flights you follow so they are one tap away next time.\n• A route diagram and a status chip summarise the leg at a glance.\n\nABOUT THE DATA\nAll flight data is live ADS-B data from the OpenSky Network — the endpoints AeroSwift uses need no key and no sign-up. AeroSwift never invents flight information: when OpenSky does not report a field, the app says so instead of filling the gap.\n\nNO ACCOUNT\nThere is no login, no profile, and nothing to subscribe to. Saved flights and your settings stay on the device.",
     category: "Travel & Aviation",
     icon: "✈️",
     color: "#0EA5E9",
@@ -42,12 +42,12 @@ export const mobileAppListings: MobileAppListing[] = [
       {
         title: "About The Data",
         description:
-          "AeroSwift ships with an offline sample data set so the app is fully navigable the moment you install it. Switch to live data from the OpenSky Network in Settings — the endpoints AeroSwift uses need no key and no sign-up.",
+          "All flight data is live ADS-B data from the OpenSky Network — the endpoints AeroSwift uses need no key and no sign-up. AeroSwift never invents flight information: when OpenSky does not report a field, the app says so instead of filling the gap.",
       },
       {
         title: "No Account",
         description:
-          "There is no login, no profile, and nothing to subscribe to. Saved flights and your data-source choice stay on the device.",
+          "There is no login, no profile, and nothing to subscribe to. Saved flights and your settings stay on the device.",
       },
     ],
     tags: [
@@ -149,11 +149,10 @@ export const mobileAppListings: MobileAppListing[] = [
     repo: "AGRecorder",
     slug: "agrecorder",
     name: "AGRecorder",
-    tagline: "Voice recorder with location",
-    description:
-      "AGRecorder is a voice recorder that remembers where you were.",
+    tagline: "Audio recorder, on-device",
+    description: "AGRecorder is a simple audio recorder.",
     longDescription:
-      "AGRecorder is a voice recorder that remembers where you were.\n\nRECORD\nOne button. Start, stop, done. Audio is captured as AAC and written straight to your device.\n\nLOCATION\nEach recording can carry the coordinates it was made at. AGRecorder asks the device for GPS first; if that is unavailable it falls back to an approximate lookup, and it always tells you which of the two produced the fix rather than presenting a guess as a reading.\n\nPERMISSIONS, PLAINLY\nMicrophone access is what makes the app work. Location is used only to tag a recording, and only if you let it. Nothing is uploaded on your behalf.",
+      "AGRecorder is a simple audio recorder.\n\nRECORD\nOne button. Start, stop, done. Audio is captured from the microphone as AAC and written straight to your device.\n\nON YOUR DEVICE\nRecordings are saved in the app's storage on this device. There is no account, no cloud sync and no upload.\n\nPERMISSIONS, PLAINLY\nMicrophone access is what makes the app work. Your recordings are never uploaded.",
     category: "Productivity & Tools",
     icon: "🛠️",
     color: "#6366F1",
@@ -161,16 +160,17 @@ export const mobileAppListings: MobileAppListing[] = [
       {
         title: "Record",
         description:
-          "One button. Start, stop, done. Audio is captured as AAC and written straight to your device.",
+          "One button. Start, stop, done. Audio is captured from the microphone as AAC and written straight to your device.",
       },
       {
-        title: "Location",
-        description: "Each recording can carry the coordinates it was made at.",
+        title: "On Your Device",
+        description:
+          "Recordings are saved in the app's storage on this device. There is no account, no cloud sync and no upload.",
       },
       {
         title: "Permissions, Plainly",
         description:
-          "Microphone access is what makes the app work. Location is used only to tag a recording, and only if you let it. Nothing is uploaded on your behalf.",
+          "Microphone access is what makes the app work. Your recordings are never uploaded.",
       },
     ],
     tags: [
@@ -178,10 +178,10 @@ export const mobileAppListings: MobileAppListing[] = [
       "recorder",
       "audio",
       "memo",
-      "gps",
-      "location",
       "dictation",
       "field recording",
+      "notes",
+      "microphone",
     ],
     status: "Beta",
     appStoreUrl: null,
@@ -195,7 +195,7 @@ export const mobileAppListings: MobileAppListing[] = [
     tagline: "Prompt to picture",
     description: "AGStudio turns a written prompt into an image.",
     longDescription:
-      "AGStudio turns a written prompt into an image.\n\nMAKE SOMETHING\nType what you want. Choose a style — photorealistic, cinematic, anime, cyberpunk, fantasy, abstract, minimal, or neon — and a resolution. AGStudio checks the prompt before it spends anything on it.\n\nKEEP IT\nEverything you generate lands in a gallery on your device. Open any result full size, save it to your photo library, or share it.\n\nNO ACCOUNT\nAGStudio does not ask you to register. Your history is on your phone.",
+      "AGStudio turns a written prompt into an image.\n\nMAKE SOMETHING\nType what you want. Choose a style — photorealistic, cinematic, anime, cyberpunk, fantasy, abstract, minimal, or neon — and a resolution. AGStudio checks the prompt before sending it.\n\nWHERE IMAGES COME FROM\nYour prompt is sent to Pollinations.ai, a free public AI image service, which draws the image. Images are 512×512 or 768×768 and carry a small Pollinations logo. The free service limits how often you can generate; if it is busy, wait a minute and try again.\n\nKEEP IT\nEverything you generate lands in a gallery on your device. Open any result full size, save it to your photo library, or share it.\n\nNO ACCOUNT\nAGStudio does not ask you to register. Your history is on your phone.",
     category: "Entertainment & Gaming",
     icon: "🎵",
     color: "#A855F7",
@@ -203,7 +203,12 @@ export const mobileAppListings: MobileAppListing[] = [
       {
         title: "Make Something",
         description:
-          "Type what you want. Choose a style — photorealistic, cinematic, anime, cyberpunk, fantasy, abstract, minimal, or neon — and a resolution. AGStudio checks the prompt before it spends anything on it.",
+          "Type what you want. Choose a style — photorealistic, cinematic, anime, cyberpunk, fantasy, abstract, minimal, or neon — and a resolution. AGStudio checks the prompt before sending it.",
+      },
+      {
+        title: "Where Images Come From",
+        description:
+          "Your prompt is sent to Pollinations.ai, a free public AI image service, which draws the image. Images are 512×512 or 768×768 and carry a small Pollinations logo. The free service limits how often you can generate; if it is busy, wait a minute and try again.",
       },
       {
         title: "Keep It",
@@ -293,7 +298,7 @@ export const mobileAppListings: MobileAppListing[] = [
     description:
       "BodyQuest teaches wellness by letting you play with it, instead of lecturing you about it.",
     longDescription:
-      "BodyQuest teaches wellness by letting you play with it, instead of lecturing you about it.\n\n—— Six modules ——\n\nCARE\nThe basics of looking after yourself, framed as something you do rather than something you read.\n\nDIET\nHow food actually works, without a calorie ledger.\n\nWORKOUT\nMovement you can do without equipment or a gym membership.\n\nEXPLORE\nWander through the topics and find what you did not know you wanted.\n\nGAMES\nThe learning, as play.\n\nBREATHE\nGuided breathing, for when you need the simplest thing that works.\n\n—— How it is set up ——\n\nA one-time health disclaimer on first launch, then sign-in, then a dashboard across the six modules. There is a shop with product suggestions and an optional Premium upgrade.\n\n—— Ads, purchases and shop links ——\n\nBodyQuest is free and shows ads through Google AdMob. On iOS you will be asked whether the app may use your device's advertising identifier; you can decline and everything still works. An optional Premium upgrade is available. The Shop links out to Amazon and iHerb using affiliate tags, which means a purchase may earn us a commission at no extra cost to you.\n\n—— Education, not medical advice ——\n\nBodyQuest is a health-education game. It is not a medical device, it does not diagnose or treat anything, and nothing in it is medical advice — including any product shown in the Shop. Talk to a qualified clinician before changing your diet, starting an exercise programme, or taking any supplement.",
+      "BodyQuest teaches wellness by letting you play with it, instead of lecturing you about it.\n\n—— Six modules ——\n\nCARE\nThe basics of looking after yourself, framed as something you do rather than something you read.\n\nDIET\nHow food actually works, without a calorie ledger.\n\nWORKOUT\nMovement you can do without equipment or a gym membership.\n\nEXPLORE\nWander through the topics and find what you did not know you wanted.\n\nGAMES\nThe learning, as play.\n\nBREATHE\nGuided breathing, for when you need the simplest thing that works.\n\n—— How it is set up ——\n\nA one-time health disclaimer on first launch, then sign-in, then a dashboard across the six modules. There is a shop with product suggestions.\n\n—— Ads and shop links ——\n\nBodyQuest is free and shows ads through Google AdMob. The Shop links out to Amazon and iHerb using affiliate tags, which means a purchase may earn us a commission at no extra cost to you.\n\n—— Education, not medical advice ——\n\nBodyQuest is a health-education game. It is not a medical device, it does not diagnose or treat anything, and nothing in it is medical advice — including any product shown in the Shop. Talk to a qualified clinician before changing your diet, starting an exercise programme, or taking any supplement.",
     category: "Health & Wellness",
     icon: "❤️",
     color: "#EF4444",
@@ -399,7 +404,7 @@ export const mobileAppListings: MobileAppListing[] = [
     description:
       "CalcMaster is the only calculator you need on your phone. One polished app, ten unit categories, five calculator modes, seven finance tools, eight engineering utilities, and a notes pad — all designed for travelers, students, freelancers, and anyone who does the math.",
     longDescription:
-      "CalcMaster is the only calculator you need on your phone. One polished app, ten unit categories, five calculator modes, seven finance tools, eight engineering utilities, and a notes pad — all designed for travelers, students, freelancers, and anyone who does the math.\n\n—— What you can do ——\n\nCONVERT (10 categories)\nDistance · Volume · Weight · Temperature · Speed · Area · Data Size · Fuel Economy · Pressure · Energy. Tap any category, type a value, and instantly see every other unit. Big accent-tinted result + a complete cross-reference list.\n\nCALCULATE (5 modes)\nStandard four-function · Scientific (sin / cos / tan / log / ln / √ / x^y / n!) · Percentage (X% of Y, % change, increase/decrease) · Base converter (binary / octal / decimal / hex) · Fraction (add, subtract, multiply, divide, simplify, mixed numbers).\n\nFINANCE (7 tools)\nIncome tax with real 2025–2026 brackets for US, UK, EU, Canada, Australia, India, and Japan — including filing-status differences and standard deductions · Sales tax / VAT · Tip & split · Discount · Compound interest with optional monthly contributions · EMI / loan amortization · Live currency rates from the European Central Bank with offline fallback · Unit-price comparison.\n\nTOOLS (8 utilities)\nGPS coordinates (decimal ↔ DMS) with one-tap \"Use my location\" · Ohm's Law solver from any two of V, I, R, P · BMI with healthy-range bands · Date difference · World time zones · ADC / DAC voltage ↔ digital code · Age calculator · Aspect ratio.\n\nNOTES\nSave calculations, formulas, and reminders. Search, edit, delete. Stays on your device — no account, no sync.\n\n—— Why CalcMaster ——\n\n• Region-aware. Tap the flag in the header to switch between US, UK, EU, CA, AU, IN, JP. Currency, sales-tax defaults, and progressive tax brackets all update live.\n\n• Beautiful, dark, and fast. Hand-authored line-art icons, neon accents per category, and instant results — no spinners, no waiting.\n\n• Privacy first. Everything runs on-device. We don't ask you to log in, and we don't sell your data. The currency module fetches public European Central Bank rates; that's the only network call.\n\n• Offline ready. Convert, calculate, and budget without a signal. Currency rates cache locally and refresh when you reconnect.\n\n• Consistent and precise. The same calculations and the same answers every time, on every device you sign in from.\n\n—— CalcMaster Pro ——\n\nOptional subscription removes the small banner ad, refreshes currency rates instantly instead of every 24 hours, unlocks advanced finance insights, and supports indie development. Three tiers:\n• Monthly $2.99\n• Annual $19.99 (save 44%)\n• Lifetime $49.99 — pay once, own it forever\n\nCancel any time from your device's subscription settings.\n\n—— Built for ——\n\n• Travelers calculating tips and currency conversions abroad\n• Freelancers estimating taxes after every invoice\n• Students checking unit conversions and physics formulas\n• Engineers solving voltage drops and ADC resolution\n• Cooks scaling recipes between metric and imperial\n• Anyone tired of juggling six different apps to do the math\n\nDownload CalcMaster and replace your stock calculator. We think you'll like it.",
+      "CalcMaster is the only calculator you need on your phone. One polished app, ten unit categories, five calculator modes, seven finance tools, eight engineering utilities, and a notes pad — all designed for travelers, students, freelancers, and anyone who does the math.\n\n—— What you can do ——\n\nCONVERT (10 categories)\nDistance · Volume · Weight · Temperature · Speed · Area · Data Size · Fuel Economy · Pressure · Energy. Tap any category, type a value, and instantly see every other unit. Big accent-tinted result + a complete cross-reference list.\n\nCALCULATE (5 modes)\nStandard four-function · Scientific (sin / cos / tan / log / ln / √ / x^y / n!) · Percentage (X% of Y, % change, increase/decrease) · Base converter (binary / octal / decimal / hex) · Fraction (add, subtract, multiply, divide, simplify, mixed numbers).\n\nFINANCE (7 tools)\nIncome tax with real 2025–2026 brackets for US, UK, EU, Canada, Australia, India, and Japan — including filing-status differences and standard deductions · Sales tax / VAT · Tip & split · Discount · Compound interest with optional monthly contributions · EMI / loan amortization · Live currency rates from the European Central Bank with offline fallback · Unit-price comparison.\n\nTOOLS (8 utilities)\nGPS coordinates (decimal ↔ DMS) with one-tap \"Use my location\" · Ohm's Law solver from any two of V, I, R, P · BMI with healthy-range bands · Date difference · World time zones · ADC / DAC voltage ↔ digital code · Age calculator · Aspect ratio.\n\nNOTES\nSave calculations, formulas, and reminders. Search, edit, delete. Stays on your device — no account, no sync.\n\n—— Why CalcMaster ——\n\n• Region-aware. Tap the flag in the header to switch between US, UK, EU, CA, AU, IN, JP. Currency, sales-tax defaults, and progressive tax brackets all update live.\n\n• Beautiful, dark, and fast. Hand-authored line-art icons, neon accents per category, and instant results — no spinners, no waiting.\n\n• Privacy first. Everything runs on-device. We don't ask you to log in, and we don't sell your data. The currency module fetches public European Central Bank rates; that's the only network call.\n\n• Offline ready. Convert, calculate, and budget without a signal. Currency rates cache locally and refresh when you reconnect.\n\n• Consistent and precise. The same calculations and the same answers every time, on every device you sign in from.\n\n—— CalcMaster Pro ——\n\nOptional subscription removes the small banner ad, refreshes currency rates instantly instead of every 24 hours, unlocks advanced finance insights, and supports indie development. Choose monthly, annual, or a one-time lifetime purchase; prices are shown in the app in your local currency.\n\nCancel any time from your device's subscription settings.\n\n—— Built for ——\n\n• Travelers calculating tips and currency conversions abroad\n• Freelancers estimating taxes after every invoice\n• Students checking unit conversions and physics formulas\n• Engineers solving voltage drops and ADC resolution\n• Cooks scaling recipes between metric and imperial\n• Anyone tired of juggling six different apps to do the math\n\nDownload CalcMaster and replace your stock calculator. We think you'll like it.",
     category: "Productivity & Tools",
     icon: "🛠️",
     color: "#6366F1",
@@ -450,50 +455,35 @@ export const mobileAppListings: MobileAppListing[] = [
     repo: "CarDeal",
     slug: "cardeal",
     name: "iCarDeal",
-    tagline: "Is this car a good price?",
+    tagline: "Car payment & budget planner",
     description:
-      "CarDeal helps you tell a good used-car price from a confident one.",
+      "CarDeal helps you work out what you can afford before you talk to anyone.",
     longDescription:
-      "CarDeal helps you tell a good used-car price from a confident one.\n\nSEARCH\nFilter inventory by body type, budget, and condition, and save the searches you keep coming back to.\n\nRATED, NOT JUST LISTED\nEvery listing carries a deal rating with the reasoning behind it, so you know whether the number in front of you is fair.\n\nWHAT IT REALLY COSTS\nWork the finance out before you talk to anyone: APR, term, sales tax, and the monthly payment that falls out of them. Set a budget and see what fits inside it.\n\nCOMPARE\nPut candidates side by side on price, mileage, accident history, and specification.\n\nSAVED\nKeep the cars you are still considering. Everything is stored on your device.\n\nCarDeal earns a commission on some outbound links to sellers. That does not change a car's rating.",
+      "CarDeal helps you work out what you can afford before you talk to anyone.\n\nWHAT FITS YOUR BUDGET\nSet the monthly payment you can manage, your down payment, the APR, sales tax and loan term, and see the most you can pay for a car. It also shows how much extra interest a longer term costs you.\n\nFIND REAL LISTINGS\nThis version has no car listings of its own. It says so plainly and links you to AutoTrader and CarMax to search real inventory there.\n\nNo account is needed. Your settings are stored on your device.\n\nCarDeal earns a commission on some outbound links to AutoTrader and CarMax.",
     category: "E-Commerce & Deals",
     icon: "🛒",
     color: "#F59E0B",
     features: [
       {
-        title: "Search",
+        title: "What Fits Your Budget",
         description:
-          "Filter inventory by body type, budget, and condition, and save the searches you keep coming back to.",
+          "Set the monthly payment you can manage, your down payment, the APR, sales tax and loan term, and see the most you can pay for a car. It also shows how much extra interest a longer term costs you.",
       },
       {
-        title: "Rated, Not Just Listed",
+        title: "Find Real Listings",
         description:
-          "Every listing carries a deal rating with the reasoning behind it, so you know whether the number in front of you is fair.",
-      },
-      {
-        title: "What It Really Costs",
-        description:
-          "Work the finance out before you talk to anyone: APR, term, sales tax, and the monthly payment that falls out of them. Set a budget and see what fits inside it.",
-      },
-      {
-        title: "Compare",
-        description:
-          "Put candidates side by side on price, mileage, accident history, and specification.",
-      },
-      {
-        title: "Saved",
-        description:
-          "Keep the cars you are still considering. Everything is stored on your device.",
+          "This version has no car listings of its own. It says so plainly and links you to AutoTrader and CarMax to search real inventory there.",
       },
     ],
     tags: [
-      "used cars",
-      "car deals",
-      "auto",
-      "finance",
+      "car payment",
+      "car loan",
+      "auto finance",
       "apr",
       "monthly payment",
-      "compare",
-      "listings",
+      "budget",
+      "affordability",
+      "car buying",
     ],
     status: "Beta",
     appStoreUrl: null,
@@ -605,7 +595,7 @@ export const mobileAppListings: MobileAppListing[] = [
     description:
       "Daily Pulse puts the things you check every morning on one screen, then lets you shape the rest.",
     longDescription:
-      'Daily Pulse puts the things you check every morning on one screen, then lets you shape the rest.\n\n—— The morning dashboard ——\n\nA greeting, live weather and air quality for where you are, your stock watchlist, and the day\'s top stories. One scroll instead of four apps.\n\n—— Feeds that respect your mood ——\n\nGOOD NEWS\nArticles scored as positive by sentiment analysis. A real feed, not a gimmick — some mornings you want the news without the dread.\n\nALERTS\nThe opposite filter: critical and negative-sentiment breaking stories, when you do want to know.\n\nWORLD NEWS\nGlobal headlines with country-level filtering and hashtag navigation.\n\nMY FEED\nShaped by the interests and location you set.\n\n—— Pages you create by asking ——\n\nTell the built-in assistant what you want and it builds the page:\n\n• "Add a crypto page" — a live crypto page from CoinGecko\n• "Add local news for Tokyo" — a geo-scoped news page\n• "What\'s the weather?" — live conditions for your city\n• "Give me today\'s briefing" — a location and weather summary\n\nThe assistant runs on a rule-based engine on your device. It does not send your conversation to an external AI service.\n\n—— Nine languages ——\n\nEnglish, Spanish, German, French, Portuguese, Arabic, Hindi, Japanese and Chinese.\n\n—— Where the data comes from ——\n\nWeather and air quality from Open-Meteo, crypto from CoinGecko, and public news sources. Named openly, because you should know what your morning briefing is built on.',
+      'Daily Pulse puts the things you check every morning on one screen, then lets you shape the rest.\n\n—— The morning dashboard ——\n\nA greeting, live weather and air quality for where you are, your stock watchlist, and the day\'s top stories. One scroll instead of four apps.\n\n—— Feeds that respect your mood ——\n\nGOOD NEWS\nArticles scored as positive by sentiment analysis. A real feed, not a gimmick — some mornings you want the news without the dread.\n\nALERTS\nThe opposite filter: critical and negative-sentiment breaking stories, when you do want to know.\n\nWORLD NEWS\nGlobal headlines with country-level filtering and hashtag navigation.\n\nMY FEED\nShaped by the interests and location you set.\n\n—— Pages you create by asking ——\n\nTell the built-in assistant what you want and it builds the page:\n\n• "Add a crypto page" — a crypto news page\n• "Add local news for Tokyo" — a geo-scoped news page\n• "What\'s the weather?" — live conditions for your city\n• "Give me today\'s briefing" — a location and weather summary\n\nThe assistant runs on a rule-based engine on your device. It does not send your conversation to an external AI service.\n\n—— Nine languages ——\n\nEnglish, Spanish, German, French, Portuguese, Arabic, Hindi, Japanese and Chinese.\n\n—— Where the data comes from ——\n\nWeather and air quality from Open-Meteo, stock quotes from Yahoo Finance, crypto from CoinGecko, and public news sources. Named openly, because you should know what your morning briefing is built on.',
     category: "Social & Communication",
     icon: "💬",
     color: "#EC4899",
@@ -710,7 +700,7 @@ export const mobileAppListings: MobileAppListing[] = [
     tagline: "Find events, run events",
     description: "EventSpark is both sides of an event.",
     longDescription:
-      "EventSpark is both sides of an event.\n\nGOING\nDiscover what is on near you or in a city you pick, filter it down, and save what you like. Buy into a tier, keep the ticket in the app, and follow the agenda for the day. Some events run a live video room you can join from the listing.\n\nHOSTING\nCreate an event, set your ticket tiers, and manage it from your phone. Check attendees in at the door, see who has arrived, and read the analytics afterwards.\n\nYOURS\nSaved events, tickets and your profile stay on your device unless you are signed in to a host account.",
+      "EventSpark is both sides of an event.\n\nGOING\nLive event listings, prices and ticket checkout are coming soon. Until the ticketing partnerships are signed, the app says so plainly instead of showing sample events, organisers, agendas or prices.\n\nHOSTING\nCreate an event, set your ticket tiers, and manage it from your phone. Check attendees in at the door, see who has arrived, and read the analytics afterwards.\n\nYOURS\nSaved events, tickets and your profile stay on your device unless you are signed in to a host account.",
     category: "Entertainment & Gaming",
     icon: "🎵",
     color: "#A855F7",
@@ -718,7 +708,7 @@ export const mobileAppListings: MobileAppListing[] = [
       {
         title: "Going",
         description:
-          "Discover what is on near you or in a city you pick, filter it down, and save what you like. Buy into a tier, keep the ticket in the app, and follow the agenda for the day. Some events run a live video room you can join from the listing.",
+          "Live event listings, prices and ticket checkout are coming soon. Until the ticketing partnerships are signed, the app says so plainly instead of showing sample events, organisers, agendas or prices.",
       },
       {
         title: "Hosting",
@@ -750,41 +740,31 @@ export const mobileAppListings: MobileAppListing[] = [
     repo: "FashionFactory",
     slug: "fashionfactory",
     name: "Fashion Factory: Deals",
-    tagline: "Compare prices, track drops",
+    tagline: "Price comparison, coming soon",
     description:
-      "Fashion Factory answers one question well: where is this cheapest right now, and is this a good time to buy?",
+      "Fashion Factory is a price-comparison app for fashion, shoes, bags, perfume, watches and tech.",
     longDescription:
-      "Fashion Factory answers one question well: where is this cheapest right now, and is this a good time to buy?\n\nSearch a product and the app finds its price at every store that stocks it, lays those prices side by side, and shows what the price has been doing over time. Set an alert and you hear about it the moment it drops.\n\n—— Six categories ——\n\nFashion · Shoes · Bags · Perfume · Watches · Tech. One app instead of six, because the question is the same in all of them.\n\n—— What you can do ——\n\nCOMPARE\nA single table of every store carrying the product, with the real total rather than a headline price.\n\nPRICE HISTORY\nSee whether today's \"sale\" is actually a discount or just a return to the usual price.\n\nDROP ALERTS\nSave a product and get notified when its price falls.\n\nBROWSE AND DEALS\nA curated deals feed, plus browsing by category when you do not have something specific in mind.\n\nSAVED\nEverything you are watching in one list.\n\n—— No account needed ——\n\nThere is no sign-up and no login. Open the app and search.\n\n—— About prices ——\n\nPrices and availability come from retailer sources and change constantly. Fashion Factory shows you what it last saw; always confirm the final price at the retailer's own checkout before buying.",
+      "Fashion Factory is a price-comparison app for fashion, shoes, bags, perfume, watches and tech.\n\n—— Where it stands today ——\n\nLive store prices are not connected yet. Until our price feed is live, the app shows no products and no prices, and says so on every screen. It never shows sample or made-up prices in their place.\n\n—— What it will do once prices are connected ——\n\nCOMPARE\nA table of the stores carrying a product, side by side.\n\nSAVE\nSave products to one list on your device, with an optional price threshold that highlights an item when its price falls below it. There are no push notifications.\n\nBROWSE AND DEALS\nBrowse six categories, or sort what is on sale by its discount.\n\n—— No account needed ——\n\nThere is no sign-up and no login. Your saved list stays on your device.",
     category: "Social & Communication",
     icon: "💬",
     color: "#EC4899",
     features: [
       {
         title: "Compare",
-        description:
-          "A single table of every store carrying the product, with the real total rather than a headline price.",
+        description: "A table of the stores carrying a product, side by side.",
       },
       {
-        title: "Price History",
+        title: "Save",
         description:
-          'See whether today\'s "sale" is actually a discount or just a return to the usual price.',
-      },
-      {
-        title: "Drop Alerts",
-        description: "Save a product and get notified when its price falls.",
+          "Save products to one list on your device, with an optional price threshold that highlights an item when its price falls below it. There are no push notifications.",
       },
       {
         title: "Browse And Deals",
         description:
-          "A curated deals feed, plus browsing by category when you do not have something specific in mind.",
-      },
-      {
-        title: "Saved",
-        description: "Everything you are watching in one list.",
+          "Browse six categories, or sort what is on sale by its discount.",
       },
     ],
     tags: [
-      "deals",
       "price comparison",
       "shopping",
       "fashion",
@@ -792,6 +772,7 @@ export const mobileAppListings: MobileAppListing[] = [
       "bags",
       "perfume",
       "watches",
+      "tech",
     ],
     status: "Beta",
     appStoreUrl: null,
@@ -806,7 +787,7 @@ export const mobileAppListings: MobileAppListing[] = [
     description:
       "GadgetNest is for the part of buying a gadget that happens before you buy it.",
     longDescription:
-      'GadgetNest is for the part of buying a gadget that happens before you buy it.\n\nBROWSE AND COMPARE\nWork through categories, open a product for its full specs, and put several side by side. GadgetNest marks which one is the better deal and says why.\n\nPRICE HISTORY\nA chart of what a product has cost over time, so "on sale" has to prove itself.\n\nBUILD LIST\nCollect the parts of a build in one list and keep the total in front of you.\n\nSAVED\nKeep the products you are still thinking about.\n\nSTRAIGHT ANSWERS\nGadgetNest earns a commission on some outbound links. It does not reorder results because of it, and everything it stores stays on your device — there is no account and one button erases the lot.',
+      "GadgetNest is for the part of buying a gadget that happens before you buy it.\n\nBROWSE AND COMPARE\nWork through categories, open a product for its full specs, and put several side by side. GadgetNest marks which one is the better deal and says why.\n\nBUILD LIST\nCollect the parts of a build in one list and keep the total in front of you.\n\nSAVED\nKeep the products you are still thinking about.\n\nSTRAIGHT ANSWERS\nGadgetNest earns a commission on some outbound links. It does not reorder results because of it, and everything it stores stays on your device — there is no account and one button erases the lot.",
     category: "E-Commerce & Deals",
     icon: "🛒",
     color: "#F59E0B",
@@ -815,11 +796,6 @@ export const mobileAppListings: MobileAppListing[] = [
         title: "Browse And Compare",
         description:
           "Work through categories, open a product for its full specs, and put several side by side. GadgetNest marks which one is the better deal and says why.",
-      },
-      {
-        title: "Price History",
-        description:
-          'A chart of what a product has cost over time, so "on sale" has to prove itself.',
       },
       {
         title: "Build List",
@@ -839,12 +815,12 @@ export const mobileAppListings: MobileAppListing[] = [
     tags: [
       "tech deals",
       "compare",
-      "price history",
       "laptop",
       "phone",
       "gpu",
       "specs",
       "gadgets",
+      "shopping",
     ],
     status: "Beta",
     appStoreUrl: null,
@@ -855,54 +831,54 @@ export const mobileAppListings: MobileAppListing[] = [
     repo: "GroceryMatch",
     slug: "grocerymatch",
     name: "GroceryMatch: Save on Food",
-    tagline: "Compare grocery & meal prices",
+    tagline: "Grocery lists & nearby stores",
     description:
-      "GroceryMatch takes your shopping list and tells you which store fills it for least — and, when it is worth the extra stop, how to split it across two.",
+      "GroceryMatch keeps your grocery list, finds the supermarkets around you and shows real nutrition data for what you buy. It never fills a screen with made-up prices, deals or savings: where it has no real data, it says so.",
     longDescription:
-      'GroceryMatch takes your shopping list and tells you which store fills it for least — and, when it is worth the extra stop, how to split it across two.\n\n—— Groceries ——\n\nBEST BASKET\nEnter a list and compare the whole basket across Walmart, Kroger, Target, Publix, Albertsons and Aldi. Not item-by-item guessing: the total for the list you actually wrote.\n\nSPLIT TRIP\nWhen one store is cheaper for produce and another for staples, GroceryMatch works out whether the saving justifies the second stop.\n\nCOUPON STACKING\nFinds coupons that combine, rather than showing you one and stopping.\n\nRECEIPT AND BARCODE SCAN\nScan a receipt to build a list from what you already buy, or a barcode to price a single item.\n\nMEAL PLANNER AND PANTRY\nPlan meals, track what is already in the cupboard, and keep the list honest.\n\nPRICE HISTORY\nSee whether an item\'s price is genuinely low this week.\n\n—— Dining ——\n\nThe same idea applied to eating out. Compare a meal across DoorDash, UberEats, Grubhub and pickup, with a breakdown of the menu markup each app adds, suggested combo swaps, and current restaurant deals.\n\n—— No account needed ——\n\nTap "Continue as Guest" and everything works. Sign in only if you want your lists on more than one device.\n\n—— About prices ——\n\nPrices vary by store and region and change constantly. GroceryMatch shows what it last saw; confirm at the register or at checkout.',
+      'GroceryMatch keeps your grocery list, finds the supermarkets around you and shows real nutrition data for what you buy. It never fills a screen with made-up prices, deals or savings: where it has no real data, it says so.\n\nSHOPPING LIST\nBuild your list by typing, quick-adding or browsing aisles, and share it with anyone.\n\nSTORES NEAR YOU\nSee the supermarkets around you on a map, with addresses and straight-line distances from OpenStreetMap.\n\nBARCODE LOOKUP\nEnter a barcode to identify a product and see its ingredients, allergens and Nutri-Score from Open Food Facts.\n\nHEALTHIER ALTERNATIVES\nSearch a product type and compare matching products ranked by their published Nutri-Score, with sugar and protein per 100 g.\n\nMEAL PLANNER AND PANTRY\nPick from a week of recipes, add the ingredients to your list in one tap, and keep track of what is already in the cupboard.\n\nBUDGET\nSet a monthly grocery budget and keep it in one place.\n\n—— About prices ——\n\nGroceryMatch only shows prices it has fetched from a live store source. When none is available, the Compare and Deals screens say prices are unavailable instead of guessing.\n\n—— No account needed ——\n\nTap "Continue as Guest" to use the app without an account. Your list is stored on this device.',
     category: "E-Commerce & Deals",
     icon: "🛒",
     color: "#F59E0B",
     features: [
       {
-        title: "Best Basket",
+        title: "Shopping List",
         description:
-          "Enter a list and compare the whole basket across Walmart, Kroger, Target, Publix, Albertsons and Aldi. Not item-by-item guessing: the total for the list you actually wrote.",
+          "Build your list by typing, quick-adding or browsing aisles, and share it with anyone.",
       },
       {
-        title: "Split Trip",
+        title: "Stores Near You",
         description:
-          "When one store is cheaper for produce and another for staples, GroceryMatch works out whether the saving justifies the second stop.",
+          "See the supermarkets around you on a map, with addresses and straight-line distances from OpenStreetMap.",
       },
       {
-        title: "Coupon Stacking",
+        title: "Barcode Lookup",
         description:
-          "Finds coupons that combine, rather than showing you one and stopping.",
+          "Enter a barcode to identify a product and see its ingredients, allergens and Nutri-Score from Open Food Facts.",
       },
       {
-        title: "Receipt And Barcode Scan",
+        title: "Healthier Alternatives",
         description:
-          "Scan a receipt to build a list from what you already buy, or a barcode to price a single item.",
+          "Search a product type and compare matching products ranked by their published Nutri-Score, with sugar and protein per 100 g.",
       },
       {
         title: "Meal Planner And Pantry",
         description:
-          "Plan meals, track what is already in the cupboard, and keep the list honest.",
+          "Pick from a week of recipes, add the ingredients to your list in one tap, and keep track of what is already in the cupboard.",
       },
       {
-        title: "Price History",
-        description: "See whether an item's price is genuinely low this week.",
+        title: "Budget",
+        description: "Set a monthly grocery budget and keep it in one place.",
       },
     ],
     tags: [
       "grocery",
-      "price comparison",
       "shopping list",
-      "coupons",
-      "walmart",
-      "kroger",
-      "target",
-      "aldi",
+      "supermarket",
+      "nutrition",
+      "nutri-score",
+      "barcode",
+      "meal planner",
+      "pantry",
     ],
     status: "Beta",
     appStoreUrl: null,
@@ -1018,9 +994,9 @@ export const mobileAppListings: MobileAppListing[] = [
     name: "iMaps: Navigate & Report",
     tagline: "Traffic, alerts & live radio",
     description:
-      "iMaps is a dark-themed, community-powered navigation app. It combines worldwide turn-by-turn driving routes with incident reports from other drivers, a live feed of official hazard alerts within two miles of you, and streaming public safety radio — in one app, in fifteen languages.",
+      "iMaps is a dark-themed, community-powered navigation app. It combines worldwide turn-by-turn driving routes with incident reports from other drivers, a live feed of official hazard alerts within two miles of you, and public safety and air traffic radio where available — in one app, in fifteen languages.",
     longDescription:
-      "iMaps is a dark-themed, community-powered navigation app. It combines worldwide turn-by-turn driving routes with incident reports from other drivers, a live feed of official hazard alerts within two miles of you, and streaming public safety radio — in one app, in fifteen languages.\n\n—— Navigation ——\n\nWorldwide driving routes and step-by-step guidance, powered by OSRM (Open Source Routing Machine). Enter a destination and follow a clear, high-contrast route built for night driving.\n\n—— Community incident reports ——\n\nReport what you see — accidents, police, road hazards, heavy traffic — and confirm reports from other drivers. Reports lose severity automatically over time, so a stale report quietly fades instead of misleading the next driver.\n\n—— A two-mile alert radius ——\n\niMaps aggregates five public data sources and shows only what is genuinely near you:\n\n• USGS — local earthquakes, magnitude 1.0 and above, past 24 hours\n• NOAA / National Weather Service — active severe weather alerts\n• NASA FIRMS — active wildfire hotspots\n• GDACS — global disaster alerts for cyclones, floods and volcanoes\n• Open311 — municipal reports such as potholes and signal outages\n\n—— Public safety radio ——\n\nStream live police, fire, EMS, NOAA Weather Radio and air traffic control feeds via OpenMHz and LiveATC. Useful during a storm, a closure, or a commute you want to understand.\n\n—— Fifteen languages ——\n\nFully localized in English, Spanish, Mandarin, Hindi, French, Arabic, German, Japanese, Portuguese, Korean, Italian, Russian, Turkish, Indonesian and Swahili.\n\n—— Companion browser extension ——\n\nAn optional Chrome, Edge and Firefox extension mirrors live events and radio streams in your browser.\n\n—— About your location ——\n\niMaps needs your location to route you and to decide which alerts are within two miles. Your position is used to query public feeds and is not sold, and no advertising identifier is read. Full detail is in the privacy policy linked from this listing.\n\nDrive attentively. Please do not interact with the app while your vehicle is moving.",
+      "iMaps is a dark-themed, community-powered navigation app. It combines worldwide turn-by-turn driving routes with incident reports from other drivers, a live feed of official hazard alerts within two miles of you, and public safety and air traffic radio where available — in one app, in fifteen languages.\n\n—— Navigation ——\n\nWorldwide driving routes and step-by-step guidance, powered by OSRM (Open Source Routing Machine). Enter a destination and follow a clear, high-contrast route built for night driving.\n\n—— Community incident reports ——\n\nReport what you see — accidents, police, road hazards, heavy traffic — and confirm reports from other drivers. Reports lose severity automatically over time, so a stale report quietly fades instead of misleading the next driver.\n\n—— A two-mile alert radius ——\n\niMaps aggregates five public data sources and shows only what is genuinely near you:\n\n• USGS — local earthquakes, magnitude 1.0 and above, past 24 hours\n• NOAA / National Weather Service — active severe weather alerts\n• NASA FIRMS — active wildfire hotspots\n• GDACS — global disaster alerts for cyclones, floods and volcanoes\n• Open311 — municipal reports such as potholes and signal outages\n\n—— Public safety radio ——\n\nListen to the public-safety scanner streams that OpenMHz and Radio Browser list near you, and to air traffic control feeds from LiveATC, with a link to your local NOAA Weather Radio information. Coverage depends on what those services list for your area; where they list nothing, the app says so.\n\n—— Fifteen languages ——\n\nFully localized in English, Spanish, Mandarin, Hindi, French, Arabic, German, Japanese, Portuguese, Korean, Italian, Russian, Turkish, Indonesian and Swahili.\n\n—— Companion browser extension ——\n\nAn optional Chrome, Edge and Firefox extension mirrors live events and radio streams in your browser.\n\n—— About your location ——\n\niMaps needs your location to route you and to decide which alerts are within two miles. Your position is used to query public feeds and is not sold, and no advertising identifier is read. Full detail is in the privacy policy linked from this listing.\n\nDrive attentively. Please do not interact with the app while your vehicle is moving.",
     category: "Travel & Aviation",
     icon: "✈️",
     color: "#0EA5E9",
@@ -1103,33 +1079,33 @@ export const mobileAppListings: MobileAppListing[] = [
     repo: "Kinnav",
     slug: "kinnav",
     name: "Kinnav",
-    tagline: "Safety, support and rewards",
+    tagline: "Safety, support and self-care",
     description:
       "Kinnav is a personal safety and wellbeing companion built for women.",
     longDescription:
-      "Kinnav is a personal safety and wellbeing companion built for women.\n\nGetting home late. Walking to the car after a shift. A first date in an unfamiliar part of town. Kinnav is designed for the moments when you want someone with you, and a way to feel steadier the rest of the time.\n\nREACH A GUARDIAN\nOpen the map and see the guardians around you. One tap on CALL GUARDIANS opens your options: voice, video, text, or a direct line to emergency services. No menus to dig through when you are in a hurry.\n\nYOUR MAP\nThe map centres on you and shows who is nearby. Location is used to place you and the guardians around you, and nothing more.\n\nEMERGENCY DIALLING\nA confirmed one-tap route to 911. Kinnav is not a replacement for emergency services and never tries to be — when you need police, fire, or an ambulance, the app puts you straight through.\n\nSAFETY CONTACTS\nKeep the people who matter one tap away.\n\nSELF-CARE MODULES\nShort, practical lessons on situational awareness, boundaries, de-escalation, and recovery. Work through them at your own pace and keep your progress.\n\nREWARDS\nFinish modules and earn rewards you can redeem in the app.\n\nCALL HISTORY\nEvery Safe Call is recorded in your history so you have a record of what happened and when.\n\nEARLY ACCESS\nKinnav is in early access. The guardian network is still being built out, so the guardians you see are sample profiles and Safe Call is clearly labelled in the app as a simulation — it does not connect you to a live responder yet. Emergency dialling, your map, safety contacts, modules, and rewards all work today. We would rather tell you exactly where we are than overpromise on an app you might need in a bad moment.\n\nPRIVACY\nLocation is used to show you and nearby guardians on the map. Your account is protected and your data is encrypted in transit. Read the full policy at https://kinnav.com/privacy\n\nQuestions or feedback: support@kinnav.com",
+      "Kinnav is a personal safety and wellbeing companion built for women.\n\nGetting home late. Walking to the car after a shift. A first date in an unfamiliar part of town. Kinnav is designed for the moments when you want someone with you, and a way to feel steadier the rest of the time.\n\nEMERGENCY DIALLING\nA confirmed one-tap route to 911. Kinnav is not a replacement for emergency services and never tries to be — when you need police, fire, or an ambulance, the app puts you straight through.\n\nSAFE CALL\nTap CALL GUARDIANS and choose voice, video, text or emergency. Live calls and chat with guardians are not available yet, and Safe Call says so plainly: it puts you one tap from emergency services and opens a text to your safety contacts, with your location when your phone can provide it.\n\nSAFETY CONTACTS\nKeep the people who matter one tap away.\n\nYOUR MAP\nThe map centres on you. Guardians will appear on it once the guardian network is live; until then it shows no one.\n\nSELF-CARE MODULES\nShort, practical lessons on situational awareness, boundaries, de-escalation, and recovery. Work through them at your own pace and keep your progress.\n\nBENEFITS\nPartner benefits in wellness, fitness, counselling, career development, language learning and financial education are coming soon. None can be redeemed yet.\n\nCALL HISTORY\nEvery Safe Call is recorded in your history so you have a record of what happened and when.\n\nEARLY ACCESS\nKinnav is in early access. The guardian network is still being built: the app shows no guardians, does not connect you to a live responder, and does not yet offer guardian training. Emergency dialling, safety contacts and the text alert to them, your map, and self-care modules work today. We would rather tell you exactly where we are than overpromise on an app you might need in a bad moment.\n\nPRIVACY\nLocation is used to centre the map on you and, when you start a Safe Call, to include your position in the text to your safety contacts. Your account is protected and your data is encrypted in transit. Read the full policy at https://kinnav.com/privacy\n\nQuestions or feedback: support@kinnav.com",
     category: "Travel & Aviation",
     icon: "✈️",
     color: "#0EA5E9",
     features: [
-      {
-        title: "Reach A Guardian",
-        description:
-          "Open the map and see the guardians around you. One tap on CALL GUARDIANS opens your options: voice, video, text, or a direct line to emergency services. No menus to dig through when you are in a hurry.",
-      },
-      {
-        title: "Your Map",
-        description:
-          "The map centres on you and shows who is nearby. Location is used to place you and the guardians around you, and nothing more.",
-      },
       {
         title: "Emergency Dialling",
         description:
           "A confirmed one-tap route to 911. Kinnav is not a replacement for emergency services and never tries to be — when you need police, fire, or an ambulance, the app puts you straight through.",
       },
       {
+        title: "Safe Call",
+        description:
+          "Tap CALL GUARDIANS and choose voice, video, text or emergency.",
+      },
+      {
         title: "Safety Contacts",
         description: "Keep the people who matter one tap away.",
+      },
+      {
+        title: "Your Map",
+        description:
+          "The map centres on you. Guardians will appear on it once the guardian network is live; until then it shows no one.",
       },
       {
         title: "Self-Care Modules",
@@ -1137,9 +1113,9 @@ export const mobileAppListings: MobileAppListing[] = [
           "Short, practical lessons on situational awareness, boundaries, de-escalation, and recovery. Work through them at your own pace and keep your progress.",
       },
       {
-        title: "Rewards",
+        title: "Benefits",
         description:
-          "Finish modules and earn rewards you can redeem in the app.",
+          "Partner benefits in wellness, fitness, counselling, career development, language learning and financial education are coming soon. None can be redeemed yet.",
       },
     ],
     tags: [
@@ -1268,7 +1244,7 @@ export const mobileAppListings: MobileAppListing[] = [
     description:
       "MyFinance is a private ledger for money you enter yourself, kept in a database on your phone.",
     longDescription:
-      "MyFinance is a private ledger for money you enter yourself, kept in a database on your phone.\n\nA FIRST RUN IS EMPTY\nThere is no demo balance waiting for you. The app opens with nothing in it, and every figure you see afterwards is calculated from rows you added. If you would rather look around first, More options has Load sample data, which adds a clearly marked, made-up ledger that you can remove again in one tap without touching anything you entered yourself.\n\nTRANSACTIONS\nRecord income and spending with a description, an amount, a category, a date and an optional note. Tap any row to edit or delete it. The home screen totals income, expenses and the net for the current month, and your balance is the sum of your opening balance and every transaction on file.\n\nBUDGETS\nSet a monthly limit for a category. Each budget shows what you have spent against it so far this month with a progress bar, and marks the ones you have gone over.\n\nSUBSCRIPTIONS\nRecord recurring charges as weekly, monthly or yearly. MyFinance converts them to a common monthly figure so the total is comparable, and rolls each next charge date forward as it passes. The home screen lists what is due in the next thirty days.\n\nEXPORT\nYour transactions can be written to a CSV file and handed to the share sheet, so the data stays yours.\n\nWHAT IT DOES NOT DO\nMyFinance does not connect to a bank. There is no sync, no import and no account, nothing is uploaded, and the app works with no network connection at all. It also has no passcode or biometric lock, so anyone who can unlock your phone can open your ledger. There are no ads and nothing to buy. The interface is in English.",
+      "MyFinance is a private ledger for money you enter yourself, kept in a database on your phone.\n\nA FIRST RUN IS EMPTY\nThere is no demo balance waiting for you. The app opens with nothing in it, and every figure you see afterwards is calculated from rows you added.\n\nTRANSACTIONS\nRecord income and spending with a description, an amount, a category, a date and an optional note. Tap any row to edit or delete it. The home screen totals income, expenses and the net for the current month, and your balance is the sum of your opening balance and every transaction on file.\n\nBUDGETS\nSet a monthly limit for a category. Each budget shows what you have spent against it so far this month with a progress bar, and marks the ones you have gone over.\n\nSUBSCRIPTIONS\nRecord recurring charges as weekly, monthly or yearly. MyFinance converts them to a common monthly figure so the total is comparable, and rolls each next charge date forward as it passes. The home screen lists what is due in the next thirty days.\n\nEXPORT\nYour transactions can be written to a CSV file and handed to the share sheet, so the data stays yours.\n\nWHAT IT DOES NOT DO\nMyFinance does not connect to a bank. There is no sync, no import and no account, nothing is uploaded, and the app works with no network connection at all. It also has no passcode or biometric lock, so anyone who can unlock your phone can open your ledger. There are no ads and nothing to buy. The interface is in English.",
     category: "Finance & Fintech",
     icon: "💳",
     color: "#10B981",
@@ -1327,7 +1303,7 @@ export const mobileAppListings: MobileAppListing[] = [
     description:
       "MyHealth is a health and fitness tracker that keeps your data where it belongs: on your device.",
     longDescription:
-      'MyHealth is a health and fitness tracker that keeps your data where it belongs: on your device.\n\n—— What you can track ——\n\nACTIVITY\nLog walks, cycling, yoga, gardening, stairs and more from quick presets, or add your own.\n\nWORKOUTS, RUNS AND HIKES\nDedicated logging for training sessions, runs and hikes, each with its own history.\n\nDIET AND NUTRITION\nLog meals and track what you are actually eating over time.\n\nSLEEP\nRecord and review your sleep.\n\nVITALS\nA grid of the vitals you care about, kept in one place.\n\nMEDICINE\nKeep track of what you take and when.\n\nBINDER\nYour records, together, instead of scattered across apps and paperwork.\n\n—— Reading and reference ——\n\nARTICLES\nHealth and wellbeing reading inside the app.\n\nTOOLS\nCalculators and reference material for the numbers you track.\n\n—— Honest about what is a demonstration ——\n\nSome screens in the Care section demonstrate capabilities that need clinical integrations this build does not have — the doctor finder, the MyChart/FHIR view, and the insurance, lab and prescription extractions. Those screens show clearly-labelled sample data and say so on screen. They are demonstrations of a direction, not live queries against your records, and the app never pretends otherwise.\n\n—— Private by default ——\n\nYour logs live on your device. Sign-in is optional — tap "Continue as guest" and everything works. The app asks for consent before it begins, and a production build carries no QA credentials.\n\n—— Not a medical device ——\n\nMyHealth is for general wellbeing and self-tracking. It is not a medical device, it does not diagnose or treat anything, and nothing in it is medical advice. Talk to a qualified clinician about your health, and never change a treatment because of something this app showed you.',
+      'MyHealth is a health and fitness tracker that keeps your data where it belongs: on your device.\n\n—— What you can track ——\n\nACTIVITY\nLog walks, cycling, yoga, gardening, stairs and more from quick presets, or add your own.\n\nWORKOUTS\nLog training sessions set by set; personal records come only from what you log.\n\nHIKES\nBrowse a list of Bay Area trails with their length and elevation.\n\nDIET AND NUTRITION\nLog meals and track what you are actually eating over time.\n\nSLEEP AND MIND\nWind-down breathing sessions and a mood log. Sleep stages need Apple Health or Health Connect, which this version does not read.\n\nVITALS\nLog blood pressure, glucose, weight and body composition. Anything you have not logged shows a dash, never a made-up number.\n\nMEDICINE\nKeep track of what you take and when.\n\nBINDER\nYour records, together, instead of scattered across apps and paperwork.\n\n—— Reading and reference ——\n\nARTICLES\nHealth and wellbeing reading inside the app.\n\nTOOLS\nCalculators and reference material for the numbers you track.\n\n—— Real data only ——\n\nThe doctor finder searches the public CMS NPPES provider registry live, drug labels come from OpenFDA, and food lookups from Open Food Facts. MyHealth does not read Apple Health or Health Connect, track GPS or read photos in this version, so screens that would need them say so instead of showing sample numbers. Insurance, lab and prescription screens let you type in your own details.\n\n—— Private by default ——\n\nYour logs live on your device. Sign-in is optional — tap "Continue as guest" and everything works. The app asks for consent before it begins, and a production build carries no QA credentials.\n\n—— Not a medical device ——\n\nMyHealth is for general wellbeing and self-tracking. It is not a medical device, it does not diagnose or treat anything, and nothing in it is medical advice. Talk to a qualified clinician about your health, and never change a treatment because of something this app showed you.',
     category: "Health & Wellness",
     icon: "❤️",
     color: "#EF4444",
@@ -1338,9 +1314,14 @@ export const mobileAppListings: MobileAppListing[] = [
           "Log walks, cycling, yoga, gardening, stairs and more from quick presets, or add your own.",
       },
       {
-        title: "Workouts, Runs And Hikes",
+        title: "Workouts",
         description:
-          "Dedicated logging for training sessions, runs and hikes, each with its own history.",
+          "Log training sessions set by set; personal records come only from what you log.",
+      },
+      {
+        title: "Hikes",
+        description:
+          "Browse a list of Bay Area trails with their length and elevation.",
       },
       {
         title: "Diet And Nutrition",
@@ -1348,16 +1329,14 @@ export const mobileAppListings: MobileAppListing[] = [
           "Log meals and track what you are actually eating over time.",
       },
       {
-        title: "Sleep",
-        description: "Record and review your sleep.",
+        title: "Sleep And Mind",
+        description:
+          "Wind-down breathing sessions and a mood log. Sleep stages need Apple Health or Health Connect, which this version does not read.",
       },
       {
         title: "Vitals",
-        description: "A grid of the vitals you care about, kept in one place.",
-      },
-      {
-        title: "Medicine",
-        description: "Keep track of what you take and when.",
+        description:
+          "Log blood pressure, glucose, weight and body composition. Anything you have not logged shows a dash, never a made-up number.",
       },
     ],
     tags: [
@@ -1379,11 +1358,11 @@ export const mobileAppListings: MobileAppListing[] = [
     repo: "NearServe",
     slug: "nearserve",
     name: "NearServe",
-    tagline: "Book a local pro",
+    tagline: "Local services directory",
     description:
-      "NearServe is a directory of local service providers you can actually book from.",
+      "NearServe shows local service providers from a connected service directory. It contains no invented listings: if no directory is connected, it shows no providers and says so.",
     longDescription:
-      "NearServe is a directory of local service providers you can actually book from.\n\nFIND\nBrowse by category or search, and see who is available today. Each provider has a profile with what they do, their reviews, and their star rating.\n\nBOOK\nPick a slot inside the provider's booking window, tell them what you need, and get an estimate before you commit. Providers who are not taking bookings say so up front instead of wasting your time.\n\nAFTER\nYour bookings live in one place. Leave a review when the work is done.\n\nSAVED\nKeep the providers you would use again. Everything stays on your device until you book.",
+      "NearServe shows local service providers from a connected service directory. It contains no invented listings: if no directory is connected, it shows no providers and says so.\n\nFIND\nBrowse by category or search. Each listing shows what the directory publishes — services, price, rating, contact details and opening hours. Anything the directory does not publish is shown as not published, never filled in.\n\nPLAN\nFor a provider that publishes opening hours, pick a slot and see a rough estimate based on their published rate. Bookings are saved on this device only. The provider is not notified, so contact them directly to confirm.\n\nAFTER\nYour bookings live in one place. Leave a review of a completed booking; reviews are stored on your device.\n\nSAVED\nKeep the providers you would use again. Everything stays on your device.",
     category: "Social & Communication",
     icon: "💬",
     color: "#EC4899",
@@ -1391,33 +1370,33 @@ export const mobileAppListings: MobileAppListing[] = [
       {
         title: "Find",
         description:
-          "Browse by category or search, and see who is available today. Each provider has a profile with what they do, their reviews, and their star rating.",
+          "Browse by category or search. Each listing shows what the directory publishes — services, price, rating, contact details and opening hours. Anything the directory does not publish is shown as not published, never filled in.",
       },
       {
-        title: "Book",
+        title: "Plan",
         description:
-          "Pick a slot inside the provider's booking window, tell them what you need, and get an estimate before you commit. Providers who are not taking bookings say so up front instead of wasting your time.",
+          "For a provider that publishes opening hours, pick a slot and see a rough estimate based on their published rate. Bookings are saved on this device only. The provider is not notified, so contact them directly to confirm.",
       },
       {
         title: "After",
         description:
-          "Your bookings live in one place. Leave a review when the work is done.",
+          "Your bookings live in one place. Leave a review of a completed booking; reviews are stored on your device.",
       },
       {
         title: "Saved",
         description:
-          "Keep the providers you would use again. Everything stays on your device until you book.",
+          "Keep the providers you would use again. Everything stays on your device.",
       },
     ],
     tags: [
       "local services",
-      "book",
+      "directory",
       "provider",
       "plumber",
       "electrician",
       "cleaner",
-      "appointment",
-      "nearby",
+      "tutor",
+      "planner",
     ],
     status: "Beta",
     appStoreUrl: null,
@@ -1486,7 +1465,7 @@ export const mobileAppListings: MobileAppListing[] = [
     description:
       "NexusTransferPay is a cross-border money transfer app from American Group LLC. The transfer form, your balances and history, your credit score and an assistant sit behind one bottom bar, and the app is built around a single rule: it never shows you a number it did not get from the server.",
     longDescription:
-      'NexusTransferPay is a cross-border money transfer app from American Group LLC. The transfer form, your balances and history, your credit score and an assistant sit behind one bottom bar, and the app is built around a single rule: it never shows you a number it did not get from the server.\n\nSEND MONEY\nEnter an amount, choose the currency you are sending from and the currency the recipient receives, then add the recipient\'s name, with an email address and a note if you want them. The form converts as you type, shows the exchange rate it used, and itemises the amount, the transfer fee and the total you will pay before you confirm. Ten currencies are supported: US dollar, euro, British pound, Mexican peso, Canadian dollar, Japanese yen, UAE dirham, Brazilian real, Indian rupee and Australian dollar.\n\nNO INVENTED SUCCESS\nA transfer is called successful only when the server returns a receipt that carries a reference and a status meaning accepted. A network failure, a timeout, an error, a missing reference, or a status the app does not recognise all end the same way: "Transfer failed", the reason, and "No money has been sent." There is no success screen for a transfer that did not happen. A receipt the server has accepted but not yet completed says "Transfer Submitted", and says plainly that delivery is not confirmed.\n\nEXCHANGE RATES\nRates come from a public reference-rate feed. When that feed cannot be reached the app says the rate is unavailable and leaves the converted amount blank. It will not hand you a stale figure dressed up as today\'s rate.\n\nDASHBOARD, HISTORY AND NOTIFICATIONS\nYour wallet balances, with one tap to hide them, and your recent transactions. The history screen filters by sent, received or top-up and totals what you are looking at. Notifications are marked read only once the server confirms it. Every figure comes from your account on the server: when a call fails the screen shows a Service unavailable panel with a Retry button rather than a placeholder that looks like your money.\n\nCREDIT SCORE\nYour score and the factors behind it, drawn only from what the bureau returned. If a refresh does not actually complete, the gauge does not re-animate as though it did.\n\nNOVA\nAsk about a transfer, a rate or your figures in plain language. If the assistant cannot be reached the app tells you so in its own voice; it never puts words Nova did not produce into Nova\'s reply.\n\nBORROW & PROTECT\nBrowse card, loan and insurance offers side by side, and size up a monthly payment with the loan calculator. In this version these screens compare only: Apply Now and Get Quote submit nothing, and the app says so on the spot instead of pretending an application is under way.\n\nWHAT IT DOES NOT DO\nNexusTransferPay is not a bank. It has no deposit account, pays no interest, and gives no financial advice. Card, loan and insurance applications cannot be submitted from the app. Premium pricing is shown on the Premium screen, but this version has no in-app purchase, takes no payment details and charges nothing. There are no ads. The app needs a network connection; anything it cannot load, it says it cannot load. Most of the interface is in English.\n\nAmerican Group LLC - www.americangroup.ai\nSupport: contact@americangroup.ai',
+      'NexusTransferPay is a cross-border money transfer app from American Group LLC. The transfer form, your balances and history, your credit score and an assistant sit behind one bottom bar, and the app is built around a single rule: it never shows you a number it did not get from the server.\n\nSEND MONEY\nEnter an amount, choose the currency you are sending from and the currency the recipient receives, then add the recipient\'s name, with an email address and a note if you want them. The form converts as you type, and shows the exchange rate it used before you confirm. The app does not set a transfer fee of its own: until NexusPay quotes one, the fee is shown as not quoted and no total is given. Ten currencies are supported: US dollar, euro, British pound, Mexican peso, Canadian dollar, Japanese yen, UAE dirham, Brazilian real, Indian rupee and Australian dollar.\n\nNO INVENTED SUCCESS\nA transfer is called successful only when the server returns a receipt that carries a reference and a status meaning accepted. A network failure, a timeout, an error, a missing reference, or a status the app does not recognise all end the same way: "Transfer failed", the reason, and "No money has been sent." There is no success screen for a transfer that did not happen. A receipt the server has accepted but not yet completed says "Transfer Submitted", and says plainly that delivery is not confirmed.\n\nEXCHANGE RATES\nRates come from a public reference-rate feed. When that feed cannot be reached the app says the rate is unavailable and leaves the converted amount blank. It will not hand you a stale figure dressed up as today\'s rate.\n\nDASHBOARD, HISTORY AND NOTIFICATIONS\nYour wallet balances, with one tap to hide them, and your recent transactions. The history screen filters by sent, received or top-up and totals what you are looking at. Notifications are marked read only once the server confirms it. Every figure comes from your account on the server: when a call fails the screen shows a Service unavailable panel with a Retry button rather than a placeholder that looks like your money.\n\nCREDIT SCORE\nYour score and the factors behind it, drawn only from what the bureau returned. If a refresh does not actually complete, the gauge does not re-animate as though it did.\n\nNOVA\nAsk about a transfer, a rate or your figures in plain language. If the assistant cannot be reached the app tells you so in its own voice; it never puts words Nova did not produce into Nova\'s reply.\n\nBORROW & PROTECT\nBrowse card, loan and insurance offers side by side, and size up a monthly payment with the loan calculator. In this version these screens compare only: Apply Now and Get Quote submit nothing, and the app says so on the spot instead of pretending an application is under way.\n\nWHAT IT DOES NOT DO\nNexusTransferPay is not a bank. It has no deposit account, pays no interest, and gives no financial advice. Card, loan and insurance applications cannot be submitted from the app. There is no paid tier and no in-app purchase; the app takes no payment details and charges nothing. There are no ads. The app needs a network connection; anything it cannot load, it says it cannot load. Most of the interface is in English.\n\nAmerican Group LLC - www.safecodeg.com\nSupport: contact@safecodeg.com',
     category: "Finance & Fintech",
     icon: "💳",
     color: "#10B981",
@@ -1773,11 +1752,11 @@ export const mobileAppListings: MobileAppListing[] = [
     repo: "RideZap",
     slug: "ridezap",
     name: "RideZap",
-    tagline: "Compare the whole trip",
+    tagline: "Ride, flight and hotel links",
     description:
-      "RideZap prices one trip across every provider that will quote it.",
+      "RideZap is a starting point for a trip: rides, flights and hotels in one app.",
     longDescription:
-      "RideZap prices one trip across every provider that will quote it.\n\nTHREE MODES\nRides, flights, and hotels, each with the search form that mode actually needs — pickup and drop-off, origin and destination, check-in and check-out.\n\nONE ANSWER\nRideZap puts the quotes next to each other and marks the cheapest total, including the conditions attached to it. Open a quote for the detail, then book on the provider's own site.\n\nKEEP IT\nSave a trip to watch it, and keep a history of what you have searched. Both are on your device, and both have a clear button.\n\nRideZap does not take your booking or your payment — it hands you to the provider. It earns a commission on some of those links.",
+      "RideZap is a starting point for a trip: rides, flights and hotels in one app.\n\nTHREE MODES\nRides, flights, and hotels, each with the search form that mode actually needs — pickup and drop-off, origin and destination, check-in and check-out.\n\nNO MADE-UP PRICES\nRideZap is not yet connected to live fares from Uber, Lyft, Bolt, Expedia or Booking.com, so it shows no prices. After a search it says so plainly and opens the provider's own app or site, where the real price is.\n\nRideZap does not take your booking or your payment — it hands you to the provider. It earns a commission on some of those links.",
     category: "Travel & Aviation",
     icon: "✈️",
     color: "#0EA5E9",
@@ -1788,25 +1767,20 @@ export const mobileAppListings: MobileAppListing[] = [
           "Rides, flights, and hotels, each with the search form that mode actually needs — pickup and drop-off, origin and destination, check-in and check-out.",
       },
       {
-        title: "One Answer",
+        title: "No Made-Up Prices",
         description:
-          "RideZap puts the quotes next to each other and marks the cheapest total, including the conditions attached to it. Open a quote for the detail, then book on the provider's own site.",
-      },
-      {
-        title: "Keep It",
-        description:
-          "Save a trip to watch it, and keep a history of what you have searched. Both are on your device, and both have a clear button.",
+          "RideZap is not yet connected to live fares from Uber, Lyft, Bolt, Expedia or Booking.com, so it shows no prices. After a search it says so plainly and opens the provider's own app or site, where the real price is.",
       },
     ],
     tags: [
-      "compare prices",
       "travel",
       "flights",
       "hotels",
       "rides",
-      "cheapest",
       "trip",
       "booking",
+      "taxi",
+      "fare",
     ],
     status: "Beta",
     appStoreUrl: null,
@@ -1821,7 +1795,7 @@ export const mobileAppListings: MobileAppListing[] = [
     description:
       "RoomCraft turns a room's size and purpose into concrete layout advice.",
     longDescription:
-      "RoomCraft turns a room's size and purpose into concrete layout advice.\n\nDESIGN\nTell it the room type, the square footage, and the style you are after. RoomCraft returns a design philosophy, a colour palette, a recommended furniture list, and a layout strategy — plus how many pieces the room can actually hold before it stops working.\n\nREDESIGN\nAlready have notes on what is in the room? Paste them in and RoomCraft works around the fixed elements, giving you a positioning strategy and an ordered set of redesign steps.\n\nSOURCING\nEnter coordinates and RoomCraft names the sourcing zone and the material focus that suits it.\n\nHOW IT WORKS\nAll of it is deterministic rules running on your device — the same inputs always give the same advice, and you can see why. There is no camera, no photo upload, no AI model, and no server. RoomCraft never asks for an account and never sends your room anywhere.",
+      "RoomCraft turns a room's size and purpose into concrete layout advice.\n\nDESIGN\nTell it the room type, the square footage, and the style you are after. RoomCraft returns a design philosophy, a colour palette, a recommended furniture list, and a layout strategy — plus how many pieces the room can actually hold before it stops working.\n\nREDESIGN\nAlready have notes on what is in the room? Paste them in and RoomCraft works around the fixed elements, giving you a positioning strategy and an ordered set of redesign steps.\n\nSOURCING\nEnter coordinates and a material, and RoomCraft lists real shops within 15 km — timber merchants, hardware, DIY, tile, fabric and furniture shops — from OpenStreetMap, nearest first, with distances and addresses where OpenStreetMap has them. Sourcing needs an internet connection.\n\nHOW IT WORKS\nDesign and Redesign are deterministic rules running on your device — the same inputs always give the same advice, and you can see why. There is no camera, no photo upload and no AI model. RoomCraft never asks for an account and never sends your room description anywhere. Sourcing sends only the coordinates and material you enter to OpenStreetMap's public Overpass and Nominatim services.\n\nShop data © OpenStreetMap contributors (ODbL).",
     category: "Social & Communication",
     icon: "💬",
     color: "#EC4899",
@@ -1839,12 +1813,12 @@ export const mobileAppListings: MobileAppListing[] = [
       {
         title: "Sourcing",
         description:
-          "Enter coordinates and RoomCraft names the sourcing zone and the material focus that suits it.",
+          "Enter coordinates and a material, and RoomCraft lists real shops within 15 km — timber merchants, hardware, DIY, tile, fabric and furniture shops — from OpenStreetMap, nearest first, with distances and addresses where OpenStreetMap has them.",
       },
       {
         title: "How It Works",
         description:
-          "All of it is deterministic rules running on your device — the same inputs always give the same advice, and you can see why. There is no camera, no photo upload, no AI model, and no server. RoomCraft never asks for an account and never sends your room anywhere.",
+          "Design and Redesign are deterministic rules running on your device — the same inputs always give the same advice, and you can see why. There is no camera, no photo upload and no AI model.",
       },
     ],
     tags: [
@@ -1918,22 +1892,17 @@ export const mobileAppListings: MobileAppListing[] = [
     name: "USCIS Case Lookup",
     tagline: "Immigration case status",
     description:
-      "Case Tracker for USCIS keeps every receipt number, every processing time and every visa bulletin in one place, so you are not refreshing three government websites to work out where your case stands.",
+      "Case Tracker for USCIS keeps your USCIS receipt numbers in one place, with shortcuts to the official processing-times page and the Department of State visa bulletin.",
     longDescription:
-      'Case Tracker for USCIS keeps every receipt number, every processing time and every visa bulletin in one place, so you are not refreshing three government websites to work out where your case stands.\n\n—— Track your cases ——\n\nSave any USCIS receipt number and see its current status, with a full history of every change so you can see when your case actually moved. Track as many cases as you need — a family\'s petitions live side by side.\n\n—— Know what is next ——\n\nPROCESSING TIMES\nCurrent posted processing times by form and service centre, so you can tell whether your case is inside or outside the normal range.\n\nVISA BULLETIN\nThe monthly Department of State visa bulletin, readable on a phone, with final action and filing dates.\n\nNVC TRACKER\nFollow a case through National Visa Center stages after approval.\n\nALERTS\nA notification when a tracked case changes status, so you do not have to keep checking.\n\n—— Prepare and understand ——\n\nCIVICS TEST\nPractise the naturalisation civics questions with a trainer that tracks what you have learned.\n\nRESOURCES AND GOVERNMENT SOURCES\nPlain-language explanations, with a direct link to the official government page behind every figure so you can verify anything yourself.\n\nIMPACT ADVISOR AND AI CHAT\nAsk questions about the process in plain language and get an explanation of what a form or a stage means.\n\nNEWS FEED\nPolicy and processing news that affects pending cases.\n\n—— Private and offline ——\n\nYour receipt numbers stay on your device. Sign-in is optional — tap "Continue as guest" and everything works. Once your cases are saved the app is fully usable offline.\n\n—— Important ——\n\nCase Tracker for USCIS is an independent app. It is not affiliated with, endorsed by, or operated by USCIS, the Department of State, or any government agency, and it does not provide legal advice. Always confirm anything that matters against the official government source, and consult a qualified immigration attorney about your own case.',
+      'Case Tracker for USCIS keeps your USCIS receipt numbers in one place, with shortcuts to the official processing-times page and the Department of State visa bulletin.\n\n—— Track your cases ——\n\nSave any USCIS receipt number and see its current status, with a full history of every change so you can see when your case actually moved. Track as many cases as you need — a family\'s petitions live side by side.\n\n—— Know what is next ——\n\nPROCESSING TIMES AND VISA BULLETIN\nShortcuts to the official USCIS processing-times page and the monthly Department of State visa bulletin.\n\nNVC TRACKER\nFollow a case through National Visa Center stages after approval.\n\nALERTS\nA notification when a tracked case changes status, so you do not have to keep checking.\n\n—— Prepare and understand ——\n\nCIVICS TEST\nPractise the naturalisation civics questions with a trainer that tracks what you have learned.\n\nRESOURCES AND GOVERNMENT SOURCES\nPlain-language explanations, with a direct link to the official government page behind every figure so you can verify anything yourself.\n\nNEWS FEED\nThe latest USCIS, ICE and CBP notices and rules published in the Federal Register.\n\n—— Private and offline ——\n\nYour receipt numbers stay on your device. Sign-in is optional — tap "Continue as guest" and everything works. Once your cases are saved the app is fully usable offline.\n\n—— Important ——\n\nCase Tracker for USCIS is an independent app. It is not affiliated with, endorsed by, or operated by USCIS, the Department of State, or any government agency, and it does not provide legal advice. Always confirm anything that matters against the official government source, and consult a qualified immigration attorney about your own case.',
     category: "Productivity & Tools",
     icon: "🛠️",
     color: "#6366F1",
     features: [
       {
-        title: "Processing Times",
+        title: "Processing Times And Visa Bulletin",
         description:
-          "Current posted processing times by form and service centre, so you can tell whether your case is inside or outside the normal range.",
-      },
-      {
-        title: "Visa Bulletin",
-        description:
-          "The monthly Department of State visa bulletin, readable on a phone, with final action and filing dates.",
+          "Shortcuts to the official USCIS processing-times page and the monthly Department of State visa bulletin.",
       },
       {
         title: "Nvc Tracker",
@@ -1954,6 +1923,11 @@ export const mobileAppListings: MobileAppListing[] = [
         title: "Resources And Government Sources",
         description:
           "Plain-language explanations, with a direct link to the official government page behind every figure so you can verify anything yourself.",
+      },
+      {
+        title: "News Feed",
+        description:
+          "The latest USCIS, ICE and CBP notices and rules published in the Federal Register.",
       },
     ],
     tags: [
@@ -1980,7 +1954,7 @@ export const mobileAppListings: MobileAppListing[] = [
     description:
       "Verba is a translator you can talk to, and a way to keep what you learn from the conversation.",
     longDescription:
-      "Verba is a translator you can talk to, and a way to keep what you learn from the conversation.\n\n—— Translate ——\n\nLIVE TRANSLATE\nFollow a real conversation as it happens, with speech recognised and translated as people speak.\n\nTRANSLATE\nType or speak a phrase and get it back in the language you need.\n\nTALK\nA voice-first mode for when typing is not practical.\n\n—— Learn ——\n\nPRACTICE\nConversational practice, so the language gets used rather than just read.\n\nFLASHCARDS\nSpaced repetition brings a word back just before you would have forgotten it, rather than drilling what you already know.\n\nPHRASEBOOK\nThe phrases you actually need, kept together.\n\nCHAT\nA conversational partner to practise against.\n\n—— Built to be used ——\n\n• Natural text-to-speech, so you hear how it should sound\n• Material 3 interface with glassmorphic cards\n• Notification reminders for your streak and practice, using inexact alarms\n• No account needed to start\n\n—— Ads and Premium ——\n\nVerba is free and shows ads through Google AdMob. On iOS you will be asked whether the app may use your device's advertising identifier; you can decline and still use everything. An optional Premium upgrade removes ads.\n\n—— About translation quality ——\n\nTranslation and speech recognition are automated and imperfect, especially with accents, background noise, idiom and specialist vocabulary. Do not rely on Verba for medical, legal, financial, safety or immigration matters — use a qualified human interpreter.",
+      "Verba is a translator you can talk to, and a way to keep what you learn from the conversation.\n\n—— Translate ——\n\nLIVE TRANSLATE\nFollow a real conversation as it happens, with speech recognised and translated as people speak.\n\nTRANSLATE\nType or speak a phrase and get it back in the language you need.\n\nTALK\nA voice-first conversation partner, for when typing is not practical. It runs on an AI model you download to your phone.\n\n—— Learn ——\n\nPRACTICE\nConversational practice, so the language gets used rather than just read.\n\nFLASHCARDS\nSpaced repetition brings a word back just before you would have forgotten it, rather than drilling what you already know.\n\nPHRASEBOOK\nThe phrases you actually need, kept together.\n\n—— Built to be used ——\n\n• Natural text-to-speech, so you hear how it should sound\n• Material 3 interface with glassmorphic cards\n• Notification reminders for your streak and practice, using inexact alarms\n• No account needed to start\n\n—— Ads ——\n\nVerba is free and may show ads through Google AdMob. There are no in-app purchases and no paid tier.\n\n—— About translation quality ——\n\nTranslation and speech recognition are automated and imperfect, especially with accents, background noise, idiom and specialist vocabulary. Do not rely on Verba for medical, legal, financial, safety or immigration matters — use a qualified human interpreter.",
     category: "Education & Learning",
     icon: "📘",
     color: "#14B8A6",
@@ -1997,7 +1971,8 @@ export const mobileAppListings: MobileAppListing[] = [
       },
       {
         title: "Talk",
-        description: "A voice-first mode for when typing is not practical.",
+        description:
+          "A voice-first conversation partner, for when typing is not practical. It runs on an AI model you download to your phone.",
       },
       {
         title: "Practice",
@@ -2035,9 +2010,9 @@ export const mobileAppListings: MobileAppListing[] = [
     name: "VirtuBand: Music Studio",
     tagline: "Play, record & compose",
     description:
-      "VirtuBand is a music studio that fits in your pocket. Play virtual instruments with your fingers, layer them into multi-track recordings, and get an AI suggestion when you cannot find the next part.",
+      "VirtuBand is a music studio that fits in your pocket. Play virtual instruments with your fingers, layer them into multi-track recordings, and start from a genre drum pattern or a common chord progression when you cannot find the next part.",
     longDescription:
-      'VirtuBand is a music studio that fits in your pocket. Play virtual instruments with your fingers, layer them into multi-track recordings, and get an AI suggestion when you cannot find the next part.\n\n—— Play ——\n\nA library of virtual instruments — keys, strings, drums and more — each with its own playable interface rather than one generic keyboard. Open an instrument to see its detail view, tune it, and play.\n\n—— Record ——\n\nSTUDIO\nA multi-track workspace. Lay down a part, then another over it, and build a song a track at a time.\n\nTRACKS AND RECORDINGS\nEverything you record is saved to your library, where you can rename, replay, and organise it.\n\n—— Compose ——\n\nAI COMPOSE\nDescribe what you want, or hand it what you have, and get a suggested part back. Useful when a song stalls halfway.\n\nJAM\nA looser space for playing along and improvising without setting up a full project.\n\n—— Built to get out of your way ——\n\n• Dashboard showing your recent work\n• Dark interface designed for playing in low light\n• Sign-in is optional — tap "Continue as Guest" and every feature is available\n• Works offline; nothing you record needs a network to save\n\n—— Optional Premium ——\n\nA Premium tier is available. The free app is fully usable without it.',
+      'VirtuBand is a music studio that fits in your pocket. Play virtual instruments with your fingers, layer them into multi-track recordings, and start from a genre drum pattern or a common chord progression when you cannot find the next part.\n\n—— Play ——\n\nA library of virtual instruments — keys, strings, drums and more — each with its own playable interface rather than one generic keyboard. Open an instrument to see its detail view, tune it, and play.\n\n—— Record ——\n\nSTUDIO\nA multi-track workspace. Lay down a part, then another over it, and build a song a track at a time.\n\nTRACKS AND RECORDINGS\nEverything you record is saved to your library, where you can rename, replay, and organise it.\n\n—— Compose ——\n\nAI COMPOSE\nLoad a starter drum pattern for pop, hip-hop, jazz or classical, and browse common chord progressions. These are built-in templates, not AI-generated. Useful when a song stalls halfway.\n\nJAM\nA looser space for playing along with a metronome and improvising without setting up a full project. Jam runs on your device only; there is no online multiplayer.\n\n—— Built to get out of your way ——\n\n• Dashboard showing your recent work\n• Dark interface designed for playing in low light\n• Sign-in is optional — tap "Continue as Guest" and every feature is available\n• Works offline; nothing you record needs a network to save',
     category: "Entertainment & Gaming",
     icon: "🎵",
     color: "#A855F7",
@@ -2055,12 +2030,12 @@ export const mobileAppListings: MobileAppListing[] = [
       {
         title: "Ai Compose",
         description:
-          "Describe what you want, or hand it what you have, and get a suggested part back. Useful when a song stalls halfway.",
+          "Load a starter drum pattern for pop, hip-hop, jazz or classical, and browse common chord progressions. These are built-in templates, not AI-generated. Useful when a song stalls halfway.",
       },
       {
         title: "Jam",
         description:
-          "A looser space for playing along and improvising without setting up a full project.",
+          "A looser space for playing along with a metronome and improvising without setting up a full project. Jam runs on your device only; there is no online multiplayer.",
       },
     ],
     tags: [
