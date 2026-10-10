@@ -1,0 +1,33 @@
+name: Hosting info (read-only)
+
+# Prints where each domain on the HostGator account is served from, so a deploy
+# targets the folder the domain actually uses. Read-only: no file is changed.
+on:
+  workflow_dispatch:
+
+jobs:
+  info:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Query cPanel for document roots
+        run: |
+          mkdir -p ~/.ssh
+          printf '%s\n' "${{ secrets.SSH_PRIVATE_KEY }}" > ~/.ssh/deploy_key
+          chmod 600 ~/.ssh/deploy_key
+          ssh -i ~/.ssh/deploy_key -o IdentitiesOnly=yes -o StrictHostKeyChecking=no \
+              -o PubkeyAcceptedAlgorithms=+ssh-rsa -o HostKeyAlgorithms=+ssh-rsa \
+              -p "${{ secrets.SSH_PORT || '22' }}" \
+              ${{ secrets.SSH_USERNAME }}@${{ secrets.SSH_HOST }} '
+            echo "== domains and document roots"
+            uapi DomainInfo domains_data --output=json 2>/dev/null | python3 -c "
+          import json,sys
+          d=json.load(sys.stdin)[\"result\"][\"data\"]
+          for kind in (\"main_domain\",):
+              x=d.get(kind) or {}; print(kind, x.get(\"domain\"), x.get(\"documentroot\"))
+          for kind in (\"addon_domains\",\"sub_domains\",\"parked_domains\"):
+              for x in d.get(kind) or []:
+                  print(kind, x if isinstance(x,str) else (x.get(\"domain\"), x.get(\"documentroot\")))
+          " || uapi DomainInfo list_domains
+            echo "== home"; ls -la ~ | head -40
+            echo "== ~/americangroup.ai"; ls -la ~/americangroup.ai | head -15
+          '
