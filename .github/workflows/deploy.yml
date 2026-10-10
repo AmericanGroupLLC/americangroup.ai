@@ -110,22 +110,23 @@ jobs:
       # the connection with "Received disconnect ... Too many authentication
       # failures" — which is what failed every deploy since 2026-09-06. The
       # host was never blocking us; we were exhausting its auth-attempt limit.
-      # americangroup.ai is a cPanel addon domain with its own docroot,
-      # /home2/safecode/americangroup.ai (~/americangroup.ai for the account).
-      # public_html is safecodeg.com's docroot; the same build there makes
-      # every safecodeg.com URL 301 to americangroup.ai (.htaccess). A manual
-      # run deploys americangroup.ai only, so the new domain can go live
-      # before the old one starts redirecting.
+      # No --delete anywhere. public_html holds other domains' sites
+      # (hosting-info.yml, 2026-10-09: embeddedos.org in public_html/website_72987d79,
+      # americangroup.ai's current docroot public_html/website_d85c586d), and the
+      # old `rsync --delete dist/public/ ~/public_html/` would have removed them.
+      # A push deploys ~/americangroup.ai only. public_html (safecodeg.com, whose
+      # .htaccess then 301s to americangroup.ai) is written only by a manual run
+      # with target=both, once americangroup.ai serves the site.
       - name: Deploy to HostGator via rsync
         env:
           PORT: ${{ secrets.SSH_PORT || '22' }}
-          TARGET: ${{ github.event_name == 'workflow_dispatch' && inputs.target || 'both' }}
+          TARGET: ${{ github.event_name == 'workflow_dispatch' && inputs.target || 'americangroup' }}
         run: |
           SSH="ssh -i ~/.ssh/deploy_key -o IdentitiesOnly=yes -o PubkeyAcceptedAlgorithms=+ssh-rsa -o HostKeyAlgorithms=+ssh-rsa -o PreferredAuthentications=publickey -o PasswordAuthentication=no -o KbdInteractiveAuthentication=no -o StrictHostKeyChecking=no -p $PORT"
-          rsync -avz --delete -e "$SSH" dist/public/ \
+          rsync -avz -e "$SSH" dist/public/ \
             ${{ secrets.SSH_USERNAME }}@${{ secrets.SSH_HOST }}:~/americangroup.ai/
           if [ "$TARGET" = "both" ]; then
-            rsync -avz --delete -e "$SSH" dist/public/ \
+            rsync -avz -e "$SSH" dist/public/ \
               ${{ secrets.SSH_USERNAME }}@${{ secrets.SSH_HOST }}:~/public_html/
           fi
 
@@ -138,7 +139,7 @@ jobs:
       - name: Verify a deployed page is really there
         run: |
           sleep 5
-          URL=https://www.americangroup.ai/policy/virtuband/delete-account.html
+          URL=https://americangroup.ai/policy/virtuband/delete-account.html
           BODY=$(curl -sL --max-time 30 "$URL")
           if printf '%s' "$BODY" | grep -q "Enterprise Technology & Mobile Apps"; then
             echo "::error::$URL served the marketing homepage — the file is not deployed."
