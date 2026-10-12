@@ -20,12 +20,9 @@ RewriteCond %{HTTPS} off
 RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
 
 # ── Canonical host: www.americangroup.ai ─────────────────────
-# The site moved from safecodeg.com on 2026-10-09; the owner named
-# https://www.americangroup.ai/ as the address. Every other host — the bare
-# domain and both safecodeg.com hosts, including the privacy, support and
-# account-deletion URLs printed in 43 store listings — answers 301 to the
-# same path on www.americangroup.ai, so nothing that links to them breaks.
-RewriteCond %{HTTP_HOST} ^(www\.)?safecodeg\.com$ [NC,OR]
+# The owner named https://www.americangroup.ai/ as the address; the bare
+# domain answers 301 to the same path on www. safecodeg.com was retired on
+# 2026-10-12 and no longer redirects here (owner's decision).
 RewriteCond %{HTTP_HOST} ^americangroup\.ai$ [NC]
 RewriteRule ^(.*)$ https://www.americangroup.ai/$1 [L,R=301]
 

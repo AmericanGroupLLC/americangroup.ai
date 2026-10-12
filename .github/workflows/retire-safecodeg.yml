@@ -1,0 +1,55 @@
+name: Retire safecodeg.com (one-off)
+
+# The owner, 2026-10-12: safecodeg.com and www.safecodeg.com carry nothing any
+# more — no copy of the site and no redirect; everything is americangroup.ai.
+#
+# public_html is safecodeg.com's document root, but it also holds other sites'
+# folders (website_72987d79 = the embeddedos.org subdomain, website_d85c586d,
+# website_8761113c, website_2652650, tetherhealthgroup.com) and hosting files
+# (.well-known for SSL validation, cgi-bin, .ftpquota). Only the items this
+# repo put there are touched, by name, and they are MOVED to a dated folder in
+# the home directory (never web-served) instead of deleted, so the step can be
+# undone. A minimal .htaccess stays: no directory listing (which would show the
+# other sites' folders) and no access to dotfiles. No redirect.
+on:
+  workflow_dispatch:
+
+jobs:
+  retire:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Move the americangroup copy out of public_html
+        run: |
+          mkdir -p ~/.ssh
+          printf '%s\n' "${{ secrets.SSH_PRIVATE_KEY }}" > ~/.ssh/deploy_key
+          chmod 600 ~/.ssh/deploy_key
+          ssh -i ~/.ssh/deploy_key -o IdentitiesOnly=yes -o StrictHostKeyChecking=no \
+              -o PubkeyAcceptedAlgorithms=+ssh-rsa -o HostKeyAlgorithms=+ssh-rsa \
+              -p "${{ secrets.SSH_PORT || '22' }}" \
+              ${{ secrets.SSH_USERNAME }}@${{ secrets.SSH_HOST }} '
+            set -e
+            cd ~/public_html
+            dest=~/retired-safecodeg-$(date +%Y%m%d-%H%M%S)
+            mkdir -p "$dest"
+            for item in index.html assets policy models __manus__ app-ads.txt robots.txt sitemap.xml .gitkeep .htaccess .git .cpanel.yml; do
+              if [ -e "$item" ]; then mv -- "$item" "$dest/"; echo "moved $item"; fi
+            done
+            printf "%s\n" \
+              "# safecodeg.com: retired 2026-10-12 (owner). Nothing is served here and nothing redirects." \
+              "# Other folders in public_html are other sites document roots and are left alone." \
+              "Options -Indexes" \
+              "RedirectMatch 404 /\\." \
+              > .htaccess
+            echo "== public_html now"; ls -la ~/public_html
+            echo "== backup at $dest"; ls -la "$dest"
+          '
+      - name: Verify safecodeg.com serves nothing and redirects nowhere
+        run: |
+          sleep 5
+          for u in https://safecodeg.com/ https://www.safecodeg.com/ https://www.safecodeg.com/policy/kinnav/privacy.html; do
+            code=$(curl -s -o /dev/null -w "%{http_code} %{redirect_url}" "$u")
+            echo "$u -> $code"
+            case "$code" in 3*) echo "::error::$u still redirects"; exit 1;; 200*) echo "::error::$u still serves a page"; exit 1;; esac
+          done
+          code=$(curl -s -o /dev/null -w "%{http_code}" https://www.americangroup.ai/)
+          echo "www.americangroup.ai -> $code"; [ "$code" = 200 ]

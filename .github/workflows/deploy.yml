@@ -5,12 +5,6 @@ on:
     branches:
       - main
   workflow_dispatch:
-    inputs:
-      target:
-        description: "americangroup = /home2/safecode/americangroup.ai only; both = also public_html (safecodeg.com, which then 301s to americangroup.ai)"
-        type: choice
-        options: [americangroup, both]
-        default: americangroup
 
 jobs:
   build-and-deploy:
@@ -114,13 +108,11 @@ jobs:
       # (hosting-info.yml, 2026-10-09: embeddedos.org in public_html/website_72987d79,
       # americangroup.ai's current docroot public_html/website_d85c586d), and the
       # old `rsync --delete dist/public/ ~/public_html/` would have removed them.
-      # A push deploys ~/americangroup.ai only. public_html (safecodeg.com, whose
-      # .htaccess then 301s to americangroup.ai) is written only by a manual run
-      # with target=both, once americangroup.ai serves the site.
+      # Every deploy writes ~/americangroup.ai only. public_html is safecodeg.com,
+      # retired on 2026-10-12 (retire-safecodeg.yml); nothing is deployed there.
       - name: Deploy to HostGator via rsync
         env:
           PORT: ${{ secrets.SSH_PORT || '22' }}
-          TARGET: ${{ github.event_name == 'workflow_dispatch' && inputs.target || 'americangroup' }}
         run: |
           # One SSH connection for every transfer: HostGator refused a second
           # connection opened seconds after the first ("Connection refused",
@@ -134,10 +126,9 @@ jobs:
             done
             return 1
           }
+          # americangroup.ai only. safecodeg.com (public_html) was retired on
+          # 2026-10-12 and must not get a copy of the site again.
           push "~/americangroup.ai/"
-          if [ "$TARGET" = "both" ]; then
-            push "~/public_html/"
-          fi
 
       # ── 10. Verify ───────────────────────────────────────────────────────
       # Curling the homepage proved nothing: this site serves an SPA catch-all,
