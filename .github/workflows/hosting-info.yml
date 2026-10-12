@@ -30,4 +30,9 @@ jobs:
           " || uapi DomainInfo list_domains
             echo "== home"; ls -la ~ | head -40
             echo "== ~/americangroup.ai"; ls -la ~/americangroup.ai | head -15
+            echo "== ~/public_html (safecodeg.com document root)"; ls -la ~/public_html
+            echo "== ~/public_html/.htaccess"; cat ~/public_html/.htaccess 2>/dev/null
+            echo "== ~/public_html subdirectories that are other domains docroots (from DomainInfo above) are NOT ours"
+            echo "== ~/public_html/assets"; ls ~/public_html/assets 2>/dev/null | head -5; ls ~/public_html/assets 2>/dev/null | wc -l
+            echo "== mail for safecodeg.com"; ls -d ~/mail/safecodeg.com 2>/dev/null && ls ~/mail/safecodeg.com
           '
