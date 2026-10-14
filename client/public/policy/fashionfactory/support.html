@@ -4,10 +4,12 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Support &middot; Fashion Factory</title>
-<meta name="description" content="Fashion Factory support and contact.">
+<meta name="description" content="Fashion Factory support: questions about logging orders, your size at each brand, return reminders, export and your data.">
 <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+<!-- Hand-maintained. Describes Fashion Factory 3.0.0 (orders, sizes and
+     returns); every answer was checked against the app's lib/ code. -->
 <div class="wrap">
   <header class="top">
     <a class="logo" href="index.html">Fashion Factory</a>
@@ -18,37 +20,96 @@
       <a href="support.html">Support</a>
     </nav>
   </header>
-  
+
   <h1>Support</h1>
-  <p>Questions and bug reports for Fashion Factory go to one place, and a person reads them.</p>
+  <p>Fashion Factory keeps a record of your online clothing and shoe orders:
+  the size you ordered, whether you kept it or sent it back and why, and the
+  date it has to go back by. Questions and bug reports go to one place, and a
+  person reads them.</p>
 
   <h2>Contact us</h2>
-  <p>Email <a href="mailto:contact@americangroup.ai">contact@americangroup.ai</a>. We reply
+  <p>Email <a href="mailto:contact@americangroup.ai?subject=Fashion%20Factory%20support">contact@americangroup.ai</a>. We reply
   within one business day. To help us reproduce a problem, please include your
   device model, OS version, and the app version shown in
-  <strong>Settings</strong>.</p>
+  <strong>Settings &rarr; About</strong>.</p>
 
   <h2>Frequently asked</h2>
   <h3>Do I need an account?</h3>
-  <p>No. There is no sign-up and no login.</p>
-  <h3>A price looks wrong.</h3>
-  <p>Prices change constantly and we show what we last saw. Always confirm at the retailer's checkout. If a price is persistently wrong, email us the product and the store.</p>
-  <h3>Why is a store missing from the comparison?</h3>
-  <p>We can only show stores our price sources cover, and stock varies by region. Missing stores are gaps in coverage, not a claim that the product is unavailable there.</p>
-  <h3>How do drop alerts work?</h3>
-  <p>Save a product and we watch its price. You get a notification when it falls. Alerts need notification permission.</p>
-  <h3>Do you earn money from links?</h3>
-  <p>Some retailer links are affiliate links and may earn a commission at no extra cost to you. This never affects the ranking in the compare table.</p>
-  <h3>Where did my saved items go?</h3>
-  <p>They are stored on your device, so clearing app data or uninstalling removes them.</p>
+  <p>No. There is no sign-up and no login. Everything you enter is stored on
+  your phone.</p>
 
-  <h2>Report a privacy concern or request deletion</h2>
-  <p>See the <a href="index.html">Privacy Policy</a>, or email
+  <h3>How is &ldquo;Your size&rdquo; at a brand worked out?</h3>
+  <p>Only from orders you logged. Type a brand under <strong>Find my
+  size</strong> on the home screen (and optionally pick a category). The
+  answer is the size you most recently kept at that brand, checked against
+  anything you returned there as too small, too big, too long or too short,
+  and it lists the orders it is based on. If what you kept and what you sent
+  back disagree, it says <strong>Mixed results</strong> rather than guessing.
+  If you have no history at that brand, it says so, and shows what you kept in
+  other categories or at other brands, labelled as such. The app has no brand
+  size charts and never converts sizes.</p>
+
+  <h3>An order is still under &ldquo;Out for trial&rdquo;.</h3>
+  <p>Orders stay there until you record what happened. Tap the order, then
+  <strong>Kept, returned or exchanged?</strong>. Returns &ldquo;didn't like
+  it&rdquo; and &ldquo;faulty&rdquo; are kept for your records but do not
+  change your size answer, because they say nothing about fit. An exchange
+  logs the new size as its own order, out for trial.</p>
+
+  <h3>I didn't get a return reminder.</h3>
+  <p>Reminders need notification permission. The app asks the first time you
+  save an order with a return-by date. Open <strong>Settings &rarr; Return
+  reminders</strong> to see their state; if they are off, the button there
+  turns them on or opens your phone's notification settings. When they are on,
+  each order with a return-by date gets one reminder 3 days before the last
+  day (or 1 day before, if you choose that in Settings) and one on the last
+  day, at 9&nbsp;am, or around 9&nbsp;am where the phone does not allow exact
+  timing. Orders saved with <strong>No returns</strong> get no reminders, and
+  marking an order kept, returned or exchanged, or deleting it, cancels its
+  reminders. The countdown on the home screen works either way.</p>
+
+  <h3>Does the app read the product page or track prices?</h3>
+  <p>No. A link you paste is stored with the order, and the store name is
+  filled in from the web address. The app never downloads the page;
+  <strong>Open</strong> on an order hands the link to your browser. The price
+  you paid is optional and only feeds the &ldquo;Returned this year&rdquo;
+  total on the home screen.</p>
+
+  <h3>What sizes can I enter?</h3>
+  <p>Letters (S, M, XL&hellip;), numbers, waist and length (W32 L32), shoe sizes
+  with their system (US men's, US women's, UK, EU or cm), One size, or
+  anything else, which is kept exactly as you typed it.</p>
+
+  <h3>How do I share my sizes or get my orders out?</h3>
+  <p><strong>Settings &rarr; Share my sizes</strong> lets you tick the sizes
+  you kept and send them as text, for example to someone buying you a gift.
+  <strong>Settings &rarr; Export orders (CSV)</strong> creates a spreadsheet
+  file of every order. Both go through your phone's share sheet, so you choose
+  where they go.</p>
+
+  <h3>Can I move my orders to a new phone?</h3>
+  <p>There is no sync and no import: the CSV export is a copy for a
+  spreadsheet, and the app cannot read it back in.</p>
+
+  <h3>Why are there ads?</h3>
+  <p>The app is free and shows a Google AdMob banner at the end of the home
+  screen and of a brand page. There are no ads on the order form or in
+  Settings, and no full-screen ads. Where Google's consent form applies,
+  <strong>Settings &rarr; Privacy choices</strong> reopens it.</p>
+
+  <h3>What happened to price comparison and saved products?</h3>
+  <p>Fashion Factory 3.0 replaced the earlier price-comparison app, which
+  never had a live price source. Products saved in version 2 are not carried
+  over.</p>
+
+  <h2>Report a privacy concern or delete your data</h2>
+  <p>See the <a href="index.html">Privacy Policy</a> and
+  <a href="delete-account.html">how to delete your data</a>, or email
   <a href="mailto:contact@americangroup.ai">contact@americangroup.ai</a> with the subject
   &ldquo;Data request&rdquo;.</p>
 
   <footer>
-    &copy; 2026 American Group LLC &middot; Fashion Factory 2.2.0 &middot;
+    &copy; 2026 American Group LLC &middot; Fashion Factory 3.0.0 &middot;
     <a href="mailto:contact@americangroup.ai">contact@americangroup.ai</a>
   </footer>
 </div>
