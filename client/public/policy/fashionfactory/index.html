@@ -4,10 +4,14 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Privacy Policy &middot; Fashion Factory</title>
-<meta name="description" content="Fashion Factory privacy policy.">
+<meta name="description" content="Fashion Factory itself collects no personal data; your orders stay on your device. It shows ads from Google AdMob. This policy explains exactly what the app stores on your device and what it sends over the network.">
 <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+<!-- Hand-maintained. Same text as docs/privacy-policy.html in the
+     FashionFactory repository (3.0.0, commit ae859fb), which
+     test/security/privacy_policy_test.dart pins to the code. Change both
+     together. -->
 <div class="wrap">
   <header class="top">
     <a class="logo" href="index.html">Fashion Factory</a>
@@ -18,61 +22,208 @@
       <a href="support.html">Support</a>
     </nav>
   </header>
-  
+
   <h1>Privacy Policy</h1>
-  <p><em>Effective 2026-08-28 &middot; Last updated 2026-08-28 &middot;
-  Applies to Fashion Factory for iOS and Android.</em></p>
 
-  <p>Fashion Factory is published by American Group LLC. This policy explains what
-  the app collects, why, and what choices you have. Where the honest answer is
-  &ldquo;nothing leaves your device&rdquo;, this policy says so plainly rather
-  than reserving rights we do not exercise.</p>
+  <p><strong>Fashion Factory itself collects no personal data;
+    the Google ads it shows do, as described below.</strong>
+    There is no account to create, no analytics and no tracking: the app never
+    asks permission to track you. Everything you enter — your orders, their
+    sizes, prices, return dates and whether you kept them — stays on your
+    device and is not sent to us. Return reminders are scheduled on your device
+    too. <strong>The app shows ads from
+    Google AdMob.</strong> Google may use device identifiers to serve and
+    measure those ads; see <a href="#advertising">Advertising</a> below.</p>
 
-  <h2>1. What the app collects</h2>
+  <p><em>Effective 14 October 2026. Applies to the Fashion Factory mobile
+  app for Android and iOS.</em></p>
+
+  <h2>What the app stores on your device</h2>
+
+  <p>Fashion Factory keeps two things in your device's own local storage
+  (<code>SharedPreferences</code> on Android, <code>NSUserDefaults</code> on
+  iOS). That is the complete list of what the app itself stores:</p>
+
   <table>
-    <thead><tr><th>Data</th><th>Why</th><th>Where it goes</th></tr></thead>
+    <thead>
+      <tr><th>What</th><th>Why</th><th>Stored as</th></tr>
+    </thead>
     <tbody>
-      <tr><td>Products you save and searches you run</td><td>Show your saved list and power drop alerts</td><td>Stays on your device</td></tr>
-      <tr><td>Product queries</td><td>Fetch current prices from retailer sources</td><td>Sent to the price sources to answer your query; not tied to an identifier for you</td></tr>
-      <tr><td>Notification preferences</td><td>Deliver drop alerts</td><td>Stays on your device</td></tr>
+      <tr>
+        <td data-label="What">Your orders</td>
+        <td data-label="Why">So your size at each brand, and every return-by
+            date, survive closing the app</td>
+        <td data-label="Stored as"><code>fashionfactory.orders.v1</code> — for
+            each order: brand, category, size as typed (and shoe size system),
+            optional cut note, store, optional product link, optional price and
+            currency, order date, return-by date, kept / returned / exchanged
+            and the reason, the date you recorded it and, for an exchange, which
+            order it replaced</td>
+      </tr>
+      <tr>
+        <td data-label="What">Your settings</td>
+        <td data-label="Why">So the app remembers your choices</td>
+        <td data-label="Stored as"><code>fashionfactory.settings.v1</code> —
+            whether the introduction was shown, reminder timing (3 days, 1 day
+            or off), default currency, and whether the reminder explanation
+            and your phone's notification-permission prompt have been
+            shown</td>
+      </tr>
+      <tr>
+        <td data-label="What">Scheduled reminders</td>
+        <td data-label="Why">To remind you before a return window closes</td>
+        <td data-label="Stored as">Held by your phone's own notification
+            scheduler (not by the app's storage): at most two per order,
+            cancelled when you record a verdict or delete the order</td>
+      </tr>
     </tbody>
   </table>
 
-  <h2>2. What the app does not collect</h2>
+  <p>Earlier versions stored a saved-products list, alert switches and a
+  category under keys beginning <code>fashionfactory.v2.</code> and
+  <code>styleradar.v1.</code>. Version 3.0.0 deletes those keys the first time
+  it opens; nothing is carried across.</p>
+
+  <p>None of it identifies you. There is no name, email address, phone number,
+  location, contact list, photo, advertising identifier or device identifier
+  involved, because the app never asks for any of those. This data never leaves
+  your device, and we cannot see it.</p>
+
+  <p>Google's consent SDK, part of the ads described below, also keeps your ad
+  consent choice in the same local storage, under the industry-standard
+  <code>IABTCF_</code> keys, so you are not asked again on every launch.</p>
+
+  <h2>What the app never does</h2>
+
   <ul>
-    <li>Your name, email address, or phone number</li>
-    <li>Your device location</li>
-    <li>Your contacts, photos, or camera</li>
-    <li>Any advertising or cross-app tracking identifier</li>
+    <li>No account, sign-up or login.</li>
+    <li>No analytics or usage measurement of any kind.</li>
+    <li>No advertising identifier from us: the app never shows the iOS
+        App Tracking Transparency prompt, and on Android it removes the
+        advertising-ID permission.</li>
+    <li>No tracking across apps or websites, and no data shared with data
+        brokers.</li>
+    <li>No crash-reporting service. If the app hits an error it is written to the
+        device's own log and goes no further.</li>
+    <li>No third-party analytics, attribution or social SDKs. The app's entire
+        set of third-party components is: a local-storage plugin, a
+        local-notifications plugin with its time-zone database, a component
+        that opens links in your browser, a component that opens your phone's
+        share sheet, a component that opens the app's page in system settings,
+        an icon font, and Google's Mobile Ads SDK, which shows the ads
+        described below. The component that connects the app to the ads SDK
+        also brings Google's Firebase libraries (Analytics, Crashlytics,
+        Performance Monitoring and Remote Config) with it. The app's code
+        never calls them, and their analytics, crash-reporting and
+        performance collection is switched off in the app's
+        configuration.</li>
+    <li>No sale of personal information — there is none to sell.</li>
   </ul>
 
-  <h2>3. Location</h2>
-  <p>Not requested and not used.</p>
+  <h2 id="advertising">Advertising</h2>
 
-  <h2>4. Third parties</h2>
-  <p>Prices come from retailer and price-aggregation sources, which see the request and its originating IP. Where a link out to a retailer is an affiliate link, a purchase may earn us a commission at no extra cost to you; this never changes the ranking shown in the compare table.</p>
+  <p>Fashion Factory shows ads from Google AdMob: one banner at the end of the
+  home screen and one at the end of a brand page. There are no full-screen ads,
+  and no ads on the order form or in Settings. Ads are served by
+  Google, not by us; we receive only aggregate reports from Google, nothing
+  that identifies you.</p>
 
-  <h2>5. Children</h2>
-  <p>Not directed at children under 13; we do not knowingly collect their data.</p>
+  <p>To serve and measure ads, Google's Mobile Ads SDK sends Google information
+  such as your device type, operating system, approximate location derived from
+  your IP address, ad interactions, and device identifiers. The app does not
+  request App Tracking Transparency on iOS and removes the advertising-ID
+  permission on Android, so the advertising identifier on either platform is
+  not available to it. How Google uses this information is described in
+  Google's own privacy policy, at policies.google.com/privacy.</p>
 
-  <h2>6. Your rights and deleting your data</h2>
-  <p>There is no account, so nothing exists server-side to delete. Clearing app data or uninstalling removes your saved list, searches and settings. You can also email
-  <a href="mailto:contact@americangroup.ai">contact@americangroup.ai</a> with any request
-  about your data; we respond within one business day.</p>
+  <p>In the European Economic Area, the United Kingdom and Switzerland, Google's
+  consent form asks for your choice before any ad is requested, and a
+  <strong>Privacy choices</strong> row in Settings, always visible, lets you
+  change it at any time.</p>
 
-  <h2>7. Retention and security</h2>
-  <p>Saved products and search history stay on your device until you clear them. Network requests use HTTPS.</p>
+  <h2>Network activity</h2>
 
-  <h2>8. Changes to this policy</h2>
-  <p>Material changes are published on this page with an updated
-  &ldquo;last updated&rdquo; date before they take effect.</p>
+  <p>Fashion Factory's own features make no network requests: orders, sizes
+  and reminders never leave your device. The only network activity is the
+  Google ads described above.</p>
 
-  <h2>9. Contact</h2>
-  <p>American Group LLC &middot;
-  <a href="mailto:contact@americangroup.ai">contact@americangroup.ai</a></p>
+  <p>If you paste a product link into an order, the store's name is recognised
+  from the link's address on your device; the page is never requested. Tapping
+  <strong>Open</strong> on a saved link, or <strong>Privacy policy</strong> in
+  Settings, hands that address to your own browser and leaves Fashion Factory.
+  From that point you are on that website, under its privacy policy.</p>
+
+  <p>The app refuses unencrypted connections outright.</p>
+
+  <h2>Permissions</h2>
+
+  <p>On Android the app requests <code>INTERNET</code> (used only by the ads
+  above) and <code>RECEIVE_BOOT_COMPLETED</code> (so your return reminders are
+  put back after the phone restarts). The notifications component adds
+  <code>POST_NOTIFICATIONS</code> — on Android 13 and later you are asked when
+  you first save an order with a return date, after a short explanation in
+  the app (or later, from Settings) — and <code>VIBRATE</code>. Google's Mobile
+  Ads SDK and the Firebase libraries described above add permissions that are
+  granted without a prompt: <code>ACCESS_NETWORK_STATE</code>,
+  <code>WAKE_LOCK</code>, <code>FOREGROUND_SERVICE</code>, Google Play's
+  install-referrer permission and Android's ad-services permissions
+  (<code>ACCESS_ADSERVICES_AD_ID</code>,
+  <code>ACCESS_ADSERVICES_ATTRIBUTION</code>,
+  <code>ACCESS_ADSERVICES_TOPICS</code>); the advertising-ID permission
+  (<code>AD_ID</code>) is removed. On iOS the app asks only for permission to
+  show notifications, at the same moment, and never shows the tracking prompt.
+  No location, camera, contacts, storage, microphone or phone
+  permissions.</p>
+
+  <h2>Children</h2>
+
+  <p>Fashion Factory is an app for keeping track of your own clothing orders,
+  intended for a general audience,
+  not directed at children. The app itself collects no personal information
+  from anyone, and therefore none from children.</p>
+
+  <h2>Your choices and your data</h2>
+
+  <ul>
+    <li><strong>Delete an order</strong> — Delete on the order removes it and
+        its reminders.</li>
+    <li><strong>Turn reminders off</strong> — Settings → Return reminders →
+        Off, or in your phone's notification settings.</li>
+    <li><strong>Export or share</strong> — Settings → Export orders (CSV) and
+        Share my sizes hand a file or text to your share sheet; you choose where
+        it goes.</li>
+    <li><strong>Change your ad consent</strong> — where Google's consent form
+        applies, the <strong>Privacy choices</strong> row in Settings reopens
+        it.</li>
+    <li><strong>Delete everything</strong> — uninstalling the app removes your
+        orders, your settings and any scheduled reminders, and the stored ad
+        consent choice, from your device. Settings → Delete all data removes
+        your orders, your settings and any scheduled reminders without
+        uninstalling. We hold nothing anywhere else, so there is no request you need
+        to make of us. Data Google collects for ads is governed by Google's
+        privacy policy.</li>
+  </ul>
+
+  <h2>Changes to this policy</h2>
+
+  <p>If the app's behaviour changes in a way that affects privacy — a
+  crash-reporting service, an account system, anything that collects data — this
+  policy will be updated before that change ships, and the effective date above
+  will change with it. The policy lives in the app's own source repository
+  alongside the code it describes, and an automated check fails the build if a
+  data-collecting dependency is added while this page still says there is
+  none.</p>
+
+  <h2>Contact</h2>
+
+  <p>Questions about this policy or about privacy in Fashion Factory:
+  <a href="mailto:contact@americangroup.ai">contact@americangroup.ai</a>.</p>
+
+  <p>Fashion Factory is published by American Group LLC. This policy
+  describes the app only.</p>
 
   <footer>
-    &copy; 2026 American Group LLC &middot; Fashion Factory 2.2.0 &middot;
+    &copy; 2026 American Group LLC &middot; Fashion Factory 3.0.0 &middot;
     <a href="mailto:contact@americangroup.ai">contact@americangroup.ai</a>
   </footer>
 </div>
