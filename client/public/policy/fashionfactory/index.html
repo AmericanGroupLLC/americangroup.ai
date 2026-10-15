@@ -9,7 +9,7 @@
 </head>
 <body>
 <!-- Hand-maintained. Same text as docs/privacy-policy.html in the
-     FashionFactory repository (3.0.0, commit ae859fb), which
+     FashionFactory repository (3.0.0, commit 4c79783), which
      test/security/privacy_policy_test.dart pins to the code. Change both
      together. -->
 <div class="wrap">
@@ -145,7 +145,12 @@
 
   <p>Fashion Factory's own features make no network requests: orders, sizes
   and reminders never leave your device. The only network activity is the
-  Google ads described above.</p>
+  Google ads described above and, on iPhone and iPad, one request the first
+  time the app opens: the Firebase libraries described above register a
+  random installation identifier with Google
+  (<code>firebaseinstallations.googleapis.com</code>). Nothing you enter is
+  sent with it, and their analytics, crash-reporting and performance
+  collection stays switched off.</p>
 
   <p>If you paste a product link into an order, the store's name is recognised
   from the link's address on your device; the page is never requested. Tapping
